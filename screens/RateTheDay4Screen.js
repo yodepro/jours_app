@@ -13,7 +13,7 @@ import { LinearGradient } from 'expo';
 // import Slider from '@react-native-community/slider';
 // import Slider from 'react-native-slider';
 
-export default function RateTheDay1Screen() {
+export default function RateTheDay4Screen() {
   return (
     <View style={styles.container}>
 
@@ -25,16 +25,16 @@ export default function RateTheDay1Screen() {
 
         <View style={styles.mainLinearGradientWrapperView}>
           <LinearGradient
-            colors={['#3884FF', '#60D7FF']}
+            colors={['#FDC344', '#FDE490']}
             style={styles.mainLinearGradient}
           >
 
             <Text style={styles.dayBgText}>
-              Another day, another story, Jake.
+              Nothing wrong in being strong, Jake!
             </Text>
 
             <Text style={styles.dayBgTextBold}>
-              What’s your level of happiness today?
+              How does your health makes you feel?
             </Text>
 
           </LinearGradient>
@@ -45,10 +45,10 @@ export default function RateTheDay1Screen() {
       <View style={styles.rateParamViewWrapper}>
         <View style={styles.rateParamView}>
           <Text style={styles.rateParamNumber}>
-            10
+            7.3
           </Text>
           <Text style={styles.rateParamText}>
-            super great
+            great
           </Text>
         </View>
       </View>
@@ -61,18 +61,18 @@ export default function RateTheDay1Screen() {
 
           <View style={styles.bottomCancelView}>
             <Text style={styles.bottomCancelText}>
-              Cancel
+              Back
         </Text>
           </View>
 
 
           <LinearGradient
-            colors={['#F734A8', '#F78B79']}
+            colors={['#4e53ff', '#4e53ff']}
             style={styles.bottomLinearGradient}
           >
             <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}>
-              Next to{"\n"}
-              health
+              Review{"\n"}
+              the day
           </Text>
           </LinearGradient>
 
@@ -83,7 +83,7 @@ export default function RateTheDay1Screen() {
   );
 }
 
-RateTheDay1Screen.navigationOptions = {
+RateTheDay4Screen.navigationOptions = {
   header: null,
 };
 

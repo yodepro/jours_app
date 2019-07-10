@@ -13,7 +13,7 @@ import { LinearGradient } from 'expo';
 // import Slider from '@react-native-community/slider';
 // import Slider from 'react-native-slider';
 
-export default function RateTheDay1Screen() {
+export default function RateTheDay3Screen() {
   return (
     <View style={styles.container}>
 
@@ -25,7 +25,7 @@ export default function RateTheDay1Screen() {
 
         <View style={styles.mainLinearGradientWrapperView}>
           <LinearGradient
-            colors={['#3884FF', '#60D7FF']}
+            colors={['#4CD9D9', '#48E9C7']}
             style={styles.mainLinearGradient}
           >
 
@@ -45,10 +45,10 @@ export default function RateTheDay1Screen() {
       <View style={styles.rateParamViewWrapper}>
         <View style={styles.rateParamView}>
           <Text style={styles.rateParamNumber}>
-            10
+            0
           </Text>
           <Text style={styles.rateParamText}>
-            super great
+            been better
           </Text>
         </View>
       </View>
@@ -67,7 +67,7 @@ export default function RateTheDay1Screen() {
 
 
           <LinearGradient
-            colors={['#F734A8', '#F78B79']}
+            colors={['#FDC344', '#FDE490']}
             style={styles.bottomLinearGradient}
           >
             <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}>
@@ -83,7 +83,7 @@ export default function RateTheDay1Screen() {
   );
 }
 
-RateTheDay1Screen.navigationOptions = {
+RateTheDay3Screen.navigationOptions = {
   header: null,
 };
 

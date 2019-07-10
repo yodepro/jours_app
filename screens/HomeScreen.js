@@ -1,12 +1,12 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
-  Image,
+  // Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  // TouchableOpacity,
   View,
   Button,
 } from 'react-native';
@@ -50,13 +50,13 @@ export default class HomeScreen extends React.Component {
             <DevelopmentModeNotice />
           </View>
 
-          <View style={styles.helpContainer}>
+          {/* <View style={styles.helpContainer}>
             <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Help, it didn’t automatically reload!
               </Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
 
           <View style={styles.screenButton}>
             <Button
@@ -69,6 +69,41 @@ export default class HomeScreen extends React.Component {
             <Button
               title="Rate the Day 2"
               onPress={() => this.props.navigation.navigate('RateTheDay2')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Rate the Day 3"
+              onPress={() => this.props.navigation.navigate('RateTheDay3')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Rate the Day 4"
+              onPress={() => this.props.navigation.navigate('RateTheDay4')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Rate the Day 5"
+              onPress={() => this.props.navigation.navigate('RateTheDay5')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Stats and Average"
+              onPress={() => this.props.navigation.navigate('StatsAndAverage')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="View Day"
+              onPress={() => this.props.navigation.navigate('ViewDay')}
             />
           </View>
         </ScrollView>
@@ -125,11 +160,11 @@ function handleLearnMorePress() {
   );
 }
 
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
+// function handleHelpPress() {
+//   WebBrowser.openBrowserAsync(
+//     'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
+//   );
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -139,8 +174,8 @@ const styles = StyleSheet.create({
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
+    fontSize: 10,
+    lineHeight: 10,
     textAlign: 'center',
   },
   contentContainer: {
@@ -210,15 +245,15 @@ const styles = StyleSheet.create({
   navigationFilename: {
     marginTop: 5,
   },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
+  // helpContainer: {
+  //   marginTop: 15,
+  //   alignItems: 'center',
+  // },
   helpLink: {
     paddingVertical: 15,
   },
   helpLinkText: {
-    fontSize: 14,
+    fontSize: 10,
     color: '#2e78b7',
   },
   screenButton: {
