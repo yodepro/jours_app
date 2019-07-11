@@ -16,79 +16,79 @@ import { LinearGradient } from 'expo';
 export default function StatsAndAverageScreen() {
   return (
     <View style={styles.container}>
-    <View style={styles.containerInner}>
+      <View style={styles.containerInner}>
 
-      <View style={styles.dayTitleView}>
-        <Text style={styles.dayTitleText}>
-          Statistics
-      </Text>
+        <View style={styles.dayTitleView}>
+          <Text style={styles.dayTitleText}>
+            Statistics
+          </Text>
+        </View>
+
+
+        <View style={styles.twoTilesView}>
+          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+            <Text style={styles.smallTileTopText}>
+              514
+          </Text>
+            <Text style={styles.tileBottomText}>
+              Days Rated
+          </Text>
+          </View>
+
+          <View style={[styles.smallTileView, styles.smallTileRightView]}>
+            <Text style={styles.smallTileTopText}>
+              Sun
+          </Text>
+            <Text style={styles.tileBottomText}>
+              Best Day of the Week
+          </Text>
+          </View>
+        </View>
+
+        <View style={styles.oneTileView}>
+          <View style={styles.bigTileView}>
+            <Text style={styles.bigTileTopText}>
+              Sunday, Sept 12th '19
+          </Text>
+            <Text style={styles.tileBottomText}>
+              The Latest Super Great Day
+          </Text>
+          </View>
+        </View>
+
+        <View style={styles.oneTileView}>
+          <View style={styles.bigTileView}>
+            <Text style={styles.bigTileTopText}>
+              Monday, Sept 13th '19
+          </Text>
+            <Text style={styles.tileBottomText}>
+              The Latest Awful Day
+          </Text>
+          </View>
+        </View>
+
+        <View style={styles.twoTilesView}>
+          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+            <Text style={styles.smallTileTopText}>
+              354
+          </Text>
+            <Text style={styles.tileBottomText}>
+              Rating Strike
+          </Text>
+          </View>
+
+          <View style={[styles.smallTileView, styles.smallTileRightView]}>
+            <Text style={styles.smallTileTopText}>
+              Mon
+          </Text>
+            <Text style={styles.tileBottomText}>
+              Saddest Day of the Week
+          </Text>
+          </View>
+        </View>
+
+        <View style={{ flex: 0.1, }}></View>
       </View>
-
-
-      <View style={styles.twoTilesView}>
-        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-          <Text style={styles.smallTileTopText}>
-            514
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Days Rated
-          </Text>
-        </View>
-
-        <View style={[styles.smallTileView, styles.smallTileRightView]}>
-          <Text style={styles.smallTileTopText}>
-            Sun
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Best Day of the Week
-          </Text>
-        </View>
-      </View>
-
-      <View style={styles.oneTileView}>
-        <View style={styles.bigTileView}>
-          <Text style={styles.bigTileTopText}>
-            Sunday, Sept 12th '19
-          </Text>
-          <Text style={styles.tileBottomText}>
-            The Latest Super Great Day
-          </Text>
-        </View>
-      </View>
-
-      <View style={styles.oneTileView}>
-        <View style={styles.bigTileView}>
-          <Text style={styles.bigTileTopText}>
-            Monday, Sept 13th '19
-          </Text>
-          <Text style={styles.tileBottomText}>
-            The Latest Awful Day
-          </Text>
-        </View>
-      </View>
-
-      <View style={styles.twoTilesView}>
-        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-          <Text style={styles.smallTileTopText}>
-            354
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Rating Strike
-          </Text>
-        </View>
-
-        <View style={[styles.smallTileView, styles.smallTileRightView]}>
-          <Text style={styles.smallTileTopText}>
-            Mon
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Saddest Day of the Week
-          </Text>
-        </View>
-      </View>
-
-      <View style={{ flex: 0.1, }}></View>
-    </View>
     </View>
 
 

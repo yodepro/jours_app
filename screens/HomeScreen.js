@@ -106,6 +106,13 @@ export default class HomeScreen extends React.Component {
               onPress={() => this.props.navigation.navigate('ViewDay')}
             />
           </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Settings"
+              onPress={() => this.props.navigation.navigate('Settings')}
+            />
+          </View>
         </ScrollView>
 
         {/* <View style={styles.tabBarInfoContainer}>

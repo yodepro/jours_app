@@ -5,7 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 // import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 // import LinksScreen from '../screens/LinksScreen';
-// import SettingsScreen from '../screens/SettingsScreen';
+// import SettingsCustomScreen from '../screens/SettingsCustomScreen';
 
 import RateTheDay1Screen from '../screens/RateTheDay1Screen';
 import RateTheDay2Screen from '../screens/RateTheDay2Screen';
@@ -14,6 +14,7 @@ import RateTheDay4Screen from '../screens/RateTheDay4Screen';
 import RateTheDay5Screen from '../screens/RateTheDay5Screen';
 import StatsAndAverageScreen from '../screens/StatsAndAverageScreen';
 import ViewDayScreen from '../screens/ViewDayScreen';
+import SettingsCustomScreen from '../screens/SettingsCustomScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -60,21 +61,7 @@ HomeStack.path = '';
 
 // LinksStack.path = '';
 
-// const SettingsStack = createStackNavigator(
-//   {
-//     Settings: SettingsScreen,
-//   },
-//   config
-// );
 
-// SettingsStack.navigationOptions = {
-//   tabBarLabel: 'Settings',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-//   ),
-// };
-
-// SettingsStack.path = '';
 
 //
 //
@@ -210,6 +197,21 @@ ViewDayStack.navigationOptions = {
 
 RateTheDay1Stack.path = '';
 
+// Settings
+const SettingsStack = createStackNavigator(
+  {
+    Settings: SettingsCustomScreen,
+  },
+  config
+);
+
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Settings',
+  tabBarVisible: false,
+};
+
+SettingsStack.path = '';
+
 //
 //
 //
@@ -232,6 +234,7 @@ const tabNavigator = createBottomTabNavigator({
   RateTheDay5Stack,
   StatsAndAverageStack,
   ViewDayStack,
+  SettingsStack,
 });
 
 tabNavigator.path = '';

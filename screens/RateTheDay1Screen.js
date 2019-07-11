@@ -11,9 +11,11 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo';
 // import Slider from '@react-native-community/slider';
-// import Slider from 'react-native-slider';
+import Slider from 'react-native-slider';
 
-export default function RateTheDay1Screen() {
+// export default function RateTheDay1Screen() {
+  export default class RateTheDay1Screen extends React.Component {
+    render() {
   return (
     <View style={styles.container}>
 
@@ -50,6 +52,14 @@ export default function RateTheDay1Screen() {
           <Text style={styles.rateParamText}>
             super great
           </Text>
+
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={0}
+            maximumValue={1}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+          />
         </View>
       </View>
 
@@ -81,6 +91,7 @@ export default function RateTheDay1Screen() {
 
     </View>
   );
+  }
 }
 
 RateTheDay1Screen.navigationOptions = {
