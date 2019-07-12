@@ -10,6 +10,7 @@ import {
   View,
   TextInput,
 } from 'react-native';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
@@ -21,6 +22,22 @@ export default class SetingsCustomScreen extends React.Component {
       reminder: '9:30',
     };
   }
+
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = date => {
+    newDate=date.getDate() + "."+ parseInt(date.getMonth()+1) +"."+date.getFullYear();
+    // formattedDate = date,
+    this.setState({birthdate:newDate});
+    this.hideDateTimePicker();
+    
+  };
 
   render() {
     return (
@@ -64,11 +81,22 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your birth date?
                 </Text>
-                <TextInput
+                {/* <TextInput
                   style={styles.mainInput}
                   onChangeText={(birthdate) => this.setState({ birthdate })}
                   value={this.state.birthdate}
-                />
+                /> */}
+                              <Text
+                                style={styles.mainInput}
+                                onPress={this.showDateTimePicker}
+                              >
+                                {this.state.birthdate}
+                              </Text>
+                              <DateTimePicker
+                                isVisible={this.state.isDateTimePickerVisible}
+                                onConfirm={this.handleDatePicked}
+                                onCancel={this.hideDateTimePicker}
+                              />
               </View>
 
               <View style={styles.inputGroupView}>

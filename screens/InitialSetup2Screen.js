@@ -10,6 +10,7 @@ import {
   View,
   TextInput,
 } from 'react-native';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class InitialSetup2Screen extends React.Component {
   constructor(props) {
@@ -19,10 +20,33 @@ export default class InitialSetup2Screen extends React.Component {
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',
+      isDateTimePickerVisible: false,
+      formattedDate: '17.03.96',
     };
   }
 
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = date => {
+    // console.log("A date has been picked: ", date);
+    // pickedData = date,
+    newDate=date.getDate() + "."+ parseInt(date.getMonth()+1) +"."+date.getFullYear();
+    // formattedDate = date,
+    // console.log(pickedData);
+    this.setState({formattedDate:newDate});
+    this.hideDateTimePicker();
+    
+  };
+
   render() {
+    let today = new Date();
+    formattedDate=today.getDate() + "."+ parseInt(today.getMonth()+1) +"."+today.getFullYear();
     return (
       <View style={styles.container}>
         <View style={styles.topView}>
@@ -45,10 +69,22 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 What's you birth date?
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={styles.mainInput}
                 onChangeText={(birthdate) => this.setState({ birthdate })}
                 value={this.state.birthdate}
+                onPress={this.showDateTimePicker}
+              /> */}
+              <Text
+                style={styles.mainInput}
+                onPress={this.showDateTimePicker}
+              >
+                {this.state.formattedDate}
+              </Text>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this.handleDatePicked}
+                onCancel={this.hideDateTimePicker}
               />
             </View>
           </ImageBackground>

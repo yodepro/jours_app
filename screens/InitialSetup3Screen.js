@@ -9,6 +9,7 @@ import {
   ImageBackground,
   View,
   TextInput,
+  Picker
 } from 'react-native';
 
 export default class InitialSetup3Screen extends React.Component {
@@ -45,11 +46,21 @@ export default class InitialSetup3Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 What is your gender?
               </Text>
-              <TextInput
+              <Picker
+                style={{width: '100%'}}
+                // style={styles.mainInput}
+                selectedValue={this.state.gender}
+                onValueChange={(gender) => this.setState({gender: gender})}>
+                <Picker.Item label="Other" value="other" />
+                <Picker.Item label="Male" value="male" />
+                <Picker.Item label="Female" value="female" />
+              </Picker>
+
+              {/* <TextInput
                 style={styles.mainInput}
                 onChangeText={(gender) => this.setState({ gender })}
                 value={this.state.gender}
-              />
+              /> */}
             </View>
           </ImageBackground>
         </View>
