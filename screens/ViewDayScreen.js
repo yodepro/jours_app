@@ -158,7 +158,8 @@ const styles = StyleSheet.create({
   },
 
   dayTitleText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -203,8 +204,9 @@ const styles = StyleSheet.create({
   },
 
   chartInnerTopText: {
+    fontFamily: 'roboto-700',
     textAlign: 'right',
-    fontWeight: '700',
+    // fontWeight: '700',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
@@ -283,6 +285,7 @@ const styles = StyleSheet.create({
   },
 
   mainTextInput: {
+    fontFamily: 'roboto-300',
     borderRadius: 23,
     backgroundColor: '#fff',
     width: '100%',
@@ -310,7 +313,8 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBold: {
-    fontWeight: '700',
+    fontFamily: 'roboto-700',
+    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -338,6 +342,7 @@ const styles = StyleSheet.create({
   },
 
   bottomCancelText: {
+    fontFamily: 'roboto-300',
     // width: '51%',
     // flex: 0.51,
     fontSize: 16,

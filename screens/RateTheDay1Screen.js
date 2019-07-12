@@ -54,7 +54,7 @@ import Slider from 'react-native-slider';
           </Text>
 
           <Slider
-            style={{width: 200, height: 40}}
+            style={{width: '100%', height: 40}}
             minimumValue={0}
             maximumValue={1}
             minimumTrackTintColor="#FFFFFF"
@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
   },
 
   dayTitleText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -148,7 +149,8 @@ const styles = StyleSheet.create({
   },
 
   dayBgText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -158,7 +160,8 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBold: {
-    fontWeight: '700',
+    fontFamily: 'roboto-700',
+    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -193,7 +196,8 @@ const styles = StyleSheet.create({
   },
 
   rateParamText: {
-    fontWeight: '500',
+    fontFamily: 'quicksand-500',
+    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     textAlign: 'center',
@@ -201,7 +205,8 @@ const styles = StyleSheet.create({
   },
 
   rateParamNumber: {
-    fontWeight: '500',
+    fontFamily: 'quicksand-500',
+    // fontWeight: '500',
     fontSize: 64,
     lineHeight: 80,
     textAlign: 'center',
@@ -230,6 +235,7 @@ const styles = StyleSheet.create({
   },
 
   bottomCancelText: {
+    fontFamily: 'roboto-300',
     // width: '51%',
     // flex: 0.51,
     fontSize: 16,

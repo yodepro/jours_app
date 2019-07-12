@@ -25,7 +25,7 @@ export default class SetingsCustomScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.containerInner}>
+        {/* <View style={styles.containerInner}> */}
 
           <View style={styles.dayTitleView}>
             <Text style={styles.dayTitleText}>
@@ -145,7 +145,7 @@ export default class SetingsCustomScreen extends React.Component {
 
             </View>
           </View>
-        </View>
+        {/* </View> */}
       </View>
     );
   }
@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
+    paddingBottom: 15,
   },
 
   containerInner: {
@@ -189,7 +190,8 @@ const styles = StyleSheet.create({
   },
 
   dayTitleText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -231,14 +233,16 @@ const styles = StyleSheet.create({
   },
 
   labelText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
   },
 
   mainInput: {
-    fontWeight: '500',
+    fontFamily: 'quicksand-500',
+    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     letterSpacing: -0.55,
@@ -274,7 +278,8 @@ const styles = StyleSheet.create({
   },
 
   externalLinksTitleText: {
-    fontWeight: '700',
+    fontFamily: 'roboto-700',
+    // fontWeight: '700',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
@@ -282,7 +287,8 @@ const styles = StyleSheet.create({
   },
 
   linkText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     fontSize: 16,
     lineHeight: 19,
     color: '#3682FF',

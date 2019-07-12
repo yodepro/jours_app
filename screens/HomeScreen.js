@@ -195,7 +195,7 @@ export default class HomeScreen extends React.Component {
 
 HomeScreen.navigationOptions = {
   header: null,
-  tabBarVisible: true,
+  // tabBarVisible: true,
 };
 
 function DevelopmentModeNotice() {

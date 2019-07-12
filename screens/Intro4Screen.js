@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
   },
 
   mainText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     fontSize: 30,
     // lineHeight: 37,
@@ -83,7 +84,8 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBold: {
-    fontWeight: '700',
+    fontFamily: 'roboto-700',
+    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',

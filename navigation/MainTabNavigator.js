@@ -7,13 +7,15 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 
-// import RateTheDay1Screen from '../screens/RateTheDay1Screen';
+import StatsAndAverageScreen from '../screens/StatsAndAverageScreen';
+import SettingsCustomScreen from '../screens/SettingsCustomScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
+// HOME
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -21,42 +23,73 @@ const HomeStack = createStackNavigator(
   config
 );
 
+// HOME
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-  // tabBarVisible: false,
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
 };
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+// STATS
+const StatsAndAverageStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    StatsAndAverage: StatsAndAverageScreen,
   },
   config
 );
-
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
+StatsAndAverageStack.navigationOptions = {
+  tabBarLabel: 'Stats',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  // ),
 };
+StatsAndAverageStack.path = '';
 
-LinksStack.path = '';
+// RATE
+const RateStack = createStackNavigator(
+  {
+    Rate: HomeScreen,
+  },
+  config
+);
+RateStack.navigationOptions = {
+  tabBarLabel: 'Rate',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  // ),
+};
+RateStack.path = '';
+
+// SETTINGS
+const SettingsStack = createStackNavigator(
+  {
+    Settings: SettingsCustomScreen,
+  },
+  config
+);
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Settings',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  // ),
+};
+SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  StatsAndAverageStack,
+  RateStack,
+  SettingsStack,
 });
 
 tabNavigator.path = '';

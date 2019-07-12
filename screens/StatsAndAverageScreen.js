@@ -16,7 +16,7 @@ import { LinearGradient } from 'expo';
 export default function StatsAndAverageScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.containerInner}>
+      {/* <View style={styles.containerInner}> */}
 
         <View style={styles.dayTitleView}>
           <Text style={styles.dayTitleText}>
@@ -87,8 +87,8 @@ export default function StatsAndAverageScreen() {
           </View>
         </View>
 
-        <View style={{ flex: 0.1, }}></View>
-      </View>
+        {/* <View style={{ flex: 0.1, }}></View> */}
+      {/* </View> */}
     </View>
 
 
@@ -97,6 +97,7 @@ export default function StatsAndAverageScreen() {
 
 StatsAndAverageScreen.navigationOptions = {
   header: null,
+  tabBarVisible: true,
 };
 
 const styles = StyleSheet.create({
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
+    paddingBottom: 15,
     // position: 'relative',
     // height: '100%',
   },
@@ -127,7 +129,8 @@ const styles = StyleSheet.create({
   },
 
   dayTitleText: {
-    fontWeight: '300',
+    fontFamily: 'roboto-300',
+    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -187,7 +190,8 @@ const styles = StyleSheet.create({
   },
 
   smallTileTopText: {
-    fontWeight: '500',
+    fontFamily: 'quicksand-500',
+    // fontWeight: '500',
     // fontSize: 64,
     // lineHeight: 80,
     fontSize: 48,
@@ -198,7 +202,8 @@ const styles = StyleSheet.create({
   },
 
   tileBottomText: {
-    fontWeight: '300',
+    fontFamily: 'quicksand-300',
+    // fontWeight: '300',
     // fontSize: 16,
     fontSize: 14,
     lineHeight: 19,
@@ -233,7 +238,8 @@ const styles = StyleSheet.create({
   },
 
   bigTileTopText: {
-    fontWeight: '500',
+    fontFamily: 'quicksand-500',
+    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     textAlign: 'center',

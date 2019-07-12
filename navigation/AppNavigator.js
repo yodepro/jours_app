@@ -13,7 +13,7 @@ import RateTheDay2Screen from '../screens/RateTheDay2Screen';
 import RateTheDay3Screen from '../screens/RateTheDay3Screen';
 import RateTheDay4Screen from '../screens/RateTheDay4Screen';
 import RateTheDay5Screen from '../screens/RateTheDay5Screen';
-import StatsAndAverageScreen from '../screens/StatsAndAverageScreen';
+// import StatsAndAverageScreen from '../screens/StatsAndAverageScreen';
 import ViewDayScreen from '../screens/ViewDayScreen';
 import SettingsCustomScreen from '../screens/SettingsCustomScreen';
 import Intro1Screen from '../screens/Intro1Screen';
@@ -49,7 +49,7 @@ export default createAppContainer(
     RateTheDay3: RateTheDay3Screen,
     RateTheDay4: RateTheDay4Screen,
     RateTheDay5: RateTheDay5Screen,
-    StatsAndAverage: StatsAndAverageScreen,
+    // StatsAndAverage: StatsAndAverageScreen,
     ViewDay: ViewDayScreen,
     Settings: SettingsCustomScreen,
     Intro1: Intro1Screen,
