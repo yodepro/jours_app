@@ -8,7 +8,6 @@ import {
   // TouchableOpacity,
   ImageBackground,
   View,
-  TextInput,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -21,7 +20,6 @@ export default class InitialSetup2Screen extends React.Component {
       birthdate: '17.03.96',
       reminder: '9:30',
       isDateTimePickerVisible: false,
-      formattedDate: '17.03.96',
     };
   }
 
@@ -34,19 +32,12 @@ export default class InitialSetup2Screen extends React.Component {
   };
 
   handleDatePicked = date => {
-    // console.log("A date has been picked: ", date);
-    // pickedData = date,
-    newDate=date.getDate() + "."+ parseInt(date.getMonth()+1) +"."+date.getFullYear();
-    // formattedDate = date,
-    // console.log(pickedData);
-    this.setState({formattedDate:newDate});
+    newDate = date.getDate() + "." + parseInt(date.getMonth() + 1) + "." + date.getFullYear();
+    this.setState({ birthdate: newDate });
     this.hideDateTimePicker();
-    
   };
 
   render() {
-    let today = new Date();
-    formattedDate=today.getDate() + "."+ parseInt(today.getMonth()+1) +"."+today.getFullYear();
     return (
       <View style={styles.container}>
         <View style={styles.topView}>
@@ -69,17 +60,11 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 What's you birth date?
               </Text>
-              {/* <TextInput
-                style={styles.mainInput}
-                onChangeText={(birthdate) => this.setState({ birthdate })}
-                value={this.state.birthdate}
-                onPress={this.showDateTimePicker}
-              /> */}
               <Text
                 style={styles.mainInput}
                 onPress={this.showDateTimePicker}
               >
-                {this.state.formattedDate}
+                {this.state.birthdate}
               </Text>
               <DateTimePicker
                 isVisible={this.state.isDateTimePickerVisible}
@@ -135,7 +120,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 32,
@@ -147,7 +131,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
@@ -156,7 +139,6 @@ const styles = StyleSheet.create({
 
   mainInput: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',

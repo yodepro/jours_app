@@ -1,97 +1,85 @@
 import React from 'react';
-// import { ExpoConfigView } from '@expo/samples';
 import {
   // Image,
   // Platform,
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
 } from 'react-native';
-import { LinearGradient } from 'expo';
-// import Slider from '@react-native-community/slider';
-// import Slider from 'react-native-slider';
 
 export default function StatsAndAverageScreen() {
   return (
     <View style={styles.container}>
-      {/* <View style={styles.containerInner}> */}
 
-        <View style={styles.dayTitleView}>
-          <Text style={styles.dayTitleText}>
-            Statistics
+      <View style={styles.dayTitleView}>
+        <Text style={styles.dayTitleText}>
+          Statistics
+          </Text>
+      </View>
+
+      <View style={styles.twoTilesView}>
+        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+          <Text style={styles.smallTileTopText}>
+            514
+          </Text>
+          <Text style={styles.tileBottomText}>
+            Days Rated
           </Text>
         </View>
 
+        <View style={[styles.smallTileView, styles.smallTileRightView]}>
+          <Text style={styles.smallTileTopText}>
+            Sun
+          </Text>
+          <Text style={styles.tileBottomText}>
+            Best Day of the Week
+          </Text>
+        </View>
+      </View>
 
-        <View style={styles.twoTilesView}>
-          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-            <Text style={styles.smallTileTopText}>
-              514
+      <View style={styles.oneTileView}>
+        <View style={styles.bigTileView}>
+          <Text style={styles.bigTileTopText}>
+            Sunday, Sept 12th '19
           </Text>
-            <Text style={styles.tileBottomText}>
-              Days Rated
+          <Text style={styles.tileBottomText}>
+            The Latest Super Great Day
           </Text>
-          </View>
+        </View>
+      </View>
 
-          <View style={[styles.smallTileView, styles.smallTileRightView]}>
-            <Text style={styles.smallTileTopText}>
-              Sun
+      <View style={styles.oneTileView}>
+        <View style={styles.bigTileView}>
+          <Text style={styles.bigTileTopText}>
+            Monday, Sept 13th '19
           </Text>
-            <Text style={styles.tileBottomText}>
-              Best Day of the Week
+          <Text style={styles.tileBottomText}>
+            The Latest Awful Day
           </Text>
-          </View>
+        </View>
+      </View>
+
+      <View style={styles.twoTilesView}>
+        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+          <Text style={styles.smallTileTopText}>
+            354
+          </Text>
+          <Text style={styles.tileBottomText}>
+            Rating Strike
+          </Text>
         </View>
 
-        <View style={styles.oneTileView}>
-          <View style={styles.bigTileView}>
-            <Text style={styles.bigTileTopText}>
-              Sunday, Sept 12th '19
+        <View style={[styles.smallTileView, styles.smallTileRightView]}>
+          <Text style={styles.smallTileTopText}>
+            Mon
           </Text>
-            <Text style={styles.tileBottomText}>
-              The Latest Super Great Day
+          <Text style={styles.tileBottomText}>
+            Saddest Day of the Week
           </Text>
-          </View>
         </View>
-
-        <View style={styles.oneTileView}>
-          <View style={styles.bigTileView}>
-            <Text style={styles.bigTileTopText}>
-              Monday, Sept 13th '19
-          </Text>
-            <Text style={styles.tileBottomText}>
-              The Latest Awful Day
-          </Text>
-          </View>
-        </View>
-
-        <View style={styles.twoTilesView}>
-          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-            <Text style={styles.smallTileTopText}>
-              354
-          </Text>
-            <Text style={styles.tileBottomText}>
-              Rating Strike
-          </Text>
-          </View>
-
-          <View style={[styles.smallTileView, styles.smallTileRightView]}>
-            <Text style={styles.smallTileTopText}>
-              Mon
-          </Text>
-            <Text style={styles.tileBottomText}>
-              Saddest Day of the Week
-          </Text>
-          </View>
-        </View>
-
-        {/* <View style={{ flex: 0.1, }}></View> */}
-      {/* </View> */}
+      </View>
     </View>
-
-
   );
 }
 
@@ -106,16 +94,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
     paddingBottom: 15,
-    // position: 'relative',
-    // height: '100%',
   },
 
   containerInner: {
     flex: 0.9,
-    // backgroundColor: '#f6f6f6',
-    // paddingTop: 30,
-    // position: 'relative',
-    // height: '100%',
   },
 
   dayTitleView: {
@@ -124,23 +106,15 @@ const styles = StyleSheet.create({
 
   topView: {
     paddingTop: 30,
-    // backgroundColor: 'red',
     flex: 0.55,
   },
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
-    // lineHeight: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
-    // marginBottom: 42,
     paddingLeft: 15,
-    // flex: 0.18,
-    // height: '27%',
   },
 
   twoTilesView: {
@@ -191,9 +165,6 @@ const styles = StyleSheet.create({
 
   smallTileTopText: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '500',
-    // fontSize: 64,
-    // lineHeight: 80,
     fontSize: 48,
     lineHeight: 70,
     textAlign: 'center',
@@ -203,8 +174,6 @@ const styles = StyleSheet.create({
 
   tileBottomText: {
     fontFamily: 'quicksand-300',
-    // fontWeight: '300',
-    // fontSize: 16,
     fontSize: 14,
     lineHeight: 19,
     textAlign: 'center',
@@ -234,12 +203,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 13,
-    // flex: 0.5,
   },
 
   bigTileTopText: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     textAlign: 'center',

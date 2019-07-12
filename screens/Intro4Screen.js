@@ -5,7 +5,6 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
 } from 'react-native';
 
@@ -13,15 +12,12 @@ export default class Intro4Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={{ flex: 0.55, }}></View>
-
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             With our smart Lookback you’ll be able to analyse your ups and downs and will have a tool to control emotions
           </Text>
         </View>
-
         <View style={styles.bottomNavigationView}>
           <View style={styles.bottomNavigationInnerView}>
             <Text
@@ -32,7 +28,6 @@ export default class Intro4Screen extends React.Component {
             </Text>
           </View>
         </View>
-
       </View>
     )
   };
@@ -58,7 +53,6 @@ const styles = StyleSheet.create({
 
   mainText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     fontSize: 30,
     // lineHeight: 37,
@@ -85,7 +79,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',

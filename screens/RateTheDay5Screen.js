@@ -6,16 +6,13 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
   AppRegistry,
   TextInput
 } from 'react-native';
 import { LinearGradient } from 'expo';
-// import Slider from '@react-native-community/slider';
-// import Slider from 'react-native-slider';
+import Slider from 'react-native-slider';
 
-// export default function RateTheDay5Screen() {
 export default class RateTheDay5Screen extends React.Component {
   constructor(props) {
     super(props);
@@ -109,8 +106,6 @@ export default class RateTheDay5Screen extends React.Component {
 
         <View style={styles.textInputView}>
 
-
-
           <TextInput
             style={styles.mainTextInput}
             onChangeText={(text) => this.setState({ text })}
@@ -166,7 +161,6 @@ const styles = StyleSheet.create({
 
   topView: {
     paddingTop: 30,
-    // backgroundColor: 'red',
     flex: 0.4,
     position: 'relative',
   },
@@ -178,17 +172,13 @@ const styles = StyleSheet.create({
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
-    // lineHeight: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
-    // marginBottom: 42,
     paddingLeft: 15,
     flex: 0.18,
-    // height: '27%',
   },
 
   chartWrapperView: {
@@ -225,7 +215,6 @@ const styles = StyleSheet.create({
   chartInnerTopText: {
     fontFamily: 'roboto-700',
     textAlign: 'right',
-    // fontWeight: '700',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
@@ -282,7 +271,6 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-900',
     fontSize: 32,
     lineHeight: 37,
-    // textAlign: 'right',
     letterSpacing: -1.6,
     color: '#BDEEFF',
     position: 'absolute',
@@ -294,7 +282,6 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-900',
     fontSize: 32,
     lineHeight: 37,
-    // textAlign: 'right',
     letterSpacing: -1.6,
     color: '#FFB9B2',
     position: 'absolute',
@@ -306,7 +293,6 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-900',
     fontSize: 32,
     lineHeight: 37,
-    // textAlign: 'right',
     letterSpacing: -1.6,
     color: '#A2FFEC',
     position: 'absolute',
@@ -318,7 +304,6 @@ const styles = StyleSheet.create({
     fontFamily: 'roboto-900',
     fontSize: 32,
     lineHeight: 37,
-    // textAlign: 'right',
     letterSpacing: -1.6,
     color: '#FFF8BE',
     position: 'absolute',
@@ -447,8 +432,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -459,7 +442,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -467,17 +449,10 @@ const styles = StyleSheet.create({
 
   bottomNavigationView: {
     flex: 0.35,
-    // flexDirection: 'row',
-    // position: 'relative',
-    // bottom: 0,
-    // height: '10%',
-    // backgroundColor: 'green',
-    // justifyContent: 'flex-end',
   },
 
   bottomNavigationInnerView: {
     flexDirection: 'row',
-    // flex: 0.65,
     height: '100%',
   },
 
@@ -488,32 +463,18 @@ const styles = StyleSheet.create({
 
   bottomCancelText: {
     fontFamily: 'roboto-300',
-    // width: '51%',
-    // flex: 0.51,
     fontSize: 16,
     lineHeight: 19,
     color: '#f739aa',
-    // paddingLeft: 15,
-    // paddingTop: 250,
     position: 'absolute',
     bottom: 20,
     left: 15,
   },
 
   bottomLinearGradient: {
-    // width: '49%',
     height: '100%',
     flex: 0.49,
-    // right: 0,
-    // flex: 0.65,
-    // height: '65%',
-    // bottom: 0,
-    // paddingLeft: 20,
-    // paddingTop: 250,
-    // alignSelf: 'flex-end',
-    // justifyContent: 'flex-end',
     position: 'relative',
-    // bottom: 0,
     alignSelf: 'stretch',
   },
 

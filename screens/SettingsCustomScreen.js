@@ -6,7 +6,6 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
   TextInput,
 } from 'react-native';
@@ -20,6 +19,7 @@ export default class SetingsCustomScreen extends React.Component {
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',
+      isDateTimePickerVisible: false,
     };
   }
 
@@ -32,29 +32,27 @@ export default class SetingsCustomScreen extends React.Component {
   };
 
   handleDatePicked = date => {
-    newDate=date.getDate() + "."+ parseInt(date.getMonth()+1) +"."+date.getFullYear();
-    // formattedDate = date,
-    this.setState({birthdate:newDate});
+    newDate = date.getDate() + "." + parseInt(date.getMonth() + 1) + "." + date.getFullYear();
+    this.setState({ birthdate: newDate });
     this.hideDateTimePicker();
-    
+
   };
 
   render() {
     return (
       <View style={styles.container}>
-        {/* <View style={styles.containerInner}> */}
 
-          <View style={styles.dayTitleView}>
-            <Text style={styles.dayTitleText}>
-              Settings
+        <View style={styles.dayTitleView}>
+          <Text style={styles.dayTitleText}>
+            Settings
             </Text>
-          </View>
+        </View>
 
-          <View style={styles.mainWrapperView}>
-            <View style={styles.mainView}>
-              
+        <View style={styles.mainWrapperView}>
+          <View style={styles.mainView}>
 
-              <View style={styles.inputGroupWrapperView}>
+
+            <View style={styles.inputGroupWrapperView}>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   How shall I call you?
@@ -81,27 +79,23 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your birth date?
                 </Text>
-                {/* <TextInput
+
+                <Text
                   style={styles.mainInput}
-                  onChangeText={(birthdate) => this.setState({ birthdate })}
-                  value={this.state.birthdate}
-                /> */}
-                              <Text
-                                style={styles.mainInput}
-                                onPress={this.showDateTimePicker}
-                              >
-                                {this.state.birthdate}
-                              </Text>
-                              <DateTimePicker
-                                isVisible={this.state.isDateTimePickerVisible}
-                                onConfirm={this.handleDatePicked}
-                                onCancel={this.hideDateTimePicker}
-                              />
+                  onPress={this.showDateTimePicker}
+                >
+                  {this.state.birthdate}
+                </Text>
+                <DateTimePicker
+                  isVisible={this.state.isDateTimePickerVisible}
+                  onConfirm={this.handleDatePicked}
+                  onCancel={this.hideDateTimePicker}
+                />
               </View>
 
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
-                What time shall I remind you of a rating?
+                  What time shall I remind you of a rating?
                 </Text>
                 <TextInput
                   style={styles.mainInput}
@@ -110,70 +104,68 @@ export default class SetingsCustomScreen extends React.Component {
                 />
               </View>
 
+            </View>
+
+            <View style={styles.mainSettingsView}>
+
+              <View style={styles.mainSettingsItemView}>
+                <View style={styles.mainSettingsItemLeftView}>
+                  <Text style={styles.labelText}>
+                    Receive notifications
+                    </Text>
+                </View>
+                <View style={styles.mainSettingsItemRightView}>
+                  <Text style={styles.mainSettingsItemRightText}>
+                    Switcher
+                    </Text>
+                </View>
               </View>
 
-              <View style={styles.mainSettingsView}>
-
-                <View style={styles.mainSettingsItemView}>
-                  <View style={styles.mainSettingsItemLeftView}>
-                    <Text style={styles.labelText}>
-                      Receive notifications
+              <View style={styles.mainSettingsItemView}>
+                <View style={styles.mainSettingsItemLeftView}>
+                  <Text style={styles.labelText}>
+                    Store backup at iCloud
                     </Text>
-                  </View>
-                  <View style={styles.mainSettingsItemRightView}>
-                    <Text style={styles.mainSettingsItemRightText}>
-                      Switcher
-                    </Text>
-                  </View>
                 </View>
-
-                <View style={styles.mainSettingsItemView}>
-                  <View style={styles.mainSettingsItemLeftView}>
-                    <Text style={styles.labelText}>
-                      Store backup at iCloud
+                <View style={styles.mainSettingsItemRightView}>
+                  <Text style={styles.mainSettingsItemRightText}>
+                    Switcher
                     </Text>
-                  </View>
-                  <View style={styles.mainSettingsItemRightView}>
-                    <Text style={styles.mainSettingsItemRightText}>
-                      Switcher
-                    </Text>
-                  </View>
                 </View>
-
-              </View>
-
-
-              <View style={styles.externalLinksView}>
-                <Text style={styles.externalLinksTitleText}>
-                  External links
-                </Text>
-
-                <Text 
-                  onPress={handleHowToTransferPress}
-                  style={styles.linkText}
-                >
-                  How to transfer data to a new device
-                </Text>
-
-                <Text 
-                  onPress={handlePrivacyPolicyPress}
-                  style={styles.linkText}
-                >
-                  Privacy Policy
-                </Text>
-
-                <Text 
-                  onPress={handleAboutPress}
-                  style={styles.linkText}
-                >
-                  About Jours
-                </Text>
-
               </View>
 
             </View>
+
+            <View style={styles.externalLinksView}>
+              <Text style={styles.externalLinksTitleText}>
+                External links
+                </Text>
+
+              <Text
+                onPress={handleHowToTransferPress}
+                style={styles.linkText}
+              >
+                How to transfer data to a new device
+                </Text>
+
+              <Text
+                onPress={handlePrivacyPolicyPress}
+                style={styles.linkText}
+              >
+                Privacy Policy
+                </Text>
+
+              <Text
+                onPress={handleAboutPress}
+                style={styles.linkText}
+              >
+                About Jours
+                </Text>
+
+            </View>
+
           </View>
-        {/* </View> */}
+        </View>
       </View>
     );
   }
@@ -219,7 +211,6 @@ const styles = StyleSheet.create({
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -262,7 +253,6 @@ const styles = StyleSheet.create({
 
   labelText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
@@ -270,7 +260,6 @@ const styles = StyleSheet.create({
 
   mainInput: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     letterSpacing: -0.55,
@@ -296,7 +285,6 @@ const styles = StyleSheet.create({
   },
 
   mainSettingsItemRightText: {
-    // flex: 0.3,
     textAlign: 'right',
     alignSelf: 'stretch',
   },
@@ -307,7 +295,6 @@ const styles = StyleSheet.create({
 
   externalLinksTitleText: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
@@ -316,7 +303,6 @@ const styles = StyleSheet.create({
 
   linkText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     fontSize: 16,
     lineHeight: 19,
     color: '#3682FF',

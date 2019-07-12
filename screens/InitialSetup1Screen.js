@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 32,
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
@@ -120,7 +118,6 @@ const styles = StyleSheet.create({
 
   mainInput: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',

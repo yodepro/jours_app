@@ -47,20 +47,15 @@ export default class InitialSetup3Screen extends React.Component {
                 What is your gender?
               </Text>
               <Picker
-                style={{width: '100%'}}
+                style={{ width: '100%' }}
                 // style={styles.mainInput}
                 selectedValue={this.state.gender}
-                onValueChange={(gender) => this.setState({gender: gender})}>
+                onValueChange={(gender) => this.setState({ gender: gender })}>
                 <Picker.Item label="Other" value="other" />
                 <Picker.Item label="Male" value="male" />
                 <Picker.Item label="Female" value="female" />
               </Picker>
 
-              {/* <TextInput
-                style={styles.mainInput}
-                onChangeText={(gender) => this.setState({ gender })}
-                value={this.state.gender}
-              /> */}
             </View>
           </ImageBackground>
         </View>
@@ -110,7 +105,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 32,
@@ -122,7 +116,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
@@ -131,7 +124,6 @@ const styles = StyleSheet.create({
 
   mainInput: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '700',
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',

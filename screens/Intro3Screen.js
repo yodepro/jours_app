@@ -5,7 +5,6 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
 } from 'react-native';
 
@@ -13,24 +12,18 @@ export default class Intro3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={{ flex: 0.55, }}></View>
-
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-          Leave comments and for every day of tracking and share your jorney with your friends if you’d like to
+            Leave comments and for every day of tracking and share your jorney with your friends if you’d like to
         </Text>
         </View>
-
         <View style={styles.bottomNavigationView}>
-
           <View style={styles.bottomCancelView}>
             <Text style={styles.bottomCancelText}>
               Skip
             </Text>
           </View>
-
-
           <View style={styles.bottomNextView}>
             <Text
               style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
@@ -39,10 +32,7 @@ export default class Intro3Screen extends React.Component {
               Next
             </Text>
           </View>
-
         </View>
-
-
       </View>
     )
   };
@@ -68,7 +58,6 @@ const styles = StyleSheet.create({
 
   mainText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     fontSize: 30,
     // lineHeight: 37,
@@ -103,7 +92,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',

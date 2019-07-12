@@ -6,97 +6,94 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // TouchableOpacity,
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo';
-// import Slider from '@react-native-community/slider';
 import Slider from 'react-native-slider';
 
-// export default function RateTheDay1Screen() {
-  export default class RateTheDay1Screen extends React.Component {
-    render() {
-  return (
-    <View style={styles.container}>
+export default class RateTheDay1Screen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
 
-      <View style={styles.topView}>
+        <View style={styles.topView}>
 
-        <Text style={styles.dayTitleText}>
-          May, 12th
+          <Text style={styles.dayTitleText}>
+            May, 12th
         </Text>
 
-        <View style={styles.mainLinearGradientWrapperView}>
-          <LinearGradient
-            colors={['#3884FF', '#60D7FF']}
-            style={styles.mainLinearGradient}
-          >
-
-            <Text style={styles.dayBgText}>
-              Another day, another story, Jake.
-            </Text>
-
-            <Text style={styles.dayBgTextBold}>
-              What’s your level of happiness today?
-            </Text>
-
-          </LinearGradient>
-        </View>
-
-      </View>
-
-      <View style={styles.rateParamViewWrapper}>
-        <View style={styles.rateParamView}>
-          <Text style={styles.rateParamNumber}>
-            10
-          </Text>
-          <Text style={styles.rateParamText}>
-            super great
-          </Text>
-
-          <Slider
-            style={{width: '100%', height: 40}}
-            minimumValue={0}
-            maximumValue={1}
-            minimumTrackTintColor="#FFFFFF"
-            maximumTrackTintColor="#000000"
-          />
-        </View>
-      </View>
-
-      <View style={{ flex: 0.1, }}></View>
-
-      <View style={styles.bottomNavigationView}>
-
-        <View style={styles.bottomNavigationInnerView}>
-
-          <View style={styles.bottomCancelView}>
-            <Text
-              style={styles.bottomCancelText}
-              onPress={() => this.props.navigation.navigate('Home')}
+          <View style={styles.mainLinearGradientWrapperView}>
+            <LinearGradient
+              colors={['#3884FF', '#60D7FF']}
+              style={styles.mainLinearGradient}
             >
-              Cancel
-        </Text>
+
+              <Text style={styles.dayBgText}>
+                Another day, another story, Jake.
+            </Text>
+
+              <Text style={styles.dayBgTextBold}>
+                What’s your level of happiness today?
+            </Text>
+
+            </LinearGradient>
           </View>
 
-
-          <LinearGradient
-            colors={['#F734A8', '#F78B79']}
-            style={styles.bottomLinearGradient}
-          >
-            <Text
-              style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
-              onPress={() => this.props.navigation.navigate('RateTheDay2')}
-            >
-              Next to{"\n"}
-              health
-          </Text>
-          </LinearGradient>
-
         </View>
-      </View>
 
-    </View>
-  );
+        <View style={styles.rateParamViewWrapper}>
+          <View style={styles.rateParamView}>
+            <Text style={styles.rateParamNumber}>
+              10
+          </Text>
+            <Text style={styles.rateParamText}>
+              super great
+          </Text>
+
+            <Slider
+              style={{ width: '100%', height: 40 }}
+              minimumValue={0}
+              maximumValue={1}
+              minimumTrackTintColor="#FFFFFF"
+              maximumTrackTintColor="#000000"
+            />
+          </View>
+        </View>
+
+        <View style={{ flex: 0.1, }}></View>
+
+        <View style={styles.bottomNavigationView}>
+
+          <View style={styles.bottomNavigationInnerView}>
+
+            <View style={styles.bottomCancelView}>
+              <Text
+                style={styles.bottomCancelText}
+                onPress={() => this.props.navigation.navigate('Home')}
+              >
+                Cancel
+        </Text>
+            </View>
+
+
+            <LinearGradient
+              colors={['#F734A8', '#F78B79']}
+              style={styles.bottomLinearGradient}
+            >
+              <Text
+                style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
+                onPress={() => this.props.navigation.navigate('RateTheDay2')}
+              >
+                Next to{"\n"}
+                health
+          </Text>
+            </LinearGradient>
+
+          </View>
+        </View>
+
+      </View>
+    );
   }
 }
 
@@ -116,30 +113,23 @@ const styles = StyleSheet.create({
 
   topView: {
     paddingTop: 30,
-    // backgroundColor: 'red',
     flex: 0.55,
   },
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
     // lineHeight: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
-    // marginBottom: 42,
     paddingLeft: 15,
     flex: 0.18,
-    // height: '27%',
   },
 
   mainLinearGradientWrapperView: {
-    // flex: 1,
     flex: 0.82,
-    // height: '73%',
-    // backgroundColor: 'yellow',
   },
 
   mainLinearGradient: {
@@ -153,7 +143,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontWeight: '300',
     // fontSize: 32,
     // lineHeight: 37,
     fontSize: 27,
@@ -164,7 +153,6 @@ const styles = StyleSheet.create({
 
   dayBgTextBold: {
     fontFamily: 'roboto-700',
-    // fontWeight: '700',
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -176,7 +164,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: -50,
   },
-
 
   rateParamView: {
     backgroundColor: '#fff',
@@ -200,7 +187,6 @@ const styles = StyleSheet.create({
 
   rateParamText: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '500',
     fontSize: 32,
     lineHeight: 40,
     textAlign: 'center',
@@ -209,7 +195,6 @@ const styles = StyleSheet.create({
 
   rateParamNumber: {
     fontFamily: 'quicksand-500',
-    // fontWeight: '500',
     fontSize: 64,
     lineHeight: 80,
     textAlign: 'center',
@@ -218,17 +203,10 @@ const styles = StyleSheet.create({
 
   bottomNavigationView: {
     flex: 0.35,
-    // flexDirection: 'row',
-    // position: 'relative',
-    // bottom: 0,
-    // height: '10%',
-    // backgroundColor: 'green',
-    // justifyContent: 'flex-end',
   },
 
   bottomNavigationInnerView: {
     flexDirection: 'row',
-    // flex: 0.65,
     height: '100%',
   },
 
@@ -239,32 +217,18 @@ const styles = StyleSheet.create({
 
   bottomCancelText: {
     fontFamily: 'roboto-300',
-    // width: '51%',
-    // flex: 0.51,
     fontSize: 16,
     lineHeight: 19,
     color: '#C5C4D2',
-    // paddingLeft: 15,
-    // paddingTop: 250,
     position: 'absolute',
     bottom: 30,
     left: 15,
   },
 
   bottomLinearGradient: {
-    // width: '49%',
     height: '100%',
     flex: 0.49,
-    // right: 0,
-    // flex: 0.65,
-    // height: '65%',
-    // bottom: 0,
-    // paddingLeft: 20,
-    // paddingTop: 250,
-    // alignSelf: 'flex-end',
-    // justifyContent: 'flex-end',
     position: 'relative',
-    // bottom: 0,
     alignSelf: 'stretch',
   },
 
