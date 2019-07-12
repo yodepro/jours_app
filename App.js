@@ -43,6 +43,7 @@ async function loadResourcesAsync() {
       'roboto-300': require('./assets/fonts/Roboto/Roboto-Regular.ttf'),
       'roboto-500': require('./assets/fonts/Roboto/Roboto-Medium.ttf'),
       'roboto-700': require('./assets/fonts/Roboto/Roboto-Bold.ttf'),
+      'roboto-900': require('./assets/fonts/Roboto/Roboto-Black.ttf'),
       'quicksand-300': require('./assets/fonts/Quicksand/Quicksand-Light.ttf'),
       'quicksand-500': require('./assets/fonts/Quicksand/Quicksand-Medium.ttf'),
     }),

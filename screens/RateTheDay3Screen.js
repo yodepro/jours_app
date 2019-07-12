@@ -61,7 +61,10 @@ export default class RateTheDay3Screen extends React.Component {
         <View style={styles.bottomNavigationInnerView}>
 
           <View style={styles.bottomCancelView}>
-            <Text style={styles.bottomCancelText}>
+            <Text
+              style={styles.bottomCancelText}
+              onPress={() => this.props.navigation.navigate('Home')}
+            >
               Cancel
         </Text>
           </View>

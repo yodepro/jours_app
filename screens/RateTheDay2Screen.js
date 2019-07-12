@@ -16,6 +16,7 @@ import { LinearGradient } from 'expo';
 // export default function RateTheDay2Screen() {
   export default class RateTheDay2Screen extends React.Component {
     render() {
+      const { goBack } = this.props.navigation;
   return (
     <View style={styles.container}>
 
@@ -62,7 +63,10 @@ import { LinearGradient } from 'expo';
         <View style={styles.bottomNavigationInnerView}>
 
           <View style={styles.bottomCancelView}>
-            <Text style={styles.bottomCancelText}>
+            <Text
+              style={styles.bottomCancelText}
+              onPress={() => goBack()}
+            >
               Back
         </Text>
           </View>

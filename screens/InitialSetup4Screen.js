@@ -35,7 +35,7 @@ export default class InitialSetup2Screen extends React.Component {
             <View style={styles.nextView}>
               <Text
                 style={[styles.dayBgText, styles.dayBgTextBold]}
-                // onPress={() => this.props.navigation.navigate('InitialSetup3')}
+                onPress={() => this.props.navigation.navigate('Home')}
               >
                 Finish
               </Text>

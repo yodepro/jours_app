@@ -26,7 +26,7 @@ export default class Intro4Screen extends React.Component {
           <View style={styles.bottomNavigationInnerView}>
             <Text
               style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
-              onPress={() => this.props.navigation.navigate('Intro1')}
+              onPress={() => this.props.navigation.navigate('Home')}
             >
               Let's go!
             </Text>
