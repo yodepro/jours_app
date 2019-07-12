@@ -13,7 +13,8 @@ import { LinearGradient } from 'expo';
 // import Slider from '@react-native-community/slider';
 // import Slider from 'react-native-slider';
 
-export default function RateTheDay3Screen() {
+export default class RateTheDay3Screen extends React.Component {
+  render() {
   return (
     <View style={styles.container}>
 
@@ -70,7 +71,10 @@ export default function RateTheDay3Screen() {
             colors={['#FDC344', '#FDE490']}
             style={styles.bottomLinearGradient}
           >
-            <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}>
+            <Text
+              style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
+              onPress={() => this.props.navigation.navigate('RateTheDay4')}
+            >
               Next to{"\n"}
               health
           </Text>
@@ -81,6 +85,7 @@ export default function RateTheDay3Screen() {
 
     </View>
   );
+}
 }
 
 RateTheDay3Screen.navigationOptions = {

@@ -13,7 +13,9 @@ import { LinearGradient } from 'expo';
 // import Slider from '@react-native-community/slider';
 // import Slider from 'react-native-slider';
 
-export default function RateTheDay2Screen() {
+// export default function RateTheDay2Screen() {
+  export default class RateTheDay2Screen extends React.Component {
+    render() {
   return (
     <View style={styles.container}>
 
@@ -70,7 +72,10 @@ export default function RateTheDay2Screen() {
             colors={['#4CD9D9', '#48E9C7']}
             style={styles.bottomLinearGradient}
           >
-            <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}>
+            <Text
+              style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
+              onPress={() => this.props.navigation.navigate('RateTheDay3')}
+            >
               Next to{"\n"}
               romance
           </Text>
@@ -81,6 +86,7 @@ export default function RateTheDay2Screen() {
 
     </View>
   );
+  }
 }
 
 RateTheDay2Screen.navigationOptions = {

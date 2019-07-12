@@ -80,7 +80,10 @@ import Slider from 'react-native-slider';
             colors={['#F734A8', '#F78B79']}
             style={styles.bottomLinearGradient}
           >
-            <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}>
+            <Text
+              style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
+              onPress={() => this.props.navigation.navigate('RateTheDay2')}
+            >
               Next to{"\n"}
               health
           </Text>
@@ -96,6 +99,7 @@ import Slider from 'react-native-slider';
 
 RateTheDay1Screen.navigationOptions = {
   header: null,
+  tabBarVisible: false,
 };
 
 const styles = StyleSheet.create({

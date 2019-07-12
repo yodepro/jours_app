@@ -113,7 +113,66 @@ export default class HomeScreen extends React.Component {
               onPress={() => this.props.navigation.navigate('Settings')}
             />
           </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Intro1"
+              onPress={() => this.props.navigation.navigate('Intro1')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Intro2"
+              onPress={() => this.props.navigation.navigate('Intro2')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Intro3"
+              onPress={() => this.props.navigation.navigate('Intro3')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="Intro4"
+              onPress={() => this.props.navigation.navigate('Intro4')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="InitialSetup1"
+              onPress={() => this.props.navigation.navigate('InitialSetup1')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="InitialSetup2"
+              onPress={() => this.props.navigation.navigate('InitialSetup2')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="InitialSetup3"
+              onPress={() => this.props.navigation.navigate('InitialSetup3')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
+              title="InitialSetup4"
+              onPress={() => this.props.navigation.navigate('InitialSetup4')}
+            />
+          </View>
+
         </ScrollView>
+
+
 
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>
@@ -136,6 +195,7 @@ export default class HomeScreen extends React.Component {
 
 HomeScreen.navigationOptions = {
   header: null,
+  tabBarVisible: true,
 };
 
 function DevelopmentModeNotice() {
