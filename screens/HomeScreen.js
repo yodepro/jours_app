@@ -60,6 +60,13 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.screenButton}>
             <Button
+              title="Home"
+              onPress={() => this.props.navigation.navigate('JoursHome')}
+            />
+          </View>
+
+          <View style={styles.screenButton}>
+            <Button
               title="Rate the Day 1"
               onPress={() => this.props.navigation.navigate('RateTheDay1')}
             />

@@ -8,6 +8,8 @@ import {
   Text,
   View,
   TextInput,
+  Switch,
+  Picker,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -20,7 +22,17 @@ export default class SetingsCustomScreen extends React.Component {
       birthdate: '17.03.96',
       reminder: '9:30',
       isDateTimePickerVisible: false,
+      receiveNotifications: false,
+      storeBackup: false,
     };
+  }
+
+  toggleReceiveNotifications = (value) => {
+    this.setState({ receiveNotifications: value })
+  }
+
+  toggleStoreBackup = (value) => {
+    this.setState({ storeBackup: value })
   }
 
   showDateTimePicker = () => {
@@ -41,17 +53,13 @@ export default class SetingsCustomScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.dayTitleView}>
           <Text style={styles.dayTitleText}>
             Settings
-            </Text>
+          </Text>
         </View>
-
         <View style={styles.mainWrapperView}>
           <View style={styles.mainView}>
-
-
             <View style={styles.inputGroupWrapperView}>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
@@ -63,23 +71,29 @@ export default class SetingsCustomScreen extends React.Component {
                   value={this.state.name}
                 />
               </View>
-
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
-                <TextInput
+                <Picker
+                  style={{ width: '100%' }}
+                  // style={styles.mainInput}
+                  selectedValue={this.state.gender}
+                  onValueChange={(gender) => this.setState({ gender: gender })}>
+                  <Picker.Item label="Other" value="other" />
+                  <Picker.Item label="Male" value="male" />
+                  <Picker.Item label="Female" value="female" />
+                </Picker>
+                {/* <TextInput
                   style={styles.mainInput}
                   onChangeText={(gender) => this.setState({ gender })}
                   value={this.state.gender}
-                />
+                /> */}
               </View>
-
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   What's your birth date?
                 </Text>
-
                 <Text
                   style={styles.mainInput}
                   onPress={this.showDateTimePicker}
@@ -92,7 +106,6 @@ export default class SetingsCustomScreen extends React.Component {
                   onCancel={this.hideDateTimePicker}
                 />
               </View>
-
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   What time shall I remind you of a rating?
@@ -103,67 +116,62 @@ export default class SetingsCustomScreen extends React.Component {
                   value={this.state.reminder}
                 />
               </View>
-
             </View>
-
             <View style={styles.mainSettingsView}>
-
               <View style={styles.mainSettingsItemView}>
                 <View style={styles.mainSettingsItemLeftView}>
                   <Text style={styles.labelText}>
                     Receive notifications
-                    </Text>
+                  </Text>
                 </View>
                 <View style={styles.mainSettingsItemRightView}>
-                  <Text style={styles.mainSettingsItemRightText}>
-                    Switcher
-                    </Text>
+                  <Switch
+                    thumbColor={'#266bda'}
+                    trackColor={{false:'#5fd4ff', true:'#3987ff'}}
+                    onValueChange={this.toggleReceiveNotifications}
+                    value={this.state.receiveNotifications}
+                  />
                 </View>
               </View>
-
               <View style={styles.mainSettingsItemView}>
                 <View style={styles.mainSettingsItemLeftView}>
                   <Text style={styles.labelText}>
                     Store backup at iCloud
-                    </Text>
+                  </Text>
                 </View>
                 <View style={styles.mainSettingsItemRightView}>
-                  <Text style={styles.mainSettingsItemRightText}>
-                    Switcher
-                    </Text>
+                  <Switch
+                    thumbColor={'#266bda'}
+                    trackColor={{false:'#5fd4ff', true:'#3987ff'}}
+                    onValueChange={this.toggleStoreBackup}
+                    value={this.state.storeBackup}
+                  />
                 </View>
               </View>
-
             </View>
-
             <View style={styles.externalLinksView}>
               <Text style={styles.externalLinksTitleText}>
                 External links
-                </Text>
-
+              </Text>
               <Text
                 onPress={handleHowToTransferPress}
                 style={styles.linkText}
               >
                 How to transfer data to a new device
                 </Text>
-
               <Text
                 onPress={handlePrivacyPolicyPress}
                 style={styles.linkText}
               >
                 Privacy Policy
-                </Text>
-
+              </Text>
               <Text
                 onPress={handleAboutPress}
                 style={styles.linkText}
               >
                 About Jours
-                </Text>
-
+              </Text>
             </View>
-
           </View>
         </View>
       </View>
@@ -211,10 +219,7 @@ const styles = StyleSheet.create({
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
-    // lineHeight: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
     paddingLeft: 15,
@@ -303,6 +308,7 @@ const styles = StyleSheet.create({
 
   linkText: {
     fontFamily: 'roboto-300',
+    textDecorationLine: 'underline',
     fontSize: 16,
     lineHeight: 19,
     color: '#3682FF',

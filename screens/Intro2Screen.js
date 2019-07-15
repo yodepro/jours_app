@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBoldBottom: {
+    textDecorationLine: 'underline',
     position: 'absolute',
     bottom: 15,
     right: 0,

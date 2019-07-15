@@ -21,7 +21,7 @@ export default class Intro4Screen extends React.Component {
         <View style={styles.bottomNavigationView}>
           <View style={styles.bottomNavigationInnerView}>
             <Text
-              style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
+              style={styles.dayBgTextBold}
               onPress={() => this.props.navigation.navigate('Home')}
             >
               Let's go!
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBold: {
+    textDecorationLine: 'underline',
     fontFamily: 'roboto-700',
     fontSize: 27,
     lineHeight: 27,

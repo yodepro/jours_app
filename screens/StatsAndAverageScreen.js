@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -16,6 +16,12 @@ export default function StatsAndAverageScreen() {
         <Text style={styles.dayTitleText}>
           Statistics
           </Text>
+          <Image
+              source={
+                require('../assets/images/export-icon.png')
+              }
+              style={styles.exportImage}
+            />
       </View>
 
       <View style={styles.twoTilesView}>
@@ -101,7 +107,11 @@ const styles = StyleSheet.create({
   },
 
   dayTitleView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     flex: 0.1,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 
   topView: {
@@ -109,12 +119,16 @@ const styles = StyleSheet.create({
     flex: 0.55,
   },
 
+  exportImage: {
+    // height: 20,
+    // resizeMode: 'cover',
+  },
+
   dayTitleText: {
     fontFamily: 'roboto-300',
     fontSize: 27,
     letterSpacing: 0.6,
-    color: '#8B8B8B',
-    paddingLeft: 15,
+    color: '#8B8B8B',    
   },
 
   twoTilesView: {
@@ -132,6 +146,7 @@ const styles = StyleSheet.create({
   },
 
   smallTileLeftView: {
+    justifyContent: 'center',
     marginRight: 7.5,
     borderRadius: 23,
     paddingLeft: 10,
@@ -148,6 +163,7 @@ const styles = StyleSheet.create({
   },
 
   smallTileRightView: {
+    justifyContent: 'center',
     marginLeft: 7.5,
     borderRadius: 23,
     paddingLeft: 10,
@@ -190,6 +206,7 @@ const styles = StyleSheet.create({
   },
 
   bigTileView: {
+    justifyContent: 'center',
     backgroundColor: '#fff',
     borderRadius: 23,
     height: '100%',

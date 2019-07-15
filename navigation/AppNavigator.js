@@ -7,7 +7,7 @@ import {
 
 import MainTabNavigator from './MainTabNavigator';
 
-// import HomeScreen from '../screens/HomeScreen';
+// import JoursHomeScreen from '../screens/JoursHomeScreen';
 import RateTheDay1Screen from '../screens/RateTheDay1Screen';
 import RateTheDay2Screen from '../screens/RateTheDay2Screen';
 import RateTheDay3Screen from '../screens/RateTheDay3Screen';
@@ -25,31 +25,18 @@ import InitialSetup2Screen from '../screens/InitialSetup2Screen';
 import InitialSetup3Screen from '../screens/InitialSetup3Screen';
 import InitialSetup4Screen from '../screens/InitialSetup4Screen';
 
-// const AppStack = createStackNavigator({
-  // Home: HomeScreen,
-  // RateTheDay1: RateTheDay1Screen,
-  // RateTheDay2: RateTheDay2Screen,
-  // RateTheDay3: RateTheDay3Screen,
-  // RateTheDay4: RateTheDay4Screen,
-  // RateTheDay5: RateTheDay5Screen,
-  // StatsAndAverage: StatsAndAverageScreen,
-  // ViewDay: ViewDayScreen,
-  // Settings: SettingsCustomScreen,
-  // Intro1: Intro1Screen,
-// });
-
 export default createAppContainer(
   createSwitchNavigator({
     // You could add another route here for authentication.
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
     
     Main: MainTabNavigator,
+    // JoursHome: JoursHomeScreen,
     RateTheDay1: RateTheDay1Screen,
     RateTheDay2: RateTheDay2Screen,
     RateTheDay3: RateTheDay3Screen,
     RateTheDay4: RateTheDay4Screen,
     RateTheDay5: RateTheDay5Screen,
-    // StatsAndAverage: StatsAndAverageScreen,
     ViewDay: ViewDayScreen,
     Settings: SettingsCustomScreen,
     Intro1: Intro1Screen,

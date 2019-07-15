@@ -71,7 +71,7 @@ export default class RateTheDay2Screen extends React.Component {
                 style={styles.bottomCancelText}
                 onPress={() => goBack()}
               >
-                Back
+                ⟵ Back
         </Text>
             </View>
 
@@ -221,7 +221,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     left: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
+
+  // bottomCancelArrowText: {
+  //   marginTop: -10,
+  // },
+
+  // bottomCancelWordText: {
+  //   marginTop: 20,
+  // },
 
   bottomLinearGradient: {
     height: '100%',
@@ -231,6 +241,7 @@ const styles = StyleSheet.create({
   },
 
   dayBgTextBoldBottom: {
+    textDecorationLine: 'underline',
     position: 'absolute',
     bottom: 15,
     left: 15,
