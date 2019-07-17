@@ -1,7 +1,7 @@
 import React from 'react';
 // import { ExpoConfigView } from '@expo/samples';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -25,9 +25,17 @@ export default class RateTheDay5Screen extends React.Component {
 
         <View style={styles.topView}>
 
+        <View style={styles.dayTitleView}>
           <Text style={styles.dayTitleText}>
             May, 12th
         </Text>
+        <Image
+              source={
+                require('../assets/images/export-icon.png')
+              }
+              style={styles.exportImage}
+            />
+            </View>
 
           <View style={styles.chartWrapperView}>
             <View style={styles.chartInnerView}>
@@ -37,66 +45,64 @@ export default class RateTheDay5Screen extends React.Component {
                 </Text>
               </View>
 
-              <View style={styles.chartInnerBottomView}>
-                <View style={styles.chartBlankView}>
-                <Text style={styles.happinessRateText}>
-                      7.8
-                    </Text>
-                </View>
 
+
+
+              
+
+              <View style={styles.chartInnerBottomView}>
+              <View style={styles.chartBlankView}>
+                <Text style={styles.happinessRateText}>7.8</Text>
+              </View>
+              <View style={styles.chartHappinessViewWrapper}>
                 <View style={styles.chartHappinessView}>
                   <LinearGradient
                     colors={['#3884FF', '#60D7FF']}
-                    style={styles.chartHappinessLinearGradient}
-                  >
-                    <Text style={styles.happinessTitleText}>
-                      Happiness
-                    </Text>
-                  </LinearGradient>
-                </View>
+                    style={styles.chartHappinessLinearGradient}>
 
+                  </LinearGradient>
+
+                </View>
+                <Text style={styles.happinessTitleText}>Happiness</Text>
+              </View>
+              <View style={styles.chartHealthViewWrapper}>
                 <View style={styles.chartHealthView}>
                   <LinearGradient
                     colors={['#F734A8', '#F78B79']}
-                    style={styles.chartHealthLinearGradient}
-                  >
-                    <Text style={styles.healthTitleText}>
-                      Health
-                    </Text>
-                    <Text style={styles.healthRateText}>
-                      5.6
-                    </Text>
+                    style={styles.chartHealthLinearGradient}>
+
                   </LinearGradient>
                 </View>
+                <Text style={styles.healthTitleText}>Health</Text>
+                <Text style={styles.healthRateText}>5.6</Text>
+              </View>
+              <View style={styles.chartRomanceViewWrapper}>
                 <View style={styles.chartRomanceView}>
-
                   <LinearGradient
                     colors={['#4CD9D9', '#48E9C7']}
-                    style={styles.chartRomanceLinearGradient}
-                  >
-                    <Text style={styles.romanceTitleText}>
-                      Romance
-                    </Text>
-                    <Text style={styles.romanceRateText}>
-                      10
-                    </Text>
+                    style={styles.chartRomanceLinearGradient}>
+
                   </LinearGradient>
                 </View>
-
+                <Text style={styles.romanceTitleText}>Romance</Text>
+                <Text style={styles.romanceRateText}>10</Text>
+              </View>
+              <View style={styles.chartCareerViewWrapper}>
                 <View style={styles.chartCareerView}>
                   <LinearGradient
                     colors={['#FDC344', '#FDE490']}
                     style={styles.chartCareerLinearGradient}
-                  >
-                    <Text style={styles.careerTitleText}>
-                      Career
-                    </Text>
-                    <Text style={styles.careerRateText}>
-                      2.8
-                    </Text>
-                  </LinearGradient>
+                  />
                 </View>
+                <Text style={styles.careerTitleText}>Career</Text>
+                <Text style={styles.careerRateText}>2.8</Text>
               </View>
+            </View>
+
+
+
+
+
             </View>
           </View>
 
@@ -125,20 +131,33 @@ export default class RateTheDay5Screen extends React.Component {
                 style={styles.bottomCancelText}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
+                                      <Image
+              source={
+                require('../assets/images/times.png')
+              }
+              style={{marginRight:10}}
+            />
                 Cancel
               </Text>
             </View>
-            <LinearGradient
-              colors={['#4e53ff', '#4e53ff']}
-              style={styles.bottomLinearGradient}
+            <View
+            style={styles.doneView}
+              // colors={['#4e53ff', '#4e53ff']}
+              // style={{backgroundColor: 'red'}}
             >
+                      <Image
+              source={
+                require('../assets/images/oct1.png')
+              }
+              style={styles.doneImage}
+            />
               <Text
                 style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
                 Done
           </Text>
-            </LinearGradient>
+            </View>
           </View>
         </View>
       </View>
@@ -165,6 +184,26 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
+  doneView: {
+    // backgroundColor: 'red',
+    flex: 0.49,
+  },
+
+  doneImage: {
+    position: 'absolute',
+    zIndex: -1,
+    bottom: 0,
+    right: 0,
+  },
+
+  dayTitleView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    // flex: 0.1,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+
   topViewInner: {
     position: 'relative',
     backgroundColor: 'red',
@@ -177,8 +216,8 @@ const styles = StyleSheet.create({
     fontSize: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
-    paddingLeft: 15,
-    flex: 0.18,
+    // paddingLeft: 15,
+    // flex: 0.18,
   },
 
   chartWrapperView: {
@@ -210,6 +249,7 @@ const styles = StyleSheet.create({
     height: '20%',
     paddingTop: 10,
     paddingRight: 15,
+    zIndex: 99,
   },
 
   chartInnerTopText: {
@@ -218,6 +258,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
+    textDecorationLine: 'underline',
   },
 
   chartInnerBottomView: {
@@ -234,11 +275,23 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
 
+  chartHappinessViewWrapper: {
+        position: 'absolute',
+        height: '100%',
+        flex: 0.3,
+        width: '35%',
+        justifyContent: 'flex-end'
+    },
+
   chartHappinessView: {
-    position: 'absolute',
+    // position: 'absolute',
     height: '78%',
-    flex: 0.3,
-    width: '35%',
+    // flex: 0.3,
+    // width: '35%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 23,
+    overflow: 'hidden',
   },
 
   chartHappinessLinearGradient: {
@@ -311,9 +364,14 @@ const styles = StyleSheet.create({
     right: 5,
   },
 
-  chartHealthView: {
-    flex: 0.25,
-    height: '56%',
+    chartHealthView: {
+    flex: 0.56,
+    // height: '56%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 
   chartHealthLinearGradient: {
@@ -343,8 +401,13 @@ const styles = StyleSheet.create({
   },
 
   chartRomanceView: {
-    flex: 0.25,
+    flex: 1,
     height: '100%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 
 
@@ -358,9 +421,32 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
-  chartCareerView: {
+    chartHealthViewWrapper: {
     flex: 0.25,
-    height: '28%',
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartRomanceViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+    chartCareerViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartCareerView: {
+    // height: '28%',
+    flex: 0.28,
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 23,
+    overflow: 'hidden',
   },
 
   romanceTitleText: {
@@ -480,7 +566,8 @@ const styles = StyleSheet.create({
 
   dayBgTextBoldBottom: {
     position: 'absolute',
-    bottom: 15,
-    left: 15,
+    bottom: 70,
+    right: 45,
+    textDecorationLine: 'underline',
   },
 });

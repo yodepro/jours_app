@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'right',
+    textDecorationLine: 'underline',
   },
 
   mainInput: {

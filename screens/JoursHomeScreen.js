@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo';
 
 export default class JoursHomeScreen extends React.Component {
@@ -16,9 +12,7 @@ export default class JoursHomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.topInfoView}>
-          <Text style={styles.dayTitleText}>
-            May, 12th
-          </Text>
+          <Text style={styles.dayTitleText}>May, 12th</Text>
           <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
             The journey is a series of steps, Jake
           </Text>
@@ -27,15 +21,11 @@ export default class JoursHomeScreen extends React.Component {
           <View style={[styles.chartInnerView, styles.chartInnerUpperView]}>
             <View style={styles.chartInnerTopView}>
               <View style={styles.chartInnerTopDateView}>
-                <Text style={styles.chartInnerTopDateLeftText}>
-                  ⟵
-                </Text>
+                <Text style={styles.chartInnerTopDateLeftText}>⟵</Text>
                 <Text style={styles.chartInnerTopDateMiddleText}>
                   May, 12th
                 </Text>
-                <Text style={styles.chartInnerTopDateLeftText}>
-                  ⟶
-                </Text>
+                <Text style={styles.chartInnerTopDateLeftText}>⟶</Text>
               </View>
               <View style={styles.chartInnerBottomDateView}>
                 <View style={styles.chartInnerBottomDateLeftView}>
@@ -45,76 +35,67 @@ export default class JoursHomeScreen extends React.Component {
                   </Text>
                 </View>
                 <View style={styles.chartInnerBottomDateRightView}>
-                  <Text style={styles.chartInnerTopText}>
-                    View
-                  </Text>
-                  <Text style={styles.chartInnerTopText}>
-                    Edit
-                  </Text>
+                  <Text style={styles.chartInnerTopText}>View</Text>
+                  <Text style={styles.chartInnerTopText}>Edit</Text>
                 </View>
               </View>
             </View>
             <View style={styles.chartInnerBottomView}>
               <View style={styles.chartBlankView}>
-                <Text style={styles.happinessRateText}>
-                  7.8
-                </Text>
+                <Text style={styles.happinessRateText}>7.8</Text>
               </View>
-              <View style={styles.chartHappinessView}>
-                <LinearGradient
-                  colors={['#3884FF', '#60D7FF']}
-                  style={styles.chartHappinessLinearGradient}
-                >
-                  <Text style={styles.happinessTitleText}>
-                    Happiness
-                  </Text>
-                </LinearGradient>
+              <View style={styles.chartHappinessViewWrapper}>
+                <View style={styles.chartHappinessView}>
+                  <LinearGradient
+                    colors={['#3884FF', '#60D7FF']}
+                    style={styles.chartHappinessLinearGradient}>
+
+                  </LinearGradient>
+
+                </View>
+                <Text style={styles.happinessTitleText}>Happiness</Text>
               </View>
-              <View style={styles.chartHealthView}>
-                <LinearGradient
-                  colors={['#F734A8', '#F78B79']}
-                  style={styles.chartHealthLinearGradient}
-                >
-                  <Text style={styles.healthTitleText}>
-                    Health
-                  </Text>
-                  <Text style={styles.healthRateText}>
-                    5.6
-                  </Text>
-                </LinearGradient>
+              <View style={styles.chartHealthViewWrapper}>
+                <View style={styles.chartHealthView}>
+                  <LinearGradient
+                    colors={['#F734A8', '#F78B79']}
+                    style={styles.chartHealthLinearGradient}>
+
+                  </LinearGradient>
+                </View>
+                <Text style={styles.healthTitleText}>Health</Text>
+                <Text style={styles.healthRateText}>5.6</Text>
               </View>
-              <View style={styles.chartRomanceView}>
-                <LinearGradient
-                  colors={['#4CD9D9', '#48E9C7']}
-                  style={styles.chartRomanceLinearGradient}
-                >
-                  <Text style={styles.romanceTitleText}>
-                    Romance
-                  </Text>
-                  <Text style={styles.romanceRateText}>
-                    10
-                  </Text>
-                </LinearGradient>
+              <View style={styles.chartRomanceViewWrapper}>
+                <View style={styles.chartRomanceView}>
+                  <LinearGradient
+                    colors={['#4CD9D9', '#48E9C7']}
+                    style={styles.chartRomanceLinearGradient}>
+
+                  </LinearGradient>
+                </View>
+                <Text style={styles.romanceTitleText}>Romance</Text>
+                <Text style={styles.romanceRateText}>10</Text>
               </View>
-              <View style={styles.chartCareerView}>
-                <LinearGradient
-                  colors={['#FDC344', '#FDE490']}
-                  style={styles.chartCareerLinearGradient}
-                >
-                  <Text style={styles.careerTitleText}>
-                    Career
-                  </Text>
-                  <Text style={styles.careerRateText}>
-                    2.8
-                  </Text>
-                </LinearGradient>
+              <View style={styles.chartCareerViewWrapper}>
+                <View style={styles.chartCareerView}>
+                  <LinearGradient
+                    colors={['#FDC344', '#FDE490']}
+                    style={styles.chartCareerLinearGradient}
+                  />
+                </View>
+                <Text style={styles.careerTitleText}>Career</Text>
+                <Text style={styles.careerRateText}>2.8</Text>
               </View>
             </View>
           </View>
           <View style={[styles.chartInnerView, styles.chartInnerDownView]}>
             <Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus aliquam harum minima odit in excepturi, repellendus vero eveniet voluptatum, quaerat, ipsam asperiores neque inventore doloremque iusto quam corrupti labore blanditiis?
-          </Text>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Temporibus aliquam harum minima odit in excepturi, repellendus
+              vero eveniet voluptatum, quaerat, ipsam asperiores neque inventore
+              doloremque iusto quam corrupti labore blanditiis?
+            </Text>
           </View>
         </View>
       </View>
@@ -179,7 +160,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     backgroundColor: '#fff',
     borderRadius: 23,
-    shadowColor: "#3884ff",
+    shadowColor: '#3884ff',
     shadowOffset: {
       width: 0,
       height: 6,
@@ -192,6 +173,7 @@ const styles = StyleSheet.create({
   chartInnerTopView: {
     height: '20%',
     paddingTop: 10,
+    zIndex: 99,
   },
 
   chartInnerTopDateView: {
@@ -251,11 +233,23 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
 
-  chartHappinessView: {
+  chartHappinessViewWrapper: {
     position: 'absolute',
-    height: '78%',
+    height: '100%',
     flex: 0.3,
     width: '35%',
+    justifyContent: 'flex-end',
+  },
+
+  chartHappinessView: {
+    // position: 'absolute',
+    height: '78%',
+    // flex: 0.3,
+    // width: '35%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 23,
+    overflow: 'hidden',
   },
 
   chartHappinessLinearGradient: {
@@ -277,11 +271,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textTransform: 'uppercase',
     color: '#266BDA',
-    transform: [
-      { rotate: '-90deg' },
-      { translateX: 50 },
-      { translateY: -35 },
-    ],
+    transform: [{ rotate: '-90deg' }, { translateX: 50 }, { translateY: -35 }],
   },
 
   happinessRateText: {
@@ -329,8 +319,13 @@ const styles = StyleSheet.create({
   },
 
   chartHealthView: {
-    flex: 0.25,
-    height: '56%',
+    flex: 0.56,
+    // height: '56%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 
   chartHealthLinearGradient: {
@@ -352,16 +347,17 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textTransform: 'uppercase',
     color: '#D41888',
-    transform: [
-      { rotate: '-90deg' },
-      { translateX: 50 },
-      { translateY: -35 },
-    ],
+    transform: [{ rotate: '-90deg' }, { translateX: 50 }, { translateY: -35 }],
   },
 
   chartRomanceView: {
-    flex: 0.25,
+    flex: 1,
     height: '100%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 
   chartRomanceLinearGradient: {
@@ -373,9 +369,32 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
-  chartCareerView: {
+  chartHealthViewWrapper: {
     flex: 0.25,
-    height: '28%',
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartRomanceViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartCareerViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartCareerView: {
+    // height: '28%',
+    flex: 0.28,
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 23,
+    overflow: 'hidden',
   },
 
   romanceTitleText: {
@@ -388,11 +407,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textTransform: 'uppercase',
     color: '#28B6B6',
-    transform: [
-      { rotate: '-90deg' },
-      { translateX: 50 },
-      { translateY: -35 },
-    ],
+    transform: [{ rotate: '-90deg' }, { translateX: 50 }, { translateY: -35 }],
   },
 
   chartCareerLinearGradient: {
@@ -407,6 +422,7 @@ const styles = StyleSheet.create({
   careerTitleText: {
     width: 100,
     position: 'absolute',
+    zIndex: 9,
     left: 0,
     bottom: 0,
     fontFamily: 'roboto-300',
@@ -414,11 +430,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textTransform: 'uppercase',
     color: '#D7A22C',
-    transform: [
-      { rotate: '-90deg' },
-      { translateX: 50 },
-      { translateY: -35 },
-    ],
+    transform: [{ rotate: '-90deg' }, { translateX: 50 }, { translateY: -35 }],
   },
 
   dayBgText: {

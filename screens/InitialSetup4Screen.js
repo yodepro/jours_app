@@ -11,7 +11,7 @@ import {
   TextInput,
 } from 'react-native';
 
-export default class InitialSetup2Screen extends React.Component {
+export default class InitialSetup4Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ export default class InitialSetup2Screen extends React.Component {
   };
 }
 
-InitialSetup2Screen.navigationOptions = {
+InitialSetup4Screen.navigationOptions = {
   header: null,
 };
 
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'right',
+    textDecorationLine: 'underline',
   },
 
   mainInput: {

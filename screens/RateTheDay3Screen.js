@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     position: 'relative',
     top: -50,
+    zIndex: 5,
   },
 
 
@@ -171,6 +172,7 @@ const styles = StyleSheet.create({
     left: 15,
     top: 0,
     width: '100%',
+    zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {
@@ -200,6 +202,7 @@ const styles = StyleSheet.create({
 
   bottomNavigationView: {
     flex: 0.35,
+    zIndex: 1,
   },
 
   bottomNavigationInnerView: {
@@ -233,5 +236,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 15,
     left: 15,
+    textDecorationLine: 'underline',
   },
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 // import { ExpoConfigView } from '@expo/samples';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -72,14 +72,23 @@ export default class RateTheDay4Screen extends React.Component {
                 style={styles.bottomCancelText}
                 onPress={() => goBack()}
               >
-                Back
+                ⟵ Back
         </Text>
             </View>
 
-            <LinearGradient
+            {/* <LinearGradient
               colors={['#4e53ff', '#4e53ff']}
               style={styles.bottomLinearGradient}
+            > */}
+            <View
+            style={styles.doneView}
             >
+                                    <Image
+              source={
+                require('../assets/images/oct2.png')
+              }
+              style={styles.doneImage}
+            />
               <Text
                 style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
                 onPress={() => this.props.navigation.navigate('RateTheDay5')}
@@ -87,7 +96,8 @@ export default class RateTheDay4Screen extends React.Component {
                 Review{"\n"}
                 the day
           </Text>
-            </LinearGradient>
+          </View>
+            {/* </LinearGradient> */}
 
           </View>
         </View>
@@ -108,6 +118,20 @@ const styles = StyleSheet.create({
 
     position: 'relative',
     height: '100%',
+  },
+
+  doneView: {
+    // backgroundColor: 'red',
+    flex: 0.49,
+  },
+
+  doneImage: {
+    position: 'absolute',
+    zIndex: -1,
+    bottom: 0,
+    right: 0,
+    height: 180,
+    width: 180,
   },
 
   topView: {
@@ -161,6 +185,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     position: 'relative',
     top: -50,
+    zIndex: 5,
   },
 
   rateParamView: {
@@ -172,6 +197,7 @@ const styles = StyleSheet.create({
     left: 15,
     top: 0,
     width: '100%',
+    zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {
@@ -201,6 +227,7 @@ const styles = StyleSheet.create({
 
   bottomNavigationView: {
     flex: 0.35,
+    zIndex: 1,
   },
 
   bottomNavigationInnerView: {
@@ -234,5 +261,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 15,
     left: 15,
+    textDecorationLine: 'underline',
   },
 });

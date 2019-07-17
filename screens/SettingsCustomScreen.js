@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
+import ModalDropdown from 'react-native-modal-dropdown';
+
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -75,15 +77,23 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
-                <Picker
+                <ModalDropdown
+                  defaultValue='Other'
+                  textStyle={styles.mainInput}
+                  dropdownTextStyle={styles.mainInput}                 
+                  textStyle={styles.mainInput}
+                  dropdownStyle={{width:'85%', height:'auto'}}
+                  options={['Other', 'Male', 'Female']}
+                  
+                />
+                {/* <Picker
                   style={{ width: '100%' }}
-                  // style={styles.mainInput}
                   selectedValue={this.state.gender}
                   onValueChange={(gender) => this.setState({ gender: gender })}>
                   <Picker.Item label="Other" value="other" />
                   <Picker.Item label="Male" value="male" />
                   <Picker.Item label="Female" value="female" />
-                </Picker>
+                </Picker> */}
                 {/* <TextInput
                   style={styles.mainInput}
                   onChangeText={(gender) => this.setState({ gender })}
