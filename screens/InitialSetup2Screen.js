@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   topView: {
     width: '100%',
     flex: 0.75,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
 
   nextView: {

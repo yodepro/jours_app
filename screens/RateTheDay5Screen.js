@@ -60,6 +60,9 @@ export default class RateTheDay5Screen extends React.Component {
                     colors={['#3884FF', '#60D7FF']}
                     style={styles.chartHappinessLinearGradient}>
 
+                      <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
+
                   </LinearGradient>
 
                 </View>
@@ -70,6 +73,9 @@ export default class RateTheDay5Screen extends React.Component {
                   <LinearGradient
                     colors={['#F734A8', '#F78B79']}
                     style={styles.chartHealthLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
 
                   </LinearGradient>
                 </View>
@@ -82,6 +88,9 @@ export default class RateTheDay5Screen extends React.Component {
                     colors={['#4CD9D9', '#48E9C7']}
                     style={styles.chartRomanceLinearGradient}>
 
+                      <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
+
                   </LinearGradient>
                 </View>
                 <Text style={styles.romanceTitleText}>Romance</Text>
@@ -91,8 +100,12 @@ export default class RateTheDay5Screen extends React.Component {
                 <View style={styles.chartCareerView}>
                   <LinearGradient
                     colors={['#FDC344', '#FDE490']}
-                    style={styles.chartCareerLinearGradient}
-                  />
+                    style={styles.chartCareerLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
+
+                  </LinearGradient>
                 </View>
                 <Text style={styles.careerTitleText}>Career</Text>
                 <Text style={styles.careerRateText}>2.8</Text>
@@ -131,13 +144,7 @@ export default class RateTheDay5Screen extends React.Component {
                 style={styles.bottomCancelText}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
-                                      <Image
-              source={
-                require('../assets/images/times.png')
-              }
-              style={{marginRight:10}}
-            />
-                Cancel
+            &times; Cancel
               </Text>
             </View>
             <View
@@ -285,7 +292,7 @@ const styles = StyleSheet.create({
 
   chartHappinessView: {
     // position: 'absolute',
-    height: '78%',
+    height: '89%', // 50% min + 78% / 2
     // flex: 0.3,
     // width: '35%',
     borderTopLeftRadius: 23,
@@ -365,7 +372,7 @@ const styles = StyleSheet.create({
   },
 
     chartHealthView: {
-    flex: 0.56,
+      flex: 0.78, // 0.5 min + 0.56 / 2
     // height: '56%',
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
@@ -441,7 +448,7 @@ const styles = StyleSheet.create({
 
   chartCareerView: {
     // height: '28%',
-    flex: 0.28,
+    flex: 0.64, // 0.5 min + 0.28 / 2
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
     borderBottomLeftRadius: 0,
@@ -534,6 +541,8 @@ const styles = StyleSheet.create({
   },
 
   bottomNavigationView: {
+    position: 'relative',
+    zIndex: 1,
     flex: 0.35,
   },
 
@@ -569,5 +578,39 @@ const styles = StyleSheet.create({
     bottom: 70,
     right: 45,
     textDecorationLine: 'underline',
+  },
+
+  gradientCircleSm: {
+    width: 4,
+    height: 4,
+    position: 'absolute',
+    left: 15,
+    top: 10,
+    borderRadius: 2,
+  },
+
+  gradientCircleBig: {
+    width: 9,
+    height: 9,
+    position: 'absolute',
+    left: 8,
+    top: 15,
+    borderRadius: 4.5,
+  },
+
+  happinessCircle: {
+    backgroundColor: '#BDEEFF',
+  },
+
+  healthCircle: {
+    backgroundColor: '#FFB9B2',
+  },
+
+  romanceCircle: {
+    backgroundColor: '#A2FFEC',
+  },
+
+  careerCircle: {
+    backgroundColor: '#FFF8BE',
   },
 });

@@ -50,6 +50,10 @@ export default class ViewDayScreen extends React.Component {
                     <Text style={styles.happinessTitleText}>
                       Happiness
                     </Text>
+
+                    <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
+                    
                   </LinearGradient>
                 </View>
 
@@ -64,6 +68,10 @@ export default class ViewDayScreen extends React.Component {
                     <Text style={styles.healthRateText}>
                       5.6
                     </Text>
+
+                    <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
+
                   </LinearGradient>
                 </View>
                 <View style={styles.chartRomanceView}>
@@ -78,6 +86,10 @@ export default class ViewDayScreen extends React.Component {
                     <Text style={styles.romanceRateText}>
                       10
                     </Text>
+
+                    <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
+
                   </LinearGradient>
                 </View>
 
@@ -92,6 +104,10 @@ export default class ViewDayScreen extends React.Component {
                     <Text style={styles.careerRateText}>
                       2.8
                     </Text>
+
+                    <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
+
                   </LinearGradient>
                 </View>
               </View>
@@ -211,6 +227,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: '#747693',
+    textDecorationLine: 'underline',
   },
 
   chartInnerBottomView: {
@@ -229,7 +246,7 @@ const styles = StyleSheet.create({
 
   chartHappinessView: {
     position: 'absolute',
-    height: '78%',
+    height: '89%', // 50% min + 78% / 2
     flex: 0.3,
     width: '35%',
   },
@@ -306,7 +323,7 @@ const styles = StyleSheet.create({
 
   chartHealthView: {
     flex: 0.25,
-    height: '56%',
+    height: '78%',
   },
 
   chartHealthLinearGradient: {
@@ -351,7 +368,7 @@ const styles = StyleSheet.create({
 
   chartCareerView: {
     flex: 0.25,
-    height: '28%',
+    height: '64%',
   },
 
   romanceTitleText: {
@@ -471,5 +488,39 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 15,
     left: 15,
+  },
+
+  gradientCircleSm: {
+    width: 4,
+    height: 4,
+    position: 'absolute',
+    left: 15,
+    top: 10,
+    borderRadius: 2,
+  },
+
+  gradientCircleBig: {
+    width: 9,
+    height: 9,
+    position: 'absolute',
+    left: 8,
+    top: 15,
+    borderRadius: 4.5,
+  },
+
+  happinessCircle: {
+    backgroundColor: '#BDEEFF',
+  },
+
+  healthCircle: {
+    backgroundColor: '#FFB9B2',
+  },
+
+  romanceCircle: {
+    backgroundColor: '#A2FFEC',
+  },
+
+  careerCircle: {
+    backgroundColor: '#FFF8BE',
   },
 });

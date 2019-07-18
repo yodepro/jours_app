@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { 
+  Image,
+  StyleSheet, 
+  Text, 
+  View 
+} from 'react-native';
 import { LinearGradient } from 'expo';
 
 export default class JoursHomeScreen extends React.Component {
@@ -12,7 +17,15 @@ export default class JoursHomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.topInfoView}>
+        <View style={styles.topInfoDateView}>
           <Text style={styles.dayTitleText}>May, 12th</Text>
+          <Image
+              source={
+                require('../assets/images/export-icon.png')
+              }
+              style={styles.exportImage}
+            />
+          </View>
           <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
             The journey is a series of steps, Jake
           </Text>
@@ -25,7 +38,7 @@ export default class JoursHomeScreen extends React.Component {
                 <Text style={styles.chartInnerTopDateMiddleText}>
                   May, 12th
                 </Text>
-                <Text style={styles.chartInnerTopDateLeftText}>⟶</Text>
+                <Text style={styles.chartInnerTopDateRightText}>⟶</Text>
               </View>
               <View style={styles.chartInnerBottomDateView}>
                 <View style={styles.chartInnerBottomDateLeftView}>
@@ -50,6 +63,9 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#3884FF', '#60D7FF']}
                     style={styles.chartHappinessLinearGradient}>
 
+                      <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
+
                   </LinearGradient>
 
                 </View>
@@ -60,6 +76,9 @@ export default class JoursHomeScreen extends React.Component {
                   <LinearGradient
                     colors={['#F734A8', '#F78B79']}
                     style={styles.chartHealthLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
 
                   </LinearGradient>
                 </View>
@@ -72,6 +91,9 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#4CD9D9', '#48E9C7']}
                     style={styles.chartRomanceLinearGradient}>
 
+                      <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
+
                   </LinearGradient>
                 </View>
                 <Text style={styles.romanceTitleText}>Romance</Text>
@@ -82,7 +104,12 @@ export default class JoursHomeScreen extends React.Component {
                   <LinearGradient
                     colors={['#FDC344', '#FDE490']}
                     style={styles.chartCareerLinearGradient}
-                  />
+                  >
+
+                      <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
+
+                  </LinearGradient>
                 </View>
                 <Text style={styles.careerTitleText}>Career</Text>
                 <Text style={styles.careerRateText}>2.8</Text>
@@ -125,6 +152,23 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
+  topInfoDateView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  chartInnerTopDateLeftText: {
+    fontSize: 20,
+    color: '#8a8ba4',
+    marginTop: -8,
+  },
+
+  chartInnerTopDateRightText: {
+    fontSize: 20,
+    color: '#cecdd9',
+    marginTop: -8,
+  },
+
   bottomView: {
     flex: 0.3,
   },
@@ -142,11 +186,11 @@ const styles = StyleSheet.create({
   },
 
   chartInnerTopDateMiddleText: {
-    fontSize: 16,
-    lineHeight: 19,
+    // fontSize: 16,
+    // lineHeight: 19,
     textAlign: 'center',
     color: '#C5C4D2',
-    paddingTop: 5,
+    // paddingTop: 5,
   },
 
   chartWrapperView: {
@@ -171,9 +215,10 @@ const styles = StyleSheet.create({
   },
 
   chartInnerTopView: {
-    height: '20%',
+    height: '30%',
     paddingTop: 10,
     zIndex: 99,
+    // backgroundColor: 'red',
   },
 
   chartInnerTopDateView: {
@@ -187,17 +232,19 @@ const styles = StyleSheet.create({
   chartInnerBottomDateView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 5,
+    // marginTop: 5,
+    // backgroundColor: 'yellow',
   },
 
   chartInnerBottomDateRightView: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    // backgroundColor: 'green',
   },
 
   chartInnerBottomDateLeftText: {
-    fontSize: 16,
-    lineHeight: 19,
+    // fontSize: 16,
+    // lineHeight: 19,
     color: '#C5C4D2',
     paddingLeft: 15,
   },
@@ -205,17 +252,19 @@ const styles = StyleSheet.create({
   chartInnerTopText: {
     fontFamily: 'roboto-700',
     textAlign: 'right',
-    fontSize: 16,
-    lineHeight: 19,
+    // fontSize: 16,
+    // lineHeight: 19,
     color: '#747693',
     paddingRight: 15,
+    textDecorationLine: 'underline',
   },
 
   chartInnerBottomView: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    height: '80%',
+    height: '70%',
     position: 'relative',
+    // backgroundColor: 'blue',
   },
 
   chartInnerUpperView: {
@@ -243,7 +292,7 @@ const styles = StyleSheet.create({
 
   chartHappinessView: {
     // position: 'absolute',
-    height: '78%',
+    height: '89%', // 50% min + 78% / 2
     // flex: 0.3,
     // width: '35%',
     borderTopLeftRadius: 23,
@@ -319,7 +368,7 @@ const styles = StyleSheet.create({
   },
 
   chartHealthView: {
-    flex: 0.56,
+    flex: 0.78, // 0.5 min + 0.56 / 2
     // height: '56%',
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
@@ -389,7 +438,7 @@ const styles = StyleSheet.create({
 
   chartCareerView: {
     // height: '28%',
-    flex: 0.28,
+    flex: 0.64, // 0.5 min + 0.28 / 2
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
     borderBottomLeftRadius: 0,
@@ -458,5 +507,39 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 15,
     left: 15,
+  },
+
+  gradientCircleSm: {
+    width: 4,
+    height: 4,
+    position: 'absolute',
+    left: 15,
+    top: 10,
+    borderRadius: 2,
+  },
+
+  gradientCircleBig: {
+    width: 9,
+    height: 9,
+    position: 'absolute',
+    left: 8,
+    top: 15,
+    borderRadius: 4.5,
+  },
+
+  happinessCircle: {
+    backgroundColor: '#BDEEFF',
+  },
+
+  healthCircle: {
+    backgroundColor: '#FFB9B2',
+  },
+
+  romanceCircle: {
+    backgroundColor: '#A2FFEC',
+  },
+
+  careerCircle: {
+    backgroundColor: '#FFF8BE',
   },
 });

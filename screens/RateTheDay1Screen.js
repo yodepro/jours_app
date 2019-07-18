@@ -41,6 +41,8 @@ export default class RateTheDay1Screen extends React.Component {
 
         </View>
 
+
+
         <View style={styles.rateParamViewWrapper}>
           <View style={styles.rateParamView}>
             <Text style={styles.rateParamNumber}>
@@ -49,14 +51,17 @@ export default class RateTheDay1Screen extends React.Component {
             <Text style={styles.rateParamText}>
               super great
           </Text>
-
-            <Slider
+          
+          <Slider
               style={{ width: '100%', height: 40 }}
               minimumValue={0}
-              maximumValue={1}
+              maximumValue={10}
+              step={1}
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
+
+
           </View>
         </View>
 
@@ -161,9 +166,11 @@ const styles = StyleSheet.create({
   rateParamViewWrapper: {
     paddingLeft: 15,
     paddingRight: 15,
-    position: 'relative',
-    top: -50,
+    position: 'absolute',
+    top: '45%',
     zIndex: 5,
+    // backgroundColor: 'red',
+    width: '100%',
   },
 
   rateParamView: {
@@ -171,11 +178,11 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     paddingTop: 40,
     paddingBottom: 20,
-    position: 'absolute',
-    left: 15,
-    top: 0,
+    position: 'relative',
+    // left: 15,
+    // top: 0,
     width: '100%',
-    zIndex: 5,
+    // zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {
@@ -204,6 +211,7 @@ const styles = StyleSheet.create({
   },
 
   bottomNavigationView: {
+    position: 'relative',
     zIndex: 1,
     flex: 0.35,
   },

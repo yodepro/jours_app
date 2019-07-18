@@ -52,7 +52,8 @@ export default class RateTheDay3Screen extends React.Component {
             <Slider
               style={{ width: '100%', height: 40 }}
               minimumValue={0}
-              maximumValue={1}
+              maximumValue={10}
+              step={1}
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
@@ -157,22 +158,23 @@ const styles = StyleSheet.create({
   rateParamViewWrapper: {
     paddingLeft: 15,
     paddingRight: 15,
-    position: 'relative',
-    top: -50,
+    position: 'absolute',
+    top: '45%',
     zIndex: 5,
+    // backgroundColor: 'red',
+    width: '100%',
   },
-
 
   rateParamView: {
     backgroundColor: '#fff',
     borderRadius: 23,
     paddingTop: 40,
     paddingBottom: 20,
-    position: 'absolute',
-    left: 15,
-    top: 0,
+    position: 'relative',
+    // left: 15,
+    // top: 0,
     width: '100%',
-    zIndex: 5,
+    // zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {
@@ -201,6 +203,7 @@ const styles = StyleSheet.create({
   },
 
   bottomNavigationView: {
+    position: 'relative',
     flex: 0.35,
     zIndex: 1,
   },

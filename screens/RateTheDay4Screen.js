@@ -54,7 +54,8 @@ export default class RateTheDay4Screen extends React.Component {
             <Slider
               style={{ width: '100%', height: 40 }}
               minimumValue={0}
-              maximumValue={1}
+              maximumValue={10}
+              step={1}
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
@@ -67,12 +68,18 @@ export default class RateTheDay4Screen extends React.Component {
 
           <View style={styles.bottomNavigationInnerView}>
 
-            <View style={styles.bottomCancelView}>
+          <View style={styles.bottomCancelView}>
               <Text
-                style={styles.bottomCancelText}
+                style={styles.bottomCancelTextLeft}
                 onPress={() => goBack()}
               >
-                ⟵ Back
+                ⟵
+        </Text>
+              <Text
+                style={styles.bottomCancelTextRight}
+                onPress={() => goBack()}
+              >
+                Back
         </Text>
             </View>
 
@@ -183,9 +190,11 @@ const styles = StyleSheet.create({
   rateParamViewWrapper: {
     paddingLeft: 15,
     paddingRight: 15,
-    position: 'relative',
-    top: -50,
+    position: 'absolute',
+    top: '45%',
     zIndex: 5,
+    // backgroundColor: 'red',
+    width: '100%',
   },
 
   rateParamView: {
@@ -193,11 +202,11 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     paddingTop: 40,
     paddingBottom: 20,
-    position: 'absolute',
-    left: 15,
-    top: 0,
+    position: 'relative',
+    // left: 15,
+    // top: 0,
     width: '100%',
-    zIndex: 5,
+    // zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {
@@ -226,6 +235,7 @@ const styles = StyleSheet.create({
   },
 
   bottomNavigationView: {
+    position: 'relative',
     flex: 0.35,
     zIndex: 1,
   },
@@ -240,14 +250,28 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
-  bottomCancelText: {
+  bottomCancelTextLeft: {
+    fontFamily: 'roboto-300',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#C5C4D2',
+    position: 'absolute',
+    bottom: 32,
+    left: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  bottomCancelTextRight: {
     fontFamily: 'roboto-300',
     fontSize: 16,
     lineHeight: 19,
     color: '#C5C4D2',
     position: 'absolute',
     bottom: 30,
-    left: 15,
+    left: 35,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   bottomLinearGradient: {
@@ -262,5 +286,6 @@ const styles = StyleSheet.create({
     bottom: 15,
     left: 15,
     textDecorationLine: 'underline',
+    zIndex: 2,
   },
 });

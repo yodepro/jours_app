@@ -79,26 +79,11 @@ export default class SetingsCustomScreen extends React.Component {
                 </Text>
                 <ModalDropdown
                   defaultValue='Other'
-                  textStyle={styles.mainInput}
                   dropdownTextStyle={styles.mainInput}                 
                   textStyle={styles.mainInput}
                   dropdownStyle={{width:'85%', height:'auto'}}
-                  options={['Other', 'Male', 'Female']}
-                  
+                  options={['Other', 'Male', 'Female']}                  
                 />
-                {/* <Picker
-                  style={{ width: '100%' }}
-                  selectedValue={this.state.gender}
-                  onValueChange={(gender) => this.setState({ gender: gender })}>
-                  <Picker.Item label="Other" value="other" />
-                  <Picker.Item label="Male" value="male" />
-                  <Picker.Item label="Female" value="female" />
-                </Picker> */}
-                {/* <TextInput
-                  style={styles.mainInput}
-                  onChangeText={(gender) => this.setState({ gender })}
-                  value={this.state.gender}
-                /> */}
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>

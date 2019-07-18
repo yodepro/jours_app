@@ -8,19 +8,21 @@ import {
   // TouchableOpacity,
   ImageBackground,
   View,
-  TextInput,
-  Picker
+  // TextInput,
+  // Picker
 } from 'react-native';
+
+import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class InitialSetup3Screen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: 'Jake',
-      gender: 'Other',
-      birthdate: '17.03.96',
-      reminder: '9:30',
-    };
+    // this.state = {
+    //   name: 'Jake',
+    //   gender: 'Other',
+    //   birthdate: '17.03.96',
+    //   reminder: '9:30',
+    // };
   }
 
   render() {
@@ -46,15 +48,20 @@ export default class InitialSetup3Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 What is your gender?
               </Text>
-              <Picker
-                style={{ width: '100%' }}
-                // style={styles.mainInput}
-                selectedValue={this.state.gender}
-                onValueChange={(gender) => this.setState({ gender: gender })}>
-                <Picker.Item label="Other" value="other" />
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="female" />
-              </Picker>
+              <ModalDropdown
+                defaultValue='Other'
+                options={['Other', 'Male', 'Female']}
+                dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
+                textStyle={styles.mainInput}
+                dropdownStyle={{width:'90%'}}
+              />
+                {/* <ModalDropdown
+                  defaultValue='Other'
+                  dropdownTextStyle={styles.mainInput}                 
+                  textStyle={styles.mainInput}
+                  dropdownStyle={{width:'85%', height:'auto'}}
+                  options={['Other', 'Male', 'Female']}                  
+                /> */}
 
             </View>
           </ImageBackground>
@@ -78,7 +85,7 @@ const styles = StyleSheet.create({
   topView: {
     width: '100%',
     flex: 0.75,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
 
   nextView: {
@@ -130,4 +137,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
   },
+
+  mainInputDropdown: {
+    color: '#747693',
+  },  
 });
