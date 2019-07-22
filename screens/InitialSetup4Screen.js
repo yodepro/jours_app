@@ -4,8 +4,9 @@ import {
   Text,
   ImageBackground,
   View,
-  TextInput,
+  Image,
 } from 'react-native';
+import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class InitialSetup4Screen extends React.Component {
   constructor(props) {
@@ -33,19 +34,36 @@ export default class InitialSetup4Screen extends React.Component {
                 style={[styles.dayBgText, styles.dayBgTextBold]}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
-                Finish
+                check >
               </Text>
             </View>
 
             <View style={styles.topInnerView}>
               <Text style={styles.dayBgText}>
-                What time should  remind you of a rating?
+              I advise you to activate the daily reminder so you would never forget to rate your day
               </Text>
-              <TextInput
+              <View style={styles.topInnerInnerView}>
+              <ModalDropdown
+                style={styles.modalDropdownStyle}
+                defaultValue="Sure, let's do it" 
+                options={["Sure, let's do it" , "I'm fine, thanks"]}
+                dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
+                textStyle={styles.mainInput}
+                dropdownStyle={{width:'60%'}}
+              />
+                                        <Image
+                            source={
+                              require('../assets/images/arrow-down-2.png')
+                            }
+                            style={styles.arrowImage}
+                          />
+
+            </View>
+              {/* <TextInput
                 style={styles.mainInput}
                 onChangeText={(reminder) => this.setState({ reminder })}
                 value={this.state.reminder}
-              />
+              /> */}
             </View>
           </ImageBackground>
         </View>
@@ -65,6 +83,22 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
+  arrowImage: {
+    position: 'absolute',
+    right: 0,
+    bottom: 11,
+    transform: [
+      {scale: 0.7}
+    ],
+    zIndex: 999,
+  },
+
+  modalDropdownStyle: {
+    position: 'relative',
+    zIndex: 1,
+    // backgroundColor: 'green',
+  },
+
   topView: {
     width: '100%',
     flex: 0.75,
@@ -72,8 +106,16 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 30,
+    paddingTop: 45,
     paddingRight: 15,
+  },
+
+  topInnerInnerView: {
+    position: 'relative',
+    width: '60%',
+    // backgroundColor: 'red',
+    // paddingLeft: 20,
+    // paddingRight: 20,
   },
 
   topInnerView: {
@@ -81,9 +123,11 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '50%',
+    top: '35%',
     left: 0,
     right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   backgroundImage: {
@@ -119,6 +163,13 @@ const styles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
-    textAlign: 'center',
+    textAlign: 'left',
   },
+
+  mainInputDropdown: {
+    color: '#747693',
+    textAlign: 'left',
+    width: '60%',
+    fontSize: 20,
+  },  
 });

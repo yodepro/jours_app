@@ -12,10 +12,10 @@ export default class Intro4Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 0.55, }}></View>
+        <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-            With our smart Lookback you’ll be able to analyse your ups and downs and will have a tool to control emotions
+          With our smart Lookback you'll be able to analyse your ups and downs
           </Text>
         </View>
         <View style={styles.bottomNavigationView}>
@@ -24,7 +24,7 @@ export default class Intro4Screen extends React.Component {
               style={styles.dayBgTextBold}
               onPress={() => this.props.navigation.navigate('Home')}
             >
-              Let's go!
+              got it! thanks! >
             </Text>
           </View>
         </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.35,
+    flex: 0.55,
   },
 
   mainText: {
@@ -83,5 +83,6 @@ const styles = StyleSheet.create({
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
+    paddingBottom: 20,
   },
 });

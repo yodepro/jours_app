@@ -12,10 +12,10 @@ export default class Intro3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 0.55, }}></View>
+        <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-            Leave comments and for every day of tracking and share your jorney with your friends if you’d like to
+          Leave comments for every day, and share your journey with your friends if you feel like it
         </Text>
         </View>
         <View style={styles.bottomNavigationView}>
@@ -29,7 +29,7 @@ export default class Intro3Screen extends React.Component {
               style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
               onPress={() => this.props.navigation.navigate('Intro4')}
             >
-              Next
+              neat! >
             </Text>
           </View>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.35,
+    flex: 0.55,
   },
 
   mainText: {
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   bottomNavigationView: {
     flexDirection: 'row',
     flex: 0.1,
+    paddingBottom: 20,
   },
 
   bottomCancelView: {

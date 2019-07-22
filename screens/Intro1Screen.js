@@ -12,7 +12,7 @@ export default class Intro1Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 0.55, }}></View>
+        <View style={{ flex: 0.35 }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             One simple app to know yourself better and to be happy
@@ -29,7 +29,7 @@ export default class Intro1Screen extends React.Component {
               style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
               onPress={() => this.props.navigation.navigate('Intro2')}
             >
-              Next
+              continue >
             </Text>
           </View>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.35,
+    flex: 0.55,
   },
 
   mainText: {
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   bottomNavigationView: {
     flexDirection: 'row',
     flex: 0.1,
+    paddingBottom: 20,
   },
 
   bottomCancelView: {

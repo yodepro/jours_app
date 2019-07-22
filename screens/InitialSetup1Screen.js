@@ -37,19 +37,22 @@ export default class InitialSetup1Screen extends React.Component {
                 style={[styles.dayBgText, styles.dayBgTextBold]}
                 onPress={() => this.props.navigation.navigate('InitialSetup2')}
               >
-                Next
+                ok
               </Text>
             </View>
 
             <View style={styles.topInnerView}>
               <Text style={styles.dayBgText}>
-                What is your name?
+              It's awesome that you’re with us! Looks like you're ready to
+take control of your emotions
+
+But first let’s set you up with 3 simple questions
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={styles.mainInput}
                 onChangeText={(name) => this.setState({ name })}
                 value={this.state.name}
-              />
+              /> */}
             </View>
           </ImageBackground>
         </View>
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 30,
+    paddingTop: 45,
     paddingRight: 15,
   },
 
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '50%',
+    top: '20%',
     left: 0,
     right: 0,
   },

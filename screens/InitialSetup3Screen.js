@@ -40,20 +40,21 @@ export default class InitialSetup3Screen extends React.Component {
                 style={[styles.dayBgText, styles.dayBgTextBold]}
                 onPress={() => this.props.navigation.navigate('InitialSetup4')}
               >
-                Next
+                next >
               </Text>
             </View>
 
             <View style={styles.topInnerView}>
             
               <Text style={styles.dayBgText}>
-                What is your gender?
+              Would you like to 
+sync data with your iCloud? (recommended)
               </Text>
               <View style={styles.topInnerInnerView}>
               <ModalDropdown
                 style={styles.modalDropdownStyle}
-                defaultValue='Other'
-                options={['Other', 'Male', 'Female']}
+                defaultValue='Yes, please'
+                options={['Yes, please', 'No, thanks']}
                 dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
                 textStyle={styles.mainInput}
                 dropdownStyle={{width:'60%'}}
@@ -64,13 +65,6 @@ export default class InitialSetup3Screen extends React.Component {
                             }
                             style={styles.arrowImage}
                           />
-                {/* <ModalDropdown
-                  defaultValue='Other'
-                  dropdownTextStyle={styles.mainInput}                 
-                  textStyle={styles.mainInput}
-                  dropdownStyle={{width:'85%', height:'auto'}}
-                  options={['Other', 'Male', 'Female']}                  
-                /> */}
 
             </View>
             </View>
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 30,
+    paddingTop: 45,
     paddingRight: 15,
   },
 
@@ -179,5 +173,6 @@ const styles = StyleSheet.create({
     color: '#747693',
     textAlign: 'left',
     width: '60%',
+    fontSize: 20,
   },  
 });

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   dayTitleView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 0.1,
+    flex: 0.135,
     paddingLeft: 15,
     paddingRight: 15,
   },

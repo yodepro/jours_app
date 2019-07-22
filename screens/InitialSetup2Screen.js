@@ -8,6 +8,7 @@ import {
   // TouchableOpacity,
   ImageBackground,
   View,
+  TextInput,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -15,7 +16,7 @@ export default class InitialSetup2Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Jake',
+      name: 'Feel free to type it in',
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',
@@ -52,20 +53,26 @@ export default class InitialSetup2Screen extends React.Component {
                 style={[styles.dayBgText, styles.dayBgTextBold]}
                 onPress={() => this.props.navigation.navigate('InitialSetup3')}
               >
-                Next
+                next >
               </Text>
             </View>
 
             <View style={styles.topInnerView}>
               <Text style={styles.dayBgText}>
-                What's you birth date?
+                Hello, I'm Jours!
+                What is your name?
               </Text>
-              <Text
+                            <TextInput
+                style={styles.mainInput}
+                onChangeText={(name) => this.setState({ name })}
+                value={this.state.name}
+              />
+              {/* <Text
                 style={styles.mainInput}
                 onPress={this.showDateTimePicker}
               >
                 {this.state.birthdate}
-              </Text>
+              </Text> */}
               <DateTimePicker
                 isVisible={this.state.isDateTimePickerVisible}
                 onConfirm={this.handleDatePicked}
@@ -97,7 +104,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 30,
+    paddingTop: 45,
     paddingRight: 15,
   },
 

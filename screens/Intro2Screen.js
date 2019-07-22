@@ -12,10 +12,10 @@ export default class Intro2Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 0.55, }}></View>
+        <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-          Just track your feelings daily, and soon you’ll be able to take an honest look on what really matters and makes you feel good
+          A new generation personal journal: evaluate your every day, and soon you’ll be able to take a better look on what really matters and makes you feel good
         </Text>
         </View>
         <View style={styles.bottomNavigationView}>
@@ -29,7 +29,7 @@ export default class Intro2Screen extends React.Component {
               style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
               onPress={() => this.props.navigation.navigate('Intro3')}
             >
-              Next
+              oh! interesting! >
             </Text>
           </View>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.35,
+    flex: 0.55,
   },
 
   mainText: {
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   bottomNavigationView: {
     flexDirection: 'row',
     flex: 0.1,
+    paddingBottom: 20,
   },
 
   bottomCancelView: {

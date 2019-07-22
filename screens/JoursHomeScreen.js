@@ -6,6 +6,7 @@ import {
   View 
 } from 'react-native';
 import { LinearGradient } from 'expo';
+import { isIphoneX } from '../is-iphone-x'
 
 export default class JoursHomeScreen extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ export default class JoursHomeScreen extends React.Component {
   }
 
   render() {
+   
+
     return (
       <View style={styles.container}>
         <View style={styles.topInfoView}>
@@ -134,7 +137,7 @@ JoursHomeScreen.navigationOptions = {
   header: null,
   tabBarVisible: true,
 };
-
+const mainPaddigTop = isIphoneX() ? 45 : 30;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
     height: '100%',
     paddingLeft: 15,
     paddingRight: 15,
-    paddingTop: 30,
+    paddingTop: mainPaddigTop,
   },
 
   topView: {

@@ -325,6 +325,7 @@ const styles = StyleSheet.create({
   mainSettingsItemView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   mainSettingsItemLeftView: {

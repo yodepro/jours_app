@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   Platform,
   // ScrollView,
   StyleSheet,
@@ -24,9 +24,21 @@ export default class ViewDayScreen extends React.Component {
 
         <View style={styles.topView}>
 
-          <Text style={styles.dayTitleText}>
+        <View style={styles.dayTitleView}>
+        <Text style={styles.dayTitleText}>
+          May, 12th
+          </Text>
+          <Image
+              source={
+                require('../assets/images/export-icon.png')
+              }
+              style={styles.exportImage}
+            />
+      </View>
+
+          {/* <Text style={styles.dayTitleText}>
             May, 12th
-        </Text>
+        </Text> */}
 
         <View style={styles.chartWrapperView}>
             <View style={styles.chartInnerView}>
@@ -271,6 +283,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 
+  dayTitleView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    // flex: 0.1,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+
   chartHappinessViewWrapper: {
     position: 'absolute',
     height: '100%',
@@ -338,8 +358,8 @@ const styles = StyleSheet.create({
     fontSize: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
-    paddingLeft: 15,
-    flex: 0.18,
+    // paddingLeft: 15,
+    // flex: 0.18,
   },
 
   chartWrapperView: {
@@ -623,6 +643,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 13,
+    alignItems: 'center',
   },
 
   dayBgText: {
