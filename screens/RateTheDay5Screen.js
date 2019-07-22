@@ -428,7 +428,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
-    chartHealthViewWrapper: {
+  chartHealthViewWrapper: {
     flex: 0.25,
     height: '100%',
     justifyContent: 'flex-end',
@@ -440,7 +440,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 
-    chartCareerViewWrapper: {
+  chartCareerViewWrapper: {
     flex: 0.25,
     height: '100%',
     justifyContent: 'flex-end',

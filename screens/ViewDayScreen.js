@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   // Image,
-  // Platform,
+  Platform,
   // ScrollView,
   StyleSheet,
   Text,
@@ -18,6 +18,7 @@ export default class ViewDayScreen extends React.Component {
   }
 
   render() {
+    const { goBack } = this.props.navigation;
     return (
       <View style={styles.container}>
 
@@ -27,7 +28,93 @@ export default class ViewDayScreen extends React.Component {
             May, 12th
         </Text>
 
-          <View style={styles.chartWrapperView}>
+        <View style={styles.chartWrapperView}>
+            <View style={styles.chartInnerView}>
+              <View style={styles.chartInnerTopView}>
+                <Text style={styles.chartInnerTopText}>
+                  Edit
+                </Text>
+              </View>
+
+
+
+
+              
+
+              <View style={styles.chartInnerBottomView}>
+              <View style={styles.chartBlankView}>
+                <Text style={styles.happinessRateText}>7.8</Text>
+              </View>
+              <View style={styles.chartHappinessViewWrapper}>
+                <View style={styles.chartHappinessView}>
+                  <LinearGradient
+                    colors={['#3884FF', '#60D7FF']}
+                    style={styles.chartHappinessLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
+
+                  </LinearGradient>
+
+                </View>
+                <Text style={styles.happinessTitleText}>Happiness</Text>
+              </View>
+
+
+
+
+              <View style={styles.chartHealthViewWrapper}>
+                <View style={styles.chartHealthView}>
+                  <LinearGradient
+                    colors={['#F734A8', '#F78B79']}
+                    style={styles.chartHealthLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
+
+                  </LinearGradient>
+                </View>
+                <Text style={styles.healthTitleText}>Health</Text>
+                <Text style={styles.healthRateText}>5.6</Text>
+              </View>
+              <View style={styles.chartRomanceViewWrapper}>
+                <View style={styles.chartRomanceView}>
+                  <LinearGradient
+                    colors={['#4CD9D9', '#48E9C7']}
+                    style={styles.chartRomanceLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
+
+                  </LinearGradient>
+                </View>
+                <Text style={styles.romanceTitleText}>Romance</Text>
+                <Text style={styles.romanceRateText}>10</Text>
+              </View>
+              <View style={styles.chartCareerViewWrapper}>
+                <View style={styles.chartCareerView}>
+                  <LinearGradient
+                    colors={['#FDC344', '#FDE490']}
+                    style={styles.chartCareerLinearGradient}>
+
+                      <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
+                      <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
+
+                  </LinearGradient>
+                </View>
+                <Text style={styles.careerTitleText}>Career</Text>
+                <Text style={styles.careerRateText}>2.8</Text>
+              </View>
+            </View>
+
+
+
+
+
+            </View>
+          </View>
+
+          {/* <View style={styles.chartWrapperView}>
             <View style={styles.chartInnerView}>
               <View style={styles.chartInnerTopView}>
                 <Text style={styles.chartInnerTopText}>
@@ -112,7 +199,7 @@ export default class ViewDayScreen extends React.Component {
                 </View>
               </View>
             </View>
-          </View>
+          </View> */}
 
         </View>
 
@@ -133,13 +220,27 @@ export default class ViewDayScreen extends React.Component {
         <View style={styles.bottomNavigationView}>
 
           <View style={styles.bottomNavigationInnerView}>
+          <View style={styles.bottomCancelView}>
+              <Text
+                style={styles.bottomCancelTextLeft}
+                onPress={() => goBack()}
+              >
+                ⟵
+        </Text>
+              <Text
+                style={styles.bottomCancelTextRight}
+                onPress={() => goBack()}
+              >
+                Back
+        </Text>
+            </View>
 
-            <View style={styles.bottomCancelView}>
+            {/* <View style={styles.bottomCancelView}>
               <Text style={styles.bottomCancelText}>
                 Cancel
               </Text>
-            </View>
-            <LinearGradient
+            </View> */}
+            {/* <LinearGradient
               colors={['#4e53ff', '#4e53ff']}
               style={styles.bottomLinearGradient}
             >
@@ -149,7 +250,7 @@ export default class ViewDayScreen extends React.Component {
               >
                 Done
           </Text>
-            </LinearGradient>
+            </LinearGradient> */}
           </View>
         </View>
       </View>
@@ -168,6 +269,57 @@ const styles = StyleSheet.create({
 
     position: 'relative',
     height: '100%',
+  },
+
+  chartHappinessViewWrapper: {
+    position: 'absolute',
+    height: '100%',
+    flex: 0.3,
+    width: '35%',
+    justifyContent: 'flex-end'
+  },
+
+  chartHealthViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartRomanceViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  chartCareerViewWrapper: {
+    flex: 0.25,
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  bottomCancelTextLeft: {
+    fontFamily: 'roboto-300',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#C5C4D2',
+    position: 'absolute',    
+    bottom: Platform.OS === 'ios' ? 28 : 32,
+    left: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  bottomCancelTextRight: {
+    fontFamily: 'roboto-300',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#C5C4D2',
+    position: 'absolute',
+    bottom: 30,
+    left: 35,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: Platform.OS === 'ios' ? 10 : 0,
   },
 
   topView: {
@@ -245,10 +397,14 @@ const styles = StyleSheet.create({
   },
 
   chartHappinessView: {
-    position: 'absolute',
+    // position: 'absolute',
     height: '89%', // 50% min + 78% / 2
-    flex: 0.3,
-    width: '35%',
+    // flex: 0.3,
+    // width: '35%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 23,
+    overflow: 'hidden',
   },
 
   chartHappinessLinearGradient: {
@@ -321,10 +477,20 @@ const styles = StyleSheet.create({
     right: 5,
   },
 
+  // chartHealthView: {
+  //   flex: 0.25,
+  //   height: '78%',
+  // },
+
   chartHealthView: {
-    flex: 0.25,
-    height: '78%',
-  },
+    flex: 0.78, // 0.5 min + 0.56 / 2
+  // height: '56%',
+  borderTopLeftRadius: 23,
+  borderTopRightRadius: 23,
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+  overflow: 'hidden',
+},
 
   chartHealthLinearGradient: {
     height: '100%',
@@ -352,9 +518,20 @@ const styles = StyleSheet.create({
     ],
   },
 
+  // chartRomanceView: {
+  //   flex: 0.25,
+  //   height: '100%',
+  // },
+
+
   chartRomanceView: {
-    flex: 0.25,
+    flex: 1,
     height: '100%',
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    overflow: 'hidden',
   },
 
   chartRomanceLinearGradient: {
@@ -366,9 +543,19 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 
+  // chartCareerView: {
+  //   flex: 0.25,
+  //   height: '64%',
+  // },
+
   chartCareerView: {
-    flex: 0.25,
-    height: '64%',
+    // height: '28%',
+    flex: 0.64, // 0.5 min + 0.28 / 2
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 23,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 23,
+    overflow: 'hidden',
   },
 
   romanceTitleText: {
