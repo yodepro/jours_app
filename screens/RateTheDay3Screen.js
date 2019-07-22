@@ -224,8 +224,10 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#C5C4D2',
     position: 'absolute',
-    bottom: 30,
+    bottom: 10,
     left: 15,
+    paddingVertical: 20,
+    paddingHorizontal: 10,
   },
 
   bottomLinearGradient: {

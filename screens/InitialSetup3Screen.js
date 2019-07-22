@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -45,16 +45,25 @@ export default class InitialSetup3Screen extends React.Component {
             </View>
 
             <View style={styles.topInnerView}>
+            
               <Text style={styles.dayBgText}>
                 What is your gender?
               </Text>
+              <View style={styles.topInnerInnerView}>
               <ModalDropdown
+                style={styles.modalDropdownStyle}
                 defaultValue='Other'
                 options={['Other', 'Male', 'Female']}
                 dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
                 textStyle={styles.mainInput}
-                dropdownStyle={{width:'90%'}}
+                dropdownStyle={{width:'60%'}}
               />
+                                        <Image
+                            source={
+                              require('../assets/images/arrow-down-2.png')
+                            }
+                            style={styles.arrowImage}
+                          />
                 {/* <ModalDropdown
                   defaultValue='Other'
                   dropdownTextStyle={styles.mainInput}                 
@@ -63,6 +72,7 @@ export default class InitialSetup3Screen extends React.Component {
                   options={['Other', 'Male', 'Female']}                  
                 /> */}
 
+            </View>
             </View>
           </ImageBackground>
         </View>
@@ -82,6 +92,22 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
+  arrowImage: {
+    position: 'absolute',
+    right: 0,
+    bottom: 11,
+    transform: [
+      {scale: 0.7}
+    ],
+    zIndex: 999,
+  },
+
+  modalDropdownStyle: {
+    position: 'relative',
+    zIndex: 1,
+    // backgroundColor: 'green',
+  },
+
   topView: {
     width: '100%',
     flex: 0.75,
@@ -93,6 +119,14 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
 
+  topInnerInnerView: {
+    position: 'relative',
+    width: '60%',
+    // backgroundColor: 'red',
+    // paddingLeft: 20,
+    // paddingRight: 20,
+  },
+
   topInnerView: {
     paddingTop: 30,
     paddingLeft: 15,
@@ -101,6 +135,8 @@ const styles = StyleSheet.create({
     top: '50%',
     left: 0,
     right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   backgroundImage: {
@@ -108,6 +144,7 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
     bottom: 0,
+    top: -10,
   },
 
   dayBgText: {
@@ -135,10 +172,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
-    textAlign: 'center',
+    textAlign: 'left',
   },
 
   mainInputDropdown: {
     color: '#747693',
+    textAlign: 'left',
+    width: '60%',
   },  
 });

@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
     bottom: 0,
+    top: -10,
   },
 
   dayBgText: {

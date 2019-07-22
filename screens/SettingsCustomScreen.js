@@ -1,7 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
-  // Image,
+  Image,
   Platform,
   // ScrollView,
   StyleSheet,
@@ -77,12 +77,20 @@ export default class SetingsCustomScreen extends React.Component {
                   What's your gender?
                 </Text>
                 <ModalDropdown
+                  style={styles.modalDropdownStyle}
                   defaultValue='Other'
                   dropdownTextStyle={styles.mainInput}                 
                   textStyle={styles.mainInput}
-                  dropdownStyle={{width:'85%', height:'auto'}}
+                  // dropdownStyle={{width:'85%', height:'auto', Platform.OS === 'ios' ? 20 : 16, marginTop: -25, }}
+                  dropdownStyle={{ width:'85%', height:'auto', marginTop: Platform.OS === 'ios' ? 0 : -25, }}
                   options={['Other', 'Male', 'Female']}                  
                 />
+                          <Image
+                            source={
+                              require('../assets/images/arrow-down-1.png')
+                            }
+                            style={styles.arrowImage}
+                          />
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
@@ -220,9 +228,29 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
 
+  arrowImage: {
+    position: 'absolute',
+    right: 5,
+    bottom: 11,
+    transform: [
+      {scale: 0.7}
+    ],
+    zIndex: 9,
+  },
+
+  modalDropdownStyle: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
   containerInner: {
     flex: 0.9,
   },
+
+  // mainModalDropdown: {
+  //   position: 'relative',
+  //   zIndex: 1,
+  // },
 
   switchLinearGradient: {
     borderRadius: Platform.OS === 'ios' ? 20 : 16,
@@ -270,6 +298,7 @@ const styles = StyleSheet.create({
 
   inputGroupView: {
     marginBottom: 10,
+    position: 'relative',
   },
 
   labelText: {
