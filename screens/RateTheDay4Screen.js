@@ -2,7 +2,7 @@ import React from 'react';
 // import { ExpoConfigView } from '@expo/samples';
 import {
   Image,
-  // Platform,
+  Platform,
   // ScrollView,
   StyleSheet,
   Text,
@@ -260,6 +260,7 @@ const styles = StyleSheet.create({
     left: 15,
     flexDirection: 'row',
     alignItems: 'center',
+    bottom: Platform.OS === 'ios' ? 28 : 32,
   },
 
   bottomCancelTextRight: {
@@ -272,6 +273,7 @@ const styles = StyleSheet.create({
     left: 35,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingLeft: Platform.OS === 'ios' ? 10 : 0,
   },
 
   bottomLinearGradient: {

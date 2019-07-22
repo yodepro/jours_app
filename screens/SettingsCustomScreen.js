@@ -2,17 +2,16 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   // Image,
-  // Platform,
+  Platform,
   // ScrollView,
   StyleSheet,
   Text,
   View,
   TextInput,
   Switch,
-  Picker,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-
+import { LinearGradient } from 'expo';
 import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class SetingsCustomScreen extends React.Component {
@@ -113,19 +112,29 @@ export default class SetingsCustomScreen extends React.Component {
               </View>
             </View>
             <View style={styles.mainSettingsView}>
-              <View style={styles.mainSettingsItemView}>
+              <View style={[
+                styles.mainSettingsItemView,
+                { marginBottom: 5},
+              ]}>
                 <View style={styles.mainSettingsItemLeftView}>
                   <Text style={styles.labelText}>
                     Receive notifications
                   </Text>
                 </View>
                 <View style={styles.mainSettingsItemRightView}>
-                  <Switch
-                    thumbColor={'#266bda'}
-                    trackColor={{false:'#5fd4ff', true:'#3987ff'}}
-                    onValueChange={this.toggleReceiveNotifications}
-                    value={this.state.receiveNotifications}
-                  />
+                  <LinearGradient
+                    colors={['#60D7FF', '#3884FF']}
+                    style={styles.switchLinearGradient}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                  >
+                    <Switch
+                      thumbColor={'#266bda'}
+                      trackColor={{false:'transparent', true:'transparent'}}
+                      onValueChange={this.toggleReceiveNotifications}
+                      value={this.state.receiveNotifications}
+                    />
+                  </LinearGradient>
                 </View>
               </View>
               <View style={styles.mainSettingsItemView}>
@@ -135,12 +144,19 @@ export default class SetingsCustomScreen extends React.Component {
                   </Text>
                 </View>
                 <View style={styles.mainSettingsItemRightView}>
-                  <Switch
-                    thumbColor={'#266bda'}
-                    trackColor={{false:'#5fd4ff', true:'#3987ff'}}
-                    onValueChange={this.toggleStoreBackup}
-                    value={this.state.storeBackup}
-                  />
+                  <LinearGradient
+                    colors={['#60D7FF', '#3884FF']}
+                    style={styles.switchLinearGradient}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                  >
+                    <Switch
+                      thumbColor={'#266bda'}
+                      trackColor={{false:'transparent', true:'transparent'}}
+                      onValueChange={this.toggleStoreBackup}
+                      value={this.state.storeBackup}
+                    />
+                  </LinearGradient>
                 </View>
               </View>
             </View>
@@ -206,6 +222,11 @@ const styles = StyleSheet.create({
 
   containerInner: {
     flex: 0.9,
+  },
+
+  switchLinearGradient: {
+    borderRadius: Platform.OS === 'ios' ? 20 : 16,
+    padding: Platform.OS === 'ios' ? 5 : 0,
   },
 
   dayTitleView: {
@@ -274,14 +295,15 @@ const styles = StyleSheet.create({
 
   mainSettingsItemView: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   mainSettingsItemLeftView: {
-    flex: 0.7,
+    // flex: 0.7,
   },
 
   mainSettingsItemRightView: {
-    flex: 0.3,
+    // flex: 0.3,
   },
 
   mainSettingsItemRightText: {
