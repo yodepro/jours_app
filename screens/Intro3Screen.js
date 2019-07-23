@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -12,6 +12,10 @@ export default class Intro3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Image 
+          style={styles.mainBgImage}
+          source={require('../assets/images/intro-3-bg.png')}
+        />
         <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
@@ -47,13 +51,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    paddingLeft: 15,
-    paddingRight: 15,
+    // paddingLeft: 15,
+    // paddingRight: 15,
     color: '#fff',
+  },
+
+  mainBgImage: {
+    flex: 1,
+    position: 'absolute',
+    alignSelf: 'center',
+    width: '100%',
+    top: 40,
   },
 
   mainView: {
     flex: 0.55,
+    paddingLeft: 15,
+    paddingRight: 15,
+    justifyContent: 'flex-end',
   },
 
   mainText: {
@@ -69,6 +84,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 0.1,
     paddingBottom: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 
   bottomCancelView: {

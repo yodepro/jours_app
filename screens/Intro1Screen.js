@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
@@ -12,11 +12,15 @@ export default class Intro1Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 0.35 }}></View>
+        <Image 
+          style={styles.mainBgImage}
+          source={require('../assets/images/intro-1-bg.png')}
+        />
+        <View style={{ flex: 0.7 }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             One simple app to know yourself better and to be happy
-        </Text>
+          </Text>
         </View>
         <View style={styles.bottomNavigationView}>
           <View style={styles.bottomCancelView}>
@@ -47,13 +51,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    paddingLeft: 15,
-    paddingRight: 15,
+    // paddingLeft: 15,
+    // paddingRight: 15,
     color: '#fff',
   },
 
+  mainBgImage: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    left: 0,
+    top: 0,
+  },
+
   mainView: {
-    flex: 0.55,
+    flex: 0.2,
+    paddingLeft: 15,
+    paddingRight: 15,
+    justifyContent: 'flex-end',
   },
 
   mainText: {
@@ -69,6 +84,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 0.1,
     paddingBottom: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 
   bottomCancelView: {

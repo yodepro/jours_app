@@ -1,17 +1,25 @@
 import React from 'react';
 import {
-  // Image,
+  Image,
   // Platform,
   // ScrollView,
   StyleSheet,
   Text,
   View,
+  Dimensions,
 } from 'react-native';
 
 export default class Intro4Screen extends React.Component {
   render() {
+
+
     return (
       <View style={styles.container}>
+        <Image
+          resizeMode={'cover'}
+          style={styles.mainBgImage}
+          source={require('../assets/images/intro-4-bg.png')}
+        />
         <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
@@ -37,18 +45,35 @@ Intro4Screen.navigationOptions = {
   header: null,
 };
 
+const dimensions = Dimensions.get('window');
+const imageWidth = dimensions.width;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    paddingLeft: 15,
-    paddingRight: 15,
+    // paddingLeft: 15,
+    // paddingRight: 15,
     color: '#fff',
+    position: 'relative',
+  },
+
+  mainBgImage: {
+    // flex: 1,
+    position: 'absolute',
+    alignSelf: 'center',
+    width: imageWidth,
+    top: 40,
+    // left: 0,
+    // right: 0,
   },
 
   mainView: {
     flex: 0.55,
+    paddingLeft: 15,
+    paddingRight: 15,
+    justifyContent: 'flex-end',
   },
 
   mainText: {
@@ -62,6 +87,8 @@ const styles = StyleSheet.create({
 
   bottomNavigationView: {
     flex: 0.1,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 
   bottomNavigationInnerView: {

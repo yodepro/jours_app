@@ -5,6 +5,7 @@ import {
   ImageBackground,
   View,
   Image,
+  TextInput,
 } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 

@@ -12,6 +12,7 @@ export default function StatsAndAverageScreen() {
   return (
     <View style={styles.container}>
 
+
       <View style={styles.dayTitleView}>
         <Text style={styles.dayTitleText}>
           Statistics
@@ -23,7 +24,21 @@ export default function StatsAndAverageScreen() {
               style={styles.exportImage}
             />
       </View>
+<View style={{position:'relative', flex: 0.865}}>
+<View style={styles.mainBgImageWrapper}>
 
+         
+{/* <ImageBackground
+  // style={styles.mainBgImage}
+  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
+  resizeMode='contain' 
+  source={require('../assets/images/home-bg.png')}
+/> */}
+<Image
+  style={styles.mainBgImage}
+  source={require('../assets/images/stats-bg.png')}
+/>
+</View>
       <View style={styles.twoTilesView}>
         <View style={[styles.smallTileView, styles.smallTileLeftView]}>
           <Text style={styles.smallTileTopText}>
@@ -86,6 +101,7 @@ export default function StatsAndAverageScreen() {
         </View>
       </View>
     </View>
+    </View>
   );
 }
 
@@ -100,6 +116,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
     paddingBottom: 15,
+  },
+
+  mainBgImageWrapper: {
+    position: 'absolute',
+    height: '100%',
+    // backgroundColor: 'red',
+    width: '100%',
+    bottom: 0,
+    alignItems: 'flex-end',
+    textAlign: 'right',
+  },
+
+  mainBgImage: {
+    padding: 0,
+    margin: 0,
+    height: '100%',
+    width: '100%',
+    resizeMode: 'stretch',
+    left: 0,
+    position: 'relative',
+    // backgroundColor: 'green',
   },
 
   containerInner: {

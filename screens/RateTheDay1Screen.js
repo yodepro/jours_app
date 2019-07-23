@@ -29,12 +29,14 @@ export default class RateTheDay1Screen extends React.Component {
             >
 
               <Text style={styles.dayBgText}>
-                Another day, another story, Jake.
+              Take a deep breath and tell me, 
+how would you rate your level 
+of happiness today?
             </Text>
 
-              <Text style={styles.dayBgTextBold}>
+              {/* <Text style={styles.dayBgTextBold}>
                 What’s your level of happiness today?
-            </Text>
+            </Text> */}
 
             </LinearGradient>
           </View>
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '45%',
+    top: '40%',
     zIndex: 5,
     // backgroundColor: 'red',
     width: '100%',

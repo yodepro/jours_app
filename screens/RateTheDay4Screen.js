@@ -31,12 +31,13 @@ export default class RateTheDay4Screen extends React.Component {
             >
 
               <Text style={styles.dayBgText}>
-                Nothing wrong in being strong, Jake!
+              Now, sports and health.
+How did you feel today?
             </Text>
 
-              <Text style={styles.dayBgTextBold}>
+              {/* <Text style={styles.dayBgTextBold}>
                 How does your health makes you feel?
-            </Text>
+            </Text> */}
 
             </LinearGradient>
           </View>
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '45%',
+    top: '40%',
     zIndex: 5,
     // backgroundColor: 'red',
     width: '100%',

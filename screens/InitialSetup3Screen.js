@@ -8,7 +8,7 @@ import {
   // TouchableOpacity,
   ImageBackground,
   View,
-  // TextInput,
+  TextInput,
   // Picker
 } from 'react-native';
 
@@ -17,12 +17,12 @@ import ModalDropdown from 'react-native-modal-dropdown';
 export default class InitialSetup3Screen extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   name: 'Jake',
-    //   gender: 'Other',
-    //   birthdate: '17.03.96',
-    //   reminder: '9:30',
-    // };
+    this.state = {
+      name: 'Jake',
+      gender: 'Other',
+      birthdate: '17.03.96',
+      reminder: '9:30',
+    };
   }
 
   render() {
@@ -38,7 +38,7 @@ export default class InitialSetup3Screen extends React.Component {
             <View style={styles.nextView}>
               <Text
                 style={[styles.dayBgText, styles.dayBgTextBold]}
-                onPress={() => this.props.navigation.navigate('InitialSetup4')}
+                onPress={() => this.props.navigation.navigate('Home')}
               >
                 next >
               </Text>
@@ -47,24 +47,14 @@ export default class InitialSetup3Screen extends React.Component {
             <View style={styles.topInnerView}>
             
               <Text style={styles.dayBgText}>
-              Would you like to 
-sync data with your iCloud? (recommended)
+              When does it suit you the best to be reminded of a rating?
               </Text>
               <View style={styles.topInnerInnerView}>
-              <ModalDropdown
-                style={styles.modalDropdownStyle}
-                defaultValue='Yes, please'
-                options={['Yes, please', 'No, thanks']}
-                dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
-                textStyle={styles.mainInput}
-                dropdownStyle={{width:'60%'}}
+              <TextInput
+                style={styles.mainInput}
+                onChangeText={(reminder) => this.setState({ reminder })}
+                value={this.state.reminder}
               />
-                                        <Image
-                            source={
-                              require('../assets/images/arrow-down-2.png')
-                            }
-                            style={styles.arrowImage}
-                          />
 
             </View>
             </View>
@@ -166,7 +156,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
-    textAlign: 'left',
+    textAlign: 'center',
   },
 
   mainInputDropdown: {

@@ -1,9 +1,11 @@
 import React from 'react';
-import { 
+import {
   Image,
-  StyleSheet, 
-  Text, 
-  View 
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import { isIphoneX } from '../is-iphone-x'
@@ -15,14 +17,28 @@ export default class JoursHomeScreen extends React.Component {
   }
 
   render() {
-   
+
 
     return (
       <View style={styles.container}>
+         <View style={styles.mainBgImageWrapper}>
+
+         
+        {/* <ImageBackground
+          // style={styles.mainBgImage}
+          style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
+          resizeMode='contain' 
+          source={require('../assets/images/home-bg.png')}
+        /> */}
+        <Image
+          style={styles.mainBgImage}
+          source={require('../assets/images/home-bg.png')}
+        />
+        </View>
         <View style={styles.topInfoView}>
-        <View style={styles.topInfoDateView}>
-          <Text style={styles.dayTitleText}>May, 12th</Text>
-          <Image
+          <View style={styles.topInfoDateView}>
+            <Text style={styles.dayTitleText}>May, 12th</Text>
+            <Image
               source={
                 require('../assets/images/export-icon.png')
               }
@@ -66,8 +82,8 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#3884FF', '#60D7FF']}
                     style={styles.chartHappinessLinearGradient}>
 
-                      <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
-                      <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
+                    <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
 
                   </LinearGradient>
 
@@ -80,8 +96,8 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#F734A8', '#F78B79']}
                     style={styles.chartHealthLinearGradient}>
 
-                      <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
-                      <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
+                    <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
 
                   </LinearGradient>
                 </View>
@@ -94,8 +110,8 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#4CD9D9', '#48E9C7']}
                     style={styles.chartRomanceLinearGradient}>
 
-                      <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
-                      <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
+                    <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
 
                   </LinearGradient>
                 </View>
@@ -109,8 +125,8 @@ export default class JoursHomeScreen extends React.Component {
                     style={styles.chartCareerLinearGradient}
                   >
 
-                      <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
-                      <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
+                    <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
+                    <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
 
                   </LinearGradient>
                 </View>
@@ -120,12 +136,15 @@ export default class JoursHomeScreen extends React.Component {
             </View>
           </View>
           <View style={[styles.chartInnerView, styles.chartInnerDownView]}>
-            <Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Temporibus aliquam harum minima odit in excepturi, repellendus
-              vero eveniet voluptatum, quaerat, ipsam asperiores neque inventore
-              doloremque iusto quam corrupti labore blanditiis?
-            </Text>
+            {/* ЗАГЛУШКА ДЛЯ ГРАФИКОВ: выбор модуля для визуализации данных за разработчиком */}
+            <Image
+              style={{
+                flex: 1,
+                height: undefined,
+                width: undefined,
+              }}
+              source={require('../assets/images/charts_placeholder_2.png')}
+            />
           </View>
         </View>
       </View>
@@ -137,6 +156,8 @@ JoursHomeScreen.navigationOptions = {
   header: null,
   tabBarVisible: true,
 };
+const dimensions = Dimensions.get('window');
+const imageHeight = dimensions.height;
 const mainPaddigTop = isIphoneX() ? 45 : 30;
 const styles = StyleSheet.create({
   container: {
@@ -144,10 +165,56 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     position: 'relative',
     height: '100%',
+    // paddingLeft: 15,
+    // paddingRight: 15,
+    // paddingTop: mainPaddigTop,
+  },
+
+  topInfoView: {
+    paddingTop: mainPaddigTop,
     paddingLeft: 15,
     paddingRight: 15,
-    paddingTop: mainPaddigTop,
   },
+
+  mainBgImageWrapper: {
+    position: 'absolute',
+    height: '100%',
+    // backgroundColor: 'red',
+    width: '70%',
+    right: 0,
+    alignItems: 'flex-end',
+    textAlign: 'right',
+  },
+
+  mainBgImage: {
+    padding: 0,
+    margin: 0,
+    width: '100%',
+    resizeMode: 'contain',
+    right: 0,
+    position: 'relative',
+    // backgroundColor: 'green',
+  },
+
+  // mainBgImage: {
+  //   // flex: 1,
+  //   position: 'absolute',
+  //   alignSelf: 'center',
+  //   // height: '100%',
+  //   // top: 40,
+  //   right: 0,
+  //   paddingTop: 40,
+  //   paddingBottom: 40,
+  //   // zIndex: 99,
+  //   // left: 0,
+  //   // right: 0,
+  // },
+
+  // placeholderImage: {
+  //   width: '100%',
+  //   height: '100%',
+  //   resizeMode: 'contain',
+  // },
 
   topView: {
     paddingTop: 30,
@@ -199,6 +266,8 @@ const styles = StyleSheet.create({
   chartWrapperView: {
     paddingBottom: 15,
     flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 
   chartInnerView: {
@@ -276,6 +345,8 @@ const styles = StyleSheet.create({
 
   chartInnerDownView: {
     marginTop: 7.5,
+    // position: 'relative',
+    overflow: 'hidden',
   },
 
   chartBlankView: {

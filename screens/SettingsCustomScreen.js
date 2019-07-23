@@ -54,6 +54,21 @@ export default class SetingsCustomScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+                 <View style={styles.mainBgImageWrapper}>
+
+         
+{/* <ImageBackground
+  // style={styles.mainBgImage}
+  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
+  resizeMode='contain' 
+  source={require('../assets/images/home-bg.png')}
+/> */}
+<Image
+  style={styles.mainBgImage}
+  source={require('../assets/images/settings-bg.png')}
+/>
+</View>
+
         <View style={styles.dayTitleView}>
           <Text style={styles.dayTitleText}>
             Settings
@@ -145,7 +160,7 @@ export default class SetingsCustomScreen extends React.Component {
                   </LinearGradient>
                 </View>
               </View>
-              <View style={styles.mainSettingsItemView}>
+              {/* <View style={styles.mainSettingsItemView}>
                 <View style={styles.mainSettingsItemLeftView}>
                   <Text style={styles.labelText}>
                     Store backup at iCloud
@@ -166,7 +181,7 @@ export default class SetingsCustomScreen extends React.Component {
                     />
                   </LinearGradient>
                 </View>
-              </View>
+              </View> */}
             </View>
             <View style={styles.externalLinksView}>
               <Text style={styles.externalLinksTitleText}>
@@ -226,6 +241,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
     paddingBottom: 15,
+  },
+
+  mainBgImageWrapper: {
+    position: 'absolute',
+    height: '100%',
+    // backgroundColor: 'red',
+    width: '70%',
+    left: 0,
+    alignItems: 'flex-end',
+    textAlign: 'right',
+  },
+
+  mainBgImage: {
+    padding: 0,
+    margin: 0,
+    width: '100%',
+    resizeMode: 'contain',
+    left: 0,
+    position: 'relative',
+    // backgroundColor: 'green',
   },
 
   arrowImage: {

@@ -1,5 +1,10 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import {
+  Platform,
+  Image,
+  View,
+  Text,
+} from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -26,16 +31,21 @@ const HomeStack = createStackNavigator(
 // HOME
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon
-  //     focused={focused}
-  //     name={
-  //       Platform.OS === 'ios'
-  //         ? `ios-information-circle${focused ? '' : '-outline'}`
-  //         : 'md-information-circle'
-  //     }
-  //   />
-  // ),
+  tabBarIcon: ({ focused }) => {
+    const image = focused
+    ? require('../assets/images/tab-home-focused.png')
+    : require('../assets/images/tab-home.png')
+    return (
+      <Image
+        style={{
+          marginBottom: -10,
+          height: 27,
+          width: 25,
+        }}
+        source={image}
+      />
+    )
+  }
 };
 
 HomeStack.path = '';
@@ -49,9 +59,21 @@ const StatsAndAverageStack = createStackNavigator(
 );
 StatsAndAverageStack.navigationOptions = {
   tabBarLabel: 'Stats',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  // ),
+  tabBarIcon: ({ focused }) => {
+    const image = focused
+    ? require('../assets/images/tab-stats-focused.png')
+    : require('../assets/images/tab-stats.png')
+    return (
+      <Image
+        style={{
+          marginBottom: -10,
+          height: 20,
+          width: 24,
+        }}
+        source={image}
+      />
+    )
+  }
 };
 StatsAndAverageStack.path = '';
 
@@ -63,10 +85,17 @@ const RateStack = createStackNavigator(
   config
 );
 RateStack.navigationOptions = {
-  tabBarLabel: 'Rate',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  // ),
+  tabBarLabel: <View/>,
+  tabBarIcon: (
+    <Image
+      style={{
+        marginTop: -35,
+        height: 70,
+        width: 70,
+      }}
+      source={require('../assets/images/tab-rate.png')}
+    />
+  )
 };
 RateStack.path = '';
 
@@ -79,9 +108,21 @@ const SettingsStack = createStackNavigator(
 );
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  // ),
+  tabBarIcon: ({ focused }) => {
+    const image = focused
+    ? require('../assets/images/tab-settings-focused.png')
+    : require('../assets/images/tab-settings.png')
+    return (
+      <Image
+        style={{
+          marginBottom: -10,
+          height: 27,
+          width: 27,
+        }}
+        source={image}
+      />
+    )
+  }
 };
 SettingsStack.path = '';
 
