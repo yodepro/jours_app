@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     position: 'relative',
     height: '100%',
+    paddingBottom: 20,
     // paddingLeft: 15,
     // paddingRight: 15,
     // paddingTop: mainPaddigTop,
@@ -172,6 +173,7 @@ const styles = StyleSheet.create({
 
   topInfoView: {
     paddingTop: mainPaddigTop,
+    marginTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
   },

@@ -24,7 +24,7 @@ export default function StatsAndAverageScreen() {
               style={styles.exportImage}
             />
       </View>
-<View style={{position:'relative', flex: 0.865}}>
+<View style={{position:'relative', flex: 0.9}}>
 <View style={styles.mainBgImageWrapper}>
 
          
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
-    paddingBottom: 15,
+    paddingBottom: 28,
   },
 
   mainBgImageWrapper: {
@@ -146,9 +146,10 @@ const styles = StyleSheet.create({
   dayTitleView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 0.135,
+    flex: 0.1,
     paddingLeft: 15,
     paddingRight: 15,
+    marginTop: 10,
   },
 
   topView: {

@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     justifyContent: 'flex-end',
+    paddingBottom: 20,
   },
 
   mainText: {

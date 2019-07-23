@@ -20,9 +20,10 @@ export default class SetingsCustomScreen extends React.Component {
     this.state = {
       name: 'Jake',
       gender: 'Other',
-      birthdate: '17.03.96',
+      birthdate: '17.03.1996',
       reminder: '9:30',
-      isDateTimePickerVisible: false,
+      isBirthdayPickerVisible: false,
+      isAlarmPickerVisible: false,
       receiveNotifications: false,
       storeBackup: false,
     };
@@ -36,25 +37,44 @@ export default class SetingsCustomScreen extends React.Component {
     this.setState({ storeBackup: value })
   }
 
-  showDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: true });
+  showBirthdayPicker = () => {
+    this.setState({ isBirthdayPickerVisible: true });
+  };
+  showAlarmPicker = () => {
+    this.setState({ isAlarmPickerVisible: true });
   };
 
-  hideDateTimePicker = () => {
-    this.setState({ isDateTimePickerVisible: false });
+  hideBirthdayPicker = () => {
+    this.setState({ isBirthdayPickerVisible: false });
+  };
+  hideAlarmPicker = () => {
+    this.setState({ isAlarmPickerVisible: false });
   };
 
   handleDatePicked = date => {
     newDate = date.getDate() + "." + parseInt(date.getMonth() + 1) + "." + date.getFullYear();
     this.setState({ birthdate: newDate });
-    this.hideDateTimePicker();
+    this.hideBirthdayPicker();
+  };
 
+  handleTimePicked = date => {
+    newTime = date.getHours() + ':' + date.getMinutes();
+    this.setState({ reminder: newTime });
+    this.hideAlarmPicker();
   };
 
   render() {
     return (
       <View style={styles.container}>
-                 <View style={styles.mainBgImageWrapper}>
+
+
+        <View style={styles.dayTitleView}>
+          <Text style={styles.dayTitleText}>
+            Settings
+          </Text>
+        </View>
+        <View style={styles.mainWrapperView}>
+        <View style={styles.mainBgImageWrapper}>
 
          
 {/* <ImageBackground
@@ -68,13 +88,6 @@ export default class SetingsCustomScreen extends React.Component {
   source={require('../assets/images/settings-bg.png')}
 />
 </View>
-
-        <View style={styles.dayTitleView}>
-          <Text style={styles.dayTitleText}>
-            Settings
-          </Text>
-        </View>
-        <View style={styles.mainWrapperView}>
           <View style={styles.mainView}>
             <View style={styles.inputGroupWrapperView}>
               <View style={styles.inputGroupView}>
@@ -96,7 +109,6 @@ export default class SetingsCustomScreen extends React.Component {
                   defaultValue='Other'
                   dropdownTextStyle={styles.mainInput}                 
                   textStyle={styles.mainInput}
-                  // dropdownStyle={{width:'85%', height:'auto', Platform.OS === 'ios' ? 20 : 16, marginTop: -25, }}
                   dropdownStyle={{ width:'85%', height:'auto', marginTop: Platform.OS === 'ios' ? 0 : -25, }}
                   options={['Other', 'Male', 'Female']}                  
                 />
@@ -113,25 +125,39 @@ export default class SetingsCustomScreen extends React.Component {
                 </Text>
                 <Text
                   style={styles.mainInput}
-                  onPress={this.showDateTimePicker}
+                  onPress={this.showBirthdayPicker}
                 >
                   {this.state.birthdate}
                 </Text>
-                <DateTimePicker
-                  isVisible={this.state.isDateTimePickerVisible}
+                <DateTimePicker                  
+                  isVisible={this.state.isBirthdayPickerVisible}
                   onConfirm={this.handleDatePicked}
-                  onCancel={this.hideDateTimePicker}
+                  onCancel={this.hideBirthdayPicker}
+                  mode={'date'}
                 />
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   What time shall I remind you of a rating?
                 </Text>
-                <TextInput
+                {/* <TextInput
+                  onPress={this.showBirthdayPicker}
                   style={styles.mainInput}
                   onChangeText={(reminder) => this.setState({ reminder })}
                   value={this.state.reminder}
-                />
+                /> */}
+                <Text
+                  onPress={this.showAlarmPicker}
+                  style={styles.mainInput}
+                >
+                  {this.state.reminder}
+                </Text>
+                        <DateTimePicker
+          isVisible={this.state.isAlarmPickerVisible}
+          onConfirm={this.handleTimePicked}
+          onCancel={this.hideAlarmPicker}
+          mode={'time'}
+        />
               </View>
             </View>
             <View style={styles.mainSettingsView}>
@@ -160,28 +186,6 @@ export default class SetingsCustomScreen extends React.Component {
                   </LinearGradient>
                 </View>
               </View>
-              {/* <View style={styles.mainSettingsItemView}>
-                <View style={styles.mainSettingsItemLeftView}>
-                  <Text style={styles.labelText}>
-                    Store backup at iCloud
-                  </Text>
-                </View>
-                <View style={styles.mainSettingsItemRightView}>
-                  <LinearGradient
-                    colors={['#60D7FF', '#3884FF']}
-                    style={styles.switchLinearGradient}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 0 }}
-                  >
-                    <Switch
-                      thumbColor={'#266bda'}
-                      trackColor={{false:'transparent', true:'transparent'}}
-                      onValueChange={this.toggleStoreBackup}
-                      value={this.state.storeBackup}
-                    />
-                  </LinearGradient>
-                </View>
-              </View> */}
             </View>
             <View style={styles.externalLinksView}>
               <Text style={styles.externalLinksTitleText}>
@@ -240,7 +244,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     paddingTop: 30,
-    paddingBottom: 15,
+    paddingBottom: 35,
   },
 
   mainBgImageWrapper: {
@@ -249,7 +253,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     width: '70%',
     left: 0,
-    alignItems: 'flex-end',
+    // alignItems: 'flex-end',
     textAlign: 'right',
   },
 
@@ -257,8 +261,10 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
     width: '100%',
-    resizeMode: 'contain',
+    height: '100%',
+    resizeMode: 'stretch',
     left: 0,
+    top: 0,
     position: 'relative',
     // backgroundColor: 'green',
   },
@@ -294,6 +300,7 @@ const styles = StyleSheet.create({
 
   dayTitleView: {
     flex: 0.1,
+    marginTop: 10,
   },
 
   dayTitleText: {
@@ -308,6 +315,7 @@ const styles = StyleSheet.create({
     flex: 0.9,
     paddingLeft: 15,
     paddingRight: 15,
+    position: 'relative',
   },
 
   mainView: {

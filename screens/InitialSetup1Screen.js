@@ -15,7 +15,7 @@ export default class InitialSetup1Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'input placeholder',
+      name: 'Name',
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',

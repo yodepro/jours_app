@@ -70,7 +70,7 @@ export default class InitialSetup2Screen extends React.Component {
                 options={['Other', 'Male', 'Female']}
                 dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
                 textStyle={styles.mainInput}
-                dropdownStyle={{width:'60%'}}
+                dropdownStyle={{width:'60%', marginTop: -20,}}
               />
                                         <Image
                             source={
@@ -187,5 +187,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: '60%',
     fontSize: 20,
+    // marginTop: -40,
   },  
 });

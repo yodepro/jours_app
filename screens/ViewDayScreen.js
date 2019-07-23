@@ -126,93 +126,6 @@ export default class ViewDayScreen extends React.Component {
             </View>
           </View>
 
-          {/* <View style={styles.chartWrapperView}>
-            <View style={styles.chartInnerView}>
-              <View style={styles.chartInnerTopView}>
-                <Text style={styles.chartInnerTopText}>
-                  Edit
-                </Text>
-              </View>
-
-              <View style={styles.chartInnerBottomView}>
-                <View style={styles.chartBlankView}>
-                  <Text style={styles.happinessRateText}>
-                    7.8
-                    </Text>
-                </View>
-
-                <View style={styles.chartHappinessView}>
-                  <LinearGradient
-                    colors={['#3884FF', '#60D7FF']}
-                    style={styles.chartHappinessLinearGradient}
-                  >
-                    <Text style={styles.happinessTitleText}>
-                      Happiness
-                    </Text>
-
-                    <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
-                    <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
-                    
-                  </LinearGradient>
-                </View>
-
-                <View style={styles.chartHealthView}>
-                  <LinearGradient
-                    colors={['#F734A8', '#F78B79']}
-                    style={styles.chartHealthLinearGradient}
-                  >
-                    <Text style={styles.healthTitleText}>
-                      Health
-                    </Text>
-                    <Text style={styles.healthRateText}>
-                      5.6
-                    </Text>
-
-                    <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
-                    <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
-
-                  </LinearGradient>
-                </View>
-                <View style={styles.chartRomanceView}>
-
-                  <LinearGradient
-                    colors={['#4CD9D9', '#48E9C7']}
-                    style={styles.chartRomanceLinearGradient}
-                  >
-                    <Text style={styles.romanceTitleText}>
-                      Romance
-                    </Text>
-                    <Text style={styles.romanceRateText}>
-                      10
-                    </Text>
-
-                    <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
-                    <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
-
-                  </LinearGradient>
-                </View>
-
-                <View style={styles.chartCareerView}>
-                  <LinearGradient
-                    colors={['#FDC344', '#FDE490']}
-                    style={styles.chartCareerLinearGradient}
-                  >
-                    <Text style={styles.careerTitleText}>
-                      Career
-                    </Text>
-                    <Text style={styles.careerRateText}>
-                      2.8
-                    </Text>
-
-                    <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
-                    <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
-
-                  </LinearGradient>
-                </View>
-              </View>
-            </View>
-          </View> */}
-
         </View>
 
         <View style={{ flex: 0.04, }}></View>
@@ -286,9 +199,11 @@ const styles = StyleSheet.create({
   dayTitleView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // flex: 0.1,
+    // flex: 0.2,
     paddingLeft: 15,
     paddingRight: 15,
+    marginTop: 10,
+    // paddingBottom: 10,
   },
 
   chartHappinessViewWrapper: {
@@ -365,6 +280,7 @@ const styles = StyleSheet.create({
   chartWrapperView: {
     position: 'absolute',
     bottom: 0,
+    paddingTop: 15,
     paddingLeft: 15,
     paddingRight: 15,
     height: '80%',

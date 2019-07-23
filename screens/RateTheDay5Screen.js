@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
     color: '#8B8B8B',
     // paddingLeft: 15,
     // flex: 0.18,
+    marginTop: 10,
   },
 
   chartWrapperView: {
