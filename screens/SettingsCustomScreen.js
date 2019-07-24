@@ -9,6 +9,7 @@ import {
   View,
   TextInput,
   Switch,
+  Picker,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { LinearGradient } from 'expo';
@@ -104,7 +105,17 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
-                <ModalDropdown
+                <Picker
+                selectedValue={this.state.gender}
+                style={{height: 50, width: '100%', color: '#747693', fontSize: 30,}}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({gender: itemValue})
+                }>
+                <Picker.Item label="Other" value="Other" />
+                <Picker.Item label="Male" value="male" />
+                <Picker.Item label="Female" value="Female" />
+              </Picker>
+                {/* <ModalDropdown
                   style={styles.modalDropdownStyle}
                   defaultValue='Other'
                   dropdownTextStyle={styles.mainInput}                 
@@ -117,7 +128,7 @@ export default class SetingsCustomScreen extends React.Component {
                               require('../assets/images/arrow-down-1.png')
                             }
                             style={styles.arrowImage}
-                          />
+                          /> */}
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>

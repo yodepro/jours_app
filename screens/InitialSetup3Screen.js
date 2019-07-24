@@ -12,7 +12,8 @@ import {
   // Picker
 } from 'react-native';
 
-import ModalDropdown from 'react-native-modal-dropdown';
+// import ModalDropdown from 'react-native-modal-dropdown';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class InitialSetup3Screen extends React.Component {
   constructor(props) {
@@ -22,8 +23,21 @@ export default class InitialSetup3Screen extends React.Component {
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',
+      isAlarmPickerVisible: false,
     };
   }
+
+  showAlarmPicker = () => {
+    this.setState({ isAlarmPickerVisible: true });
+  };
+  hideAlarmPicker = () => {
+    this.setState({ isAlarmPickerVisible: false });
+  };
+  handleTimePicked = date => {
+    newTime = date.getHours() + ':' + date.getMinutes();
+    this.setState({ reminder: newTime });
+    this.hideAlarmPicker();
+  };
 
   render() {
     return (
@@ -38,7 +52,7 @@ export default class InitialSetup3Screen extends React.Component {
             <View style={styles.nextView}>
               <Text
                 style={[styles.dayBgText, styles.dayBgTextBold]}
-                onPress={() => this.props.navigation.navigate('Home')}
+                onPress={() => this.props.navigation.navigate('InitialSetup4')}
               >
                 next >
               </Text>
@@ -50,13 +64,28 @@ export default class InitialSetup3Screen extends React.Component {
               When does it suit you the best to be reminded of a rating?
               </Text>
               <View style={styles.topInnerInnerView}>
-              <TextInput
+              <Text
+                onPress={this.showAlarmPicker}
                 style={styles.mainInput}
-                onChangeText={(reminder) => this.setState({ reminder })}
-                value={this.state.reminder}
-              />
+              >
+                                {this.state.reminder}
+              </Text>
+                                      <DateTimePicker
+          isVisible={this.state.isAlarmPickerVisible}
+          onConfirm={this.handleTimePicked}
+          onCancel={this.hideAlarmPicker}
+          mode={'time'}
+        />
 
             </View>
+            <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+          </View>
             </View>
           </ImageBackground>
         </View>
@@ -74,6 +103,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     color: '#fff',
+  },
+
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 100,
+  },
+
+  paginationItemView: {
+    backgroundColor: '#fff', 
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+  },
+
+  paginationItemActiveView: {
+    width: 21, 
   },
 
   arrowImage: {
@@ -116,7 +167,8 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '50%',
+    // top: '50%',
+    bottom: '10%',
     left: 0,
     right: 0,
     justifyContent: 'center',
@@ -157,6 +209,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'center',
+    marginTop: 30,
   },
 
   mainInputDropdown: {

@@ -29,12 +29,12 @@ export default class RateTheDay5Screen extends React.Component {
           <Text style={styles.dayTitleText}>
             May, 12th
         </Text>
-        <Image
+        {/* <Image
               source={
                 require('../assets/images/export-icon.png')
               }
               style={styles.exportImage}
-            />
+            /> */}
             </View>
 
           <View style={styles.chartWrapperView}>
@@ -563,7 +563,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#f739aa',
     position: 'absolute',
-    bottom: 20,
+    bottom: 60,
     left: 15,
   },
 

@@ -170,12 +170,12 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-          {/* <View style={styles.screenButton}>
+          <View style={styles.screenButton}>
             <Button
               title="InitialSetup4"
               onPress={() => this.props.navigation.navigate('InitialSetup4')}
             />
-          </View> */}
+          </View>
 
         </ScrollView>
 

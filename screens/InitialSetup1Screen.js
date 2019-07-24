@@ -51,6 +51,12 @@ export default class InitialSetup1Screen extends React.Component {
                 onChangeText={(name) => this.setState({ name })}
                 value={this.state.name}
               />
+                        <View style={styles.paginationView}>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+          </View>
             </View>
           </ImageBackground>
         </View>
@@ -70,6 +76,28 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 100,
+  },
+
+  paginationItemView: {
+    backgroundColor: '#fff', 
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+  },
+
+  paginationItemActiveView: {
+    width: 21, 
+  },
+
   topView: {
     width: '100%',
     flex: 0.75,
@@ -86,7 +114,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '50%',
+    bottom: '10%',
     left: 0,
     right: 0,
   },
@@ -125,5 +153,6 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'center',
+    marginTop: 30,
   },
 });

@@ -9,6 +9,7 @@ import {
   ImageBackground,
   View,
   TextInput,
+  Picker,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -63,7 +64,17 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
               Would you mind sharing your gender?
               </Text>
-              <View style={styles.topInnerInnerView}>
+              <Picker
+                selectedValue={this.state.gender}
+                style={{height: 50, width: '100%', marginTop: 30, color: '#fff',}}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({gender: itemValue})
+                }>
+                <Picker.Item label="Other" value="Other" />
+                <Picker.Item label="Male" value="male" />
+                <Picker.Item label="Female" value="Female" />
+              </Picker>
+              {/* <View style={styles.topInnerInnerView}>
               <ModalDropdown
                 style={styles.modalDropdownStyle}
                 defaultValue='Other'
@@ -79,7 +90,14 @@ export default class InitialSetup2Screen extends React.Component {
                             style={styles.arrowImage}
                           />
 
-            </View>
+            </View> */}
+            <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+          </View>
             </View>
           </ImageBackground>
         </View>
@@ -97,6 +115,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     color: '#fff',
+  },
+
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 100,
+  },
+
+  paginationItemView: {
+    backgroundColor: '#fff', 
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+  },
+
+  paginationItemActiveView: {
+    width: 21, 
   },
 
   arrowImage: {
@@ -139,7 +179,8 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '50%',
+    // top: '50%',
+    bottom: '10%',
     left: 0,
     right: 0,
     justifyContent: 'center',
@@ -180,6 +221,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'left',
+    marginTop: 30,
   },
 
   mainInputDropdown: {

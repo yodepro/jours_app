@@ -60,6 +60,13 @@ your work today
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
+            <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+          </View>
           </View>
         </View>
 
@@ -116,6 +123,29 @@ const styles = StyleSheet.create({
 
     position: 'relative',
     height: '100%',
+  },
+
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+
+  paginationItemView: {
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+    backgroundColor: '#c5c4d2',
+  },
+
+  paginationItemActiveView: {
+    width: 21,
+    backgroundColor: '#4e53ff',
   },
 
   topView: {

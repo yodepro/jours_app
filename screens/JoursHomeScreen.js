@@ -21,20 +21,7 @@ export default class JoursHomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-         <View style={styles.mainBgImageWrapper}>
 
-         
-        {/* <ImageBackground
-          // style={styles.mainBgImage}
-          style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
-          resizeMode='contain' 
-          source={require('../assets/images/home-bg.png')}
-        /> */}
-        <Image
-          style={styles.mainBgImage}
-          source={require('../assets/images/home-bg.png')}
-        />
-        </View>
         <View style={styles.topInfoView}>
           <View style={styles.topInfoDateView}>
             <Text style={styles.dayTitleText}>May, 12th</Text>
@@ -45,11 +32,28 @@ export default class JoursHomeScreen extends React.Component {
               style={styles.exportImage}
             />
           </View>
-          <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
-            The journey is a series of steps, Jake
-          </Text>
+
         </View>
         <View style={styles.chartWrapperView}>
+        <View style={styles.mainBgImageWrapper}>
+
+         
+{/* <ImageBackground
+  // style={styles.mainBgImage}
+  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
+  resizeMode='contain' 
+  source={require('../assets/images/home-bg.png')}
+/> */}
+<Image
+  style={styles.mainBgImage}
+  source={require('../assets/images/home-bg.png')}
+/>
+</View>
+
+        <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
+            The journey is a series of steps, Jake
+          </Text>
+
           <View style={[styles.chartInnerView, styles.chartInnerUpperView]}>
             <View style={styles.chartInnerTopView}>
               <View style={styles.chartInnerTopDateView}>
@@ -184,7 +188,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     width: '70%',
     right: 0,
-    alignItems: 'flex-end',
+    // alignItems: 'flex-end',
     textAlign: 'right',
   },
 
@@ -192,8 +196,10 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
     width: '100%',
-    resizeMode: 'contain',
+    height: '100%',
+    resizeMode: 'stretch',
     right: 0,
+    top: '5%',
     position: 'relative',
     // backgroundColor: 'green',
   },

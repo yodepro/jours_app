@@ -7,7 +7,7 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import ModalDropdown from 'react-native-modal-dropdown';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class InitialSetup4Screen extends React.Component {
   constructor(props) {
@@ -17,8 +17,23 @@ export default class InitialSetup4Screen extends React.Component {
       gender: 'Other',
       birthdate: '17.03.96',
       reminder: '9:30',
+      isDateTimePickerVisible: false,
     };
   }
+
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = date => {
+    newDate = date.getDate() + "." + parseInt(date.getMonth() + 1) + "." + date.getFullYear();
+    this.setState({ birthdate: newDate });
+    this.hideDateTimePicker();
+  };
 
   render() {
     return (
@@ -41,25 +56,30 @@ export default class InitialSetup4Screen extends React.Component {
 
             <View style={styles.topInnerView}>
               <Text style={styles.dayBgText}>
-              I advise you to activate the daily reminder so you would never forget to rate your day
+              What's your birth date?
               </Text>
-              <View style={styles.topInnerInnerView}>
-              <ModalDropdown
-                style={styles.modalDropdownStyle}
-                defaultValue="Sure, let's do it" 
-                options={["Sure, let's do it" , "I'm fine, thanks"]}
-                dropdownTextStyle={[styles.mainInput, styles.mainInputDropdown]}                 
-                textStyle={styles.mainInput}
-                dropdownStyle={{width:'60%'}}
+              {/* <View style={styles.topInnerInnerView}> */}
+              <Text
+                style={styles.mainInput}
+                onPress={this.showDateTimePicker}
+              >
+                {this.state.birthdate}
+              </Text>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this.handleDatePicked}
+                onCancel={this.hideDateTimePicker}
               />
-                                        <Image
-                            source={
-                              require('../assets/images/arrow-down-2.png')
-                            }
-                            style={styles.arrowImage}
-                          />
+                                      <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+          </View>
 
-            </View>
+
+            {/* </View> */}
               {/* <TextInput
                 style={styles.mainInput}
                 onChangeText={(reminder) => this.setState({ reminder })}
@@ -82,6 +102,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f6f6',
     color: '#fff',
+  },
+
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 100,
+  },
+
+  paginationItemView: {
+    backgroundColor: '#fff', 
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+  },
+
+  paginationItemActiveView: {
+    width: 21, 
   },
 
   arrowImage: {
@@ -124,7 +166,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     position: 'absolute',
-    top: '35%',
+    bottom: '10%',
     left: 0,
     right: 0,
     justifyContent: 'center',
@@ -165,6 +207,7 @@ const styles = StyleSheet.create({
     lineHeight: 37,
     color: '#FFFFFF',
     textAlign: 'left',
+    marginTop: 30,
   },
 
   mainInputDropdown: {

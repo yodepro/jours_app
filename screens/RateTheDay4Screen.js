@@ -60,6 +60,14 @@ How did you feel today?
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
+                        <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+          </View>
           </View>
         </View>
 
@@ -128,6 +136,29 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+
+  paginationItemView: {
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+    backgroundColor: '#c5c4d2',
+  },
+
+  paginationItemActiveView: {
+    width: 21,
+    backgroundColor: '#4e53ff',
+  },
+
   doneView: {
     // backgroundColor: 'red',
     flex: 0.49,
@@ -138,8 +169,8 @@ const styles = StyleSheet.create({
     zIndex: -1,
     bottom: 0,
     right: 0,
-    height: 180,
-    width: 180,
+    height: 150,
+    width: 150,
   },
 
   topView: {
@@ -288,7 +319,7 @@ const styles = StyleSheet.create({
   dayBgTextBoldBottom: {
     position: 'absolute',
     bottom: 15,
-    left: 15,
+    right: 40,
     textDecorationLine: 'underline',
     zIndex: 2,
   },

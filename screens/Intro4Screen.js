@@ -25,6 +25,15 @@ export default class Intro4Screen extends React.Component {
           <Text style={styles.mainText}>
           With our smart Lookback you'll be able to analyse your ups and downs
           </Text>
+          <View style={styles.paginationView}>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            
+            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+          </View>
         </View>
         <View style={styles.bottomNavigationView}>
           <View style={styles.bottomNavigationInnerView}>
@@ -57,6 +66,28 @@ const styles = StyleSheet.create({
     // paddingRight: 15,
     color: '#fff',
     position: 'relative',
+  },
+
+  paginationView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+
+  paginationItemView: {
+    backgroundColor: '#fff', 
+    height: 5, 
+    borderRadius: 4,
+    marginRight: 2,
+  },
+
+  paginationItemInactiveView: {
+    width: 10, 
+    opacity: .5,
+  },
+
+  paginationItemActiveView: {
+    width: 21, 
   },
 
   mainBgImage: {
