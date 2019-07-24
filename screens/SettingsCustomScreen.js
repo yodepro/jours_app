@@ -3,7 +3,6 @@ import React from 'react';
 import {
   Image,
   Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -13,7 +12,6 @@ import {
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { LinearGradient } from 'expo';
-import ModalDropdown from 'react-native-modal-dropdown';
 
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
@@ -67,28 +65,18 @@ export default class SetingsCustomScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
-
         <View style={styles.dayTitleView}>
           <Text style={styles.dayTitleText}>
             Settings
           </Text>
         </View>
         <View style={styles.mainWrapperView}>
-        <View style={styles.mainBgImageWrapper}>
-
-         
-{/* <ImageBackground
-  // style={styles.mainBgImage}
-  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
-  resizeMode='contain' 
-  source={require('../assets/images/home-bg.png')}
-/> */}
-<Image
-  style={styles.mainBgImage}
-  source={require('../assets/images/settings-bg.png')}
-/>
-</View>
+          <View style={styles.mainBgImageWrapper}>
+            <Image
+              style={styles.mainBgImage}
+              source={require('../assets/images/settings-bg.png')}
+            />
+          </View>
           <View style={styles.mainView}>
             <View style={styles.inputGroupWrapperView}>
               <View style={styles.inputGroupView}>
@@ -106,29 +94,15 @@ export default class SetingsCustomScreen extends React.Component {
                   What's your gender?
                 </Text>
                 <Picker
-                selectedValue={this.state.gender}
-                style={{height: 50, width: '100%', color: '#747693', fontSize: 30,}}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({gender: itemValue})
-                }>
-                <Picker.Item label="Other" value="Other" />
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="Female" />
-              </Picker>
-                {/* <ModalDropdown
-                  style={styles.modalDropdownStyle}
-                  defaultValue='Other'
-                  dropdownTextStyle={styles.mainInput}                 
-                  textStyle={styles.mainInput}
-                  dropdownStyle={{ width:'85%', height:'auto', marginTop: Platform.OS === 'ios' ? 0 : -25, }}
-                  options={['Other', 'Male', 'Female']}                  
-                />
-                          <Image
-                            source={
-                              require('../assets/images/arrow-down-1.png')
-                            }
-                            style={styles.arrowImage}
-                          /> */}
+                  selectedValue={this.state.gender}
+                  style={{ height: 50, width: '100%', color: '#747693', fontSize: 30, }}
+                  onValueChange={(itemValue, itemIndex) =>
+                    this.setState({ gender: itemValue })
+                  }>
+                  <Picker.Item label="Other" value="Other" />
+                  <Picker.Item label="Male" value="male" />
+                  <Picker.Item label="Female" value="Female" />
+                </Picker>
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
@@ -140,7 +114,7 @@ export default class SetingsCustomScreen extends React.Component {
                 >
                   {this.state.birthdate}
                 </Text>
-                <DateTimePicker                  
+                <DateTimePicker
                   isVisible={this.state.isBirthdayPickerVisible}
                   onConfirm={this.handleDatePicked}
                   onCancel={this.hideBirthdayPicker}
@@ -151,30 +125,24 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What time shall I remind you of a rating?
                 </Text>
-                {/* <TextInput
-                  onPress={this.showBirthdayPicker}
-                  style={styles.mainInput}
-                  onChangeText={(reminder) => this.setState({ reminder })}
-                  value={this.state.reminder}
-                /> */}
                 <Text
                   onPress={this.showAlarmPicker}
                   style={styles.mainInput}
                 >
                   {this.state.reminder}
                 </Text>
-                        <DateTimePicker
-          isVisible={this.state.isAlarmPickerVisible}
-          onConfirm={this.handleTimePicked}
-          onCancel={this.hideAlarmPicker}
-          mode={'time'}
-        />
+                <DateTimePicker
+                  isVisible={this.state.isAlarmPickerVisible}
+                  onConfirm={this.handleTimePicked}
+                  onCancel={this.hideAlarmPicker}
+                  mode={'time'}
+                />
               </View>
             </View>
             <View style={styles.mainSettingsView}>
               <View style={[
                 styles.mainSettingsItemView,
-                { marginBottom: 5},
+                { marginBottom: 5 },
               ]}>
                 <View style={styles.mainSettingsItemLeftView}>
                   <Text style={styles.labelText}>
@@ -190,7 +158,7 @@ export default class SetingsCustomScreen extends React.Component {
                   >
                     <Switch
                       thumbColor={'#266bda'}
-                      trackColor={{false:'transparent', true:'transparent'}}
+                      trackColor={{ false: 'transparent', true: 'transparent' }}
                       onValueChange={this.toggleReceiveNotifications}
                       value={this.state.receiveNotifications}
                     />
@@ -261,10 +229,8 @@ const styles = StyleSheet.create({
   mainBgImageWrapper: {
     position: 'absolute',
     height: '100%',
-    // backgroundColor: 'red',
     width: '70%',
     left: 0,
-    // alignItems: 'flex-end',
     textAlign: 'right',
   },
 
@@ -277,32 +243,7 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     position: 'relative',
-    // backgroundColor: 'green',
   },
-
-  arrowImage: {
-    position: 'absolute',
-    right: 5,
-    bottom: 11,
-    transform: [
-      {scale: 0.7}
-    ],
-    zIndex: 9,
-  },
-
-  modalDropdownStyle: {
-    position: 'relative',
-    zIndex: 1,
-  },
-
-  containerInner: {
-    flex: 0.9,
-  },
-
-  // mainModalDropdown: {
-  //   position: 'relative',
-  //   zIndex: 1,
-  // },
 
   switchLinearGradient: {
     borderRadius: Platform.OS === 'ios' ? 20 : 16,
@@ -380,19 +321,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-
-  mainSettingsItemLeftView: {
-    // flex: 0.7,
-  },
-
-  mainSettingsItemRightView: {
-    // flex: 0.3,
-  },
-
-  mainSettingsItemRightText: {
-    textAlign: 'right',
-    alignSelf: 'stretch',
   },
 
   externalLinksView: {

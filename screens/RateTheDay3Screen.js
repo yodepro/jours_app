@@ -1,9 +1,5 @@
 import React from 'react';
-// import { ExpoConfigView } from '@expo/samples';
 import {
-  // Image,
-  // Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -15,41 +11,29 @@ export default class RateTheDay3Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.topView}>
-
           <Text style={styles.dayTitleText}>
             May, 12th
-        </Text>
-
+          </Text>
           <View style={styles.mainLinearGradientWrapperView}>
             <LinearGradient
               colors={['#4CD9D9', '#48E9C7']}
               style={styles.mainLinearGradient}
             >
-
               <Text style={styles.dayBgText}>
-              Great!
-How about the romantic side of things?
-            </Text>
-
-              {/* <Text style={styles.dayBgTextBold}>
-                What’s your level of happiness today?
-            </Text> */}
-
+                Great! How about the romantic side of things?
+              </Text>
             </LinearGradient>
           </View>
-
         </View>
-
         <View style={styles.rateParamViewWrapper}>
           <View style={styles.rateParamView}>
             <Text style={styles.rateParamNumber}>
               0
-          </Text>
+            </Text>
             <Text style={styles.rateParamText}>
               been better
-          </Text>
+            </Text>
             <Slider
               style={{ width: '100%', height: 40 }}
               minimumValue={0}
@@ -59,30 +43,24 @@ How about the romantic side of things?
               maximumTrackTintColor="#000000"
             />
             <View style={styles.paginationView}>
-            
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-          </View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            </View>
           </View>
         </View>
-
         <View style={{ flex: 0.1, }}></View>
-
         <View style={styles.bottomNavigationView}>
-
           <View style={styles.bottomNavigationInnerView}>
-
             <View style={styles.bottomCancelView}>
               <Text
                 style={styles.bottomCancelText}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
                 Cancel
-        </Text>
+              </Text>
             </View>
-
             <LinearGradient
               colors={['#FDC344', '#FDE490']}
               style={styles.bottomLinearGradient}
@@ -93,12 +71,10 @@ How about the romantic side of things?
               >
                 Next to{"\n"}
                 health
-          </Text>
+              </Text>
             </LinearGradient>
-
           </View>
         </View>
-
       </View>
     );
   }
@@ -112,7 +88,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
-
     position: 'relative',
     height: '100%',
   },
@@ -124,13 +99,13 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    height: 5, 
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
     backgroundColor: '#c5c4d2',
   },
@@ -147,8 +122,6 @@ const styles = StyleSheet.create({
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
@@ -172,8 +145,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -193,7 +164,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '40%',
     zIndex: 5,
-    // backgroundColor: 'red',
     width: '100%',
   },
 
@@ -203,10 +173,7 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     paddingBottom: 20,
     position: 'relative',
-    // left: 15,
-    // top: 0,
     width: '100%',
-    // zIndex: 5,
 
     shadowColor: "#3884ff",
     shadowOffset: {

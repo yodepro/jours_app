@@ -4,8 +4,6 @@ import {
   Text,
   ImageBackground,
   View,
-  Image,
-  TextInput,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -13,10 +11,7 @@ export default class InitialSetup4Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Jake',
-      gender: 'Other',
       birthdate: '17.03.96',
-      reminder: '9:30',
       isDateTimePickerVisible: false,
     };
   }
@@ -39,12 +34,10 @@ export default class InitialSetup4Screen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.topView}>
-
           <ImageBackground
             source={require('../assets/images/setup-bg.png')}
             style={styles.backgroundImage}
           >
-
             <View style={styles.nextView}>
               <Text
                 style={[styles.dayBgText, styles.dayBgTextBold]}
@@ -53,12 +46,10 @@ export default class InitialSetup4Screen extends React.Component {
                 check >
               </Text>
             </View>
-
             <View style={styles.topInnerView}>
               <Text style={styles.dayBgText}>
-              What's your birth date?
+                What's your birth date?
               </Text>
-              {/* <View style={styles.topInnerInnerView}> */}
               <Text
                 style={styles.mainInput}
                 onPress={this.showDateTimePicker}
@@ -70,21 +61,12 @@ export default class InitialSetup4Screen extends React.Component {
                 onConfirm={this.handleDatePicked}
                 onCancel={this.hideDateTimePicker}
               />
-                                      <View style={styles.paginationView}>
-            
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
-          </View>
-
-
-            {/* </View> */}
-              {/* <TextInput
-                style={styles.mainInput}
-                onChangeText={(reminder) => this.setState({ reminder })}
-                value={this.state.reminder}
-              /> */}
+              <View style={styles.paginationView}>
+                <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+                <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+                <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+                <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+              </View>
             </View>
           </ImageBackground>
         </View>
@@ -111,54 +93,29 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    backgroundColor: '#fff', 
-    height: 5, 
+    backgroundColor: '#fff',
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
   },
 
   paginationItemActiveView: {
-    width: 21, 
-  },
-
-  arrowImage: {
-    position: 'absolute',
-    right: 0,
-    bottom: 11,
-    transform: [
-      {scale: 0.7}
-    ],
-    zIndex: 999,
-  },
-
-  modalDropdownStyle: {
-    position: 'relative',
-    zIndex: 1,
-    // backgroundColor: 'green',
+    width: 21,
   },
 
   topView: {
     width: '100%',
     flex: 0.75,
-    // backgroundColor: 'red',
   },
 
   nextView: {
     paddingTop: 45,
     paddingRight: 15,
-  },
-
-  topInnerInnerView: {
-    position: 'relative',
-    width: '60%',
-    // backgroundColor: 'red',
-    // paddingLeft: 20,
-    // paddingRight: 20,
   },
 
   topInnerView: {
@@ -183,8 +140,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 32,
     lineHeight: 37,
     color: '#FFFFFF',
@@ -209,11 +164,4 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 30,
   },
-
-  mainInputDropdown: {
-    color: '#747693',
-    textAlign: 'left',
-    width: '60%',
-    fontSize: 20,
-  },  
 });

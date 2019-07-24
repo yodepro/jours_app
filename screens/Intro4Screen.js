@@ -1,18 +1,13 @@
 import React from 'react';
 import {
   Image,
-  // Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
-  Dimensions,
 } from 'react-native';
 
 export default class Intro4Screen extends React.Component {
   render() {
-
-
     return (
       <View style={styles.container}>
         <Image
@@ -23,14 +18,11 @@ export default class Intro4Screen extends React.Component {
         <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-          With our smart Lookback you'll be able to analyse your ups and downs
+            With our smart Lookback you'll be able to analyse your ups and downs
           </Text>
           <View style={styles.paginationView}>
-            
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
             <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
           </View>
@@ -54,16 +46,11 @@ Intro4Screen.navigationOptions = {
   header: null,
 };
 
-const dimensions = Dimensions.get('window');
-const imageWidth = dimensions.width;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    // paddingLeft: 15,
-    // paddingRight: 15,
     color: '#fff',
     position: 'relative',
   },
@@ -75,30 +62,27 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    backgroundColor: '#fff', 
-    height: 5, 
+    backgroundColor: '#fff',
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
   },
 
   paginationItemActiveView: {
-    width: 21, 
+    width: 21,
   },
 
   mainBgImage: {
-    // flex: 1,
     position: 'absolute',
     alignSelf: 'center',
     width: '100%',
     top: 10,
     resizeMode: 'contain',
-    // left: 0,
-    // right: 0,
   },
 
   mainView: {
@@ -111,9 +95,7 @@ const styles = StyleSheet.create({
 
   mainText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
     fontSize: 30,
-    // lineHeight: 37,
     lineHeight: 35,
     color: '#fff',
   },

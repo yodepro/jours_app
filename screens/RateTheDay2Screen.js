@@ -1,9 +1,6 @@
 import React from 'react';
-// import { ExpoConfigView } from '@expo/samples';
 import {
-  // Image,
   Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -16,42 +13,29 @@ export default class RateTheDay2Screen extends React.Component {
     const { goBack } = this.props.navigation;
     return (
       <View style={styles.container}>
-
         <View style={styles.topView}>
-
           <Text style={styles.dayTitleText}>
             May, 12th
-        </Text>
-
+          </Text>
           <View style={styles.mainLinearGradientWrapperView}>
             <LinearGradient
               colors={['#F734A8', '#F78B79']}
               style={styles.mainLinearGradient}
             >
-
               <Text style={styles.dayBgText}>
-              Let’s be a bit more specific.
-Please rate your feelings about
-your work today
-            </Text>
-
-              {/* <Text style={styles.dayBgTextBold}>
-                How does your health makes you feel?
-            </Text> */}
-
+                Let’s be a bit more specific. Please rate your feelings about your work today
+              </Text>
             </LinearGradient>
           </View>
-
         </View>
-
         <View style={styles.rateParamViewWrapper}>
           <View style={styles.rateParamView}>
             <Text style={styles.rateParamNumber}>
               7.3
-          </Text>
+            </Text>
             <Text style={styles.rateParamText}>
               great
-          </Text>
+            </Text>
             <Slider
               style={{ width: '100%', height: 40 }}
               minimumValue={0}
@@ -61,36 +45,30 @@ your work today
               maximumTrackTintColor="#000000"
             />
             <View style={styles.paginationView}>
-            
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-            <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
-          </View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+              <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
+            </View>
           </View>
         </View>
-
         <View style={{ flex: 0.1, }}></View>
-
         <View style={styles.bottomNavigationView}>
-
           <View style={styles.bottomNavigationInnerView}>
-
             <View style={styles.bottomCancelView}>
               <Text
                 style={styles.bottomCancelTextLeft}
                 onPress={() => goBack()}
               >
                 ⟵
-        </Text>
+              </Text>
               <Text
                 style={styles.bottomCancelTextRight}
                 onPress={() => goBack()}
               >
                 Back
-        </Text>
+              </Text>
             </View>
-
             <LinearGradient
               colors={['#4CD9D9', '#48E9C7']}
               style={styles.bottomLinearGradient}
@@ -101,12 +79,10 @@ your work today
               >
                 Next to{"\n"}
                 romance
-          </Text>
+              </Text>
             </LinearGradient>
-
           </View>
         </View>
-
       </View>
     );
   }
@@ -120,7 +96,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
-
     position: 'relative',
     height: '100%',
   },
@@ -132,13 +107,13 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    height: 5, 
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
     backgroundColor: '#c5c4d2',
   },
@@ -155,8 +130,6 @@ const styles = StyleSheet.create({
 
   dayTitleText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
     letterSpacing: 0.6,
     color: '#8B8B8B',
@@ -180,8 +153,6 @@ const styles = StyleSheet.create({
 
   dayBgText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
-    // lineHeight: 37,
     fontSize: 27,
     lineHeight: 27,
     color: '#FFFFFF',
@@ -201,7 +172,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '40%',
     zIndex: 5,
-    // backgroundColor: 'red',
     width: '100%',
   },
 
@@ -211,11 +181,7 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     paddingBottom: 20,
     position: 'relative',
-    // left: 15,
-    // top: 0,
     width: '100%',
-    // zIndex: 5,
-
     shadowColor: "#3884ff",
     shadowOffset: {
       width: 0,
@@ -263,7 +229,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: '#C5C4D2',
-    position: 'absolute',    
+    position: 'absolute',
     bottom: Platform.OS === 'ios' ? 38 : 42,
     left: 15,
     flexDirection: 'row',
@@ -282,14 +248,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: Platform.OS === 'ios' ? 10 : 0,
   },
-
-  // bottomCancelArrowText: {
-  //   marginTop: -10,
-  // },
-
-  // bottomCancelWordText: {
-  //   marginTop: 20,
-  // },
 
   bottomLinearGradient: {
     height: '100%',

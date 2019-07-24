@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   Image,
-  // Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -12,7 +10,7 @@ export default class Intro1Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image 
+        <Image
           style={styles.mainBgImage}
           source={require('../assets/images/intro-1-bg.png')}
         />
@@ -57,8 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    // paddingLeft: 15,
-    // paddingRight: 15,
     color: '#fff',
   },
 
@@ -69,19 +65,19 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    backgroundColor: '#fff', 
-    height: 5, 
+    backgroundColor: '#fff',
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
   },
 
   paginationItemActiveView: {
-    width: 21, 
+    width: 21,
   },
 
   mainBgImage: {
@@ -102,9 +98,7 @@ const styles = StyleSheet.create({
 
   mainText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
     fontSize: 30,
-    // lineHeight: 37,
     lineHeight: 35,
     color: '#fff',
   },

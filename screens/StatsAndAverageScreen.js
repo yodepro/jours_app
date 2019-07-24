@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   Image,
-  // Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -11,96 +9,81 @@ import {
 export default function StatsAndAverageScreen() {
   return (
     <View style={styles.container}>
-
-
       <View style={styles.dayTitleView}>
         <Text style={styles.dayTitleText}>
           Statistics
-          </Text>
+        </Text>
+        <Image
+          source={
+            require('../assets/images/export-icon.png')
+          }
+          style={styles.exportImage}
+        />
+      </View>
+      <View style={{ position: 'relative', flex: 0.9 }}>
+        <View style={styles.mainBgImageWrapper}>
           <Image
-              source={
-                require('../assets/images/export-icon.png')
-              }
-              style={styles.exportImage}
-            />
-      </View>
-<View style={{position:'relative', flex: 0.9}}>
-<View style={styles.mainBgImageWrapper}>
-
-         
-{/* <ImageBackground
-  // style={styles.mainBgImage}
-  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
-  resizeMode='contain' 
-  source={require('../assets/images/home-bg.png')}
-/> */}
-<Image
-  style={styles.mainBgImage}
-  source={require('../assets/images/stats-bg.png')}
-/>
-</View>
-      <View style={styles.twoTilesView}>
-        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-          <Text style={styles.smallTileTopText}>
-            514
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Days Rated
-          </Text>
+            style={styles.mainBgImage}
+            source={require('../assets/images/stats-bg.png')}
+          />
         </View>
-
-        <View style={[styles.smallTileView, styles.smallTileRightView]}>
-          <Text style={styles.smallTileTopText}>
-            Sun
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Best Day of the Week
-          </Text>
+        <View style={styles.twoTilesView}>
+          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+            <Text style={styles.smallTileTopText}>
+              514
+            </Text>
+            <Text style={styles.tileBottomText}>
+              Days Rated
+            </Text>
+          </View>
+          <View style={[styles.smallTileView, styles.smallTileRightView]}>
+            <Text style={styles.smallTileTopText}>
+              Sun
+            </Text>
+            <Text style={styles.tileBottomText}>
+              Best Day of the Week
+            </Text>
+          </View>
         </View>
-      </View>
-
-      <View style={styles.oneTileView}>
-        <View style={styles.bigTileView}>
-          <Text style={styles.bigTileTopText}>
-            Sunday, Sept 12th '19
-          </Text>
-          <Text style={styles.tileBottomText}>
-            The Latest Super Great Day
-          </Text>
+        <View style={styles.oneTileView}>
+          <View style={styles.bigTileView}>
+            <Text style={styles.bigTileTopText}>
+              Sunday, Sept 12th '19
+            </Text>
+            <Text style={styles.tileBottomText}>
+              The Latest Super Great Day
+            </Text>
+          </View>
         </View>
-      </View>
-
-      <View style={styles.oneTileView}>
-        <View style={styles.bigTileView}>
-          <Text style={styles.bigTileTopText}>
-            Monday, Sept 13th '19
-          </Text>
-          <Text style={styles.tileBottomText}>
-            The Latest Awful Day
-          </Text>
+        <View style={styles.oneTileView}>
+          <View style={styles.bigTileView}>
+            <Text style={styles.bigTileTopText}>
+              Monday, Sept 13th '19
+            </Text>
+            <Text style={styles.tileBottomText}>
+              The Latest Awful Day
+            </Text>
+          </View>
         </View>
-      </View>
-
-      <View style={styles.twoTilesView}>
-        <View style={[styles.smallTileView, styles.smallTileLeftView]}>
-          <Text style={styles.smallTileTopText}>
-            354
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Rating Strike
-          </Text>
-        </View>
-
-        <View style={[styles.smallTileView, styles.smallTileRightView]}>
-          <Text style={styles.smallTileTopText}>
-            Mon
-          </Text>
-          <Text style={styles.tileBottomText}>
-            Saddest Day of the Week
-          </Text>
+        <View style={styles.twoTilesView}>
+          <View style={[styles.smallTileView, styles.smallTileLeftView]}>
+            <Text style={styles.smallTileTopText}>
+              354
+            </Text>
+            <Text style={styles.tileBottomText}>
+              Rating Strike
+            </Text>
+          </View>
+          <View style={[styles.smallTileView, styles.smallTileRightView]}>
+            <Text style={styles.smallTileTopText}>
+              Mon
+            </Text>
+            <Text style={styles.tileBottomText}>
+              Saddest Day of the Week
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
     </View>
   );
 }
@@ -121,7 +104,6 @@ const styles = StyleSheet.create({
   mainBgImageWrapper: {
     position: 'absolute',
     height: '100%',
-    // backgroundColor: 'red',
     width: '100%',
     bottom: 0,
     alignItems: 'flex-end',
@@ -136,11 +118,6 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     left: 0,
     position: 'relative',
-    // backgroundColor: 'green',
-  },
-
-  containerInner: {
-    flex: 0.9,
   },
 
   dayTitleView: {
@@ -152,21 +129,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  topView: {
-    paddingTop: 30,
-    flex: 0.55,
-  },
-
-  exportImage: {
-    // height: 20,
-    // resizeMode: 'cover',
-  },
-
   dayTitleText: {
     fontFamily: 'roboto-300',
     fontSize: 27,
     letterSpacing: 0.6,
-    color: '#8B8B8B',    
+    color: '#8B8B8B',
   },
 
   twoTilesView: {

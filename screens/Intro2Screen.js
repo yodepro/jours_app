@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   Image,
-  // Platform,
-  // ScrollView,
   StyleSheet,
   Text,
   View,
@@ -12,21 +10,20 @@ export default class Intro2Screen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image 
+        <Image
           style={styles.mainBgImage}
           source={require('../assets/images/intro-2-bg-1.png')}
         />
-        <Image 
+        <Image
           style={styles.mainBgImage2}
           source={require('../assets/images/intro-2-bg-2.png')}
         />
         <View style={{ flex: 0.35, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
-          A new generation personal journal: evaluate your every day, and soon you’ll be able to take a better look on what really matters and makes you feel good
+            A new generation personal journal: evaluate your every day, and soon you’ll be able to take a better look on what really matters and makes you feel good
         </Text>
-        <View style={styles.paginationView}>
-            
+          <View style={styles.paginationView}>
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
             <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
@@ -62,8 +59,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4E53FF',
     paddingTop: 30,
-    // paddingLeft: 15,
-    // paddingRight: 15,
     color: '#fff',
   },
 
@@ -74,23 +69,22 @@ const styles = StyleSheet.create({
   },
 
   paginationItemView: {
-    backgroundColor: '#fff', 
-    height: 5, 
+    backgroundColor: '#fff',
+    height: 5,
     borderRadius: 4,
     marginRight: 2,
   },
 
   paginationItemInactiveView: {
-    width: 10, 
+    width: 10,
     opacity: .5,
   },
 
   paginationItemActiveView: {
-    width: 21, 
+    width: 21,
   },
 
   mainBgImage: {
-    // flex: 1,
     position: 'absolute',
     alignSelf: 'center',
     top: 0,
@@ -99,7 +93,6 @@ const styles = StyleSheet.create({
   },
 
   mainBgImage2: {
-    // flex: 1,
     position: 'absolute',
     alignSelf: 'center',
     top: 120,
@@ -117,9 +110,7 @@ const styles = StyleSheet.create({
 
   mainText: {
     fontFamily: 'roboto-300',
-    // fontSize: 32,
     fontSize: 30,
-    // lineHeight: 37,
     lineHeight: 35,
     color: '#fff',
   },

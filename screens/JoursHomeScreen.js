@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Image,
-  ImageBackground,
   StyleSheet,
   Text,
   View,
@@ -13,15 +12,14 @@ import { isIphoneX } from '../is-iphone-x'
 export default class JoursHomeScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: 'Brief of the Day' };
+    this.state = {
+      text: 'Brief of the Day',
+    };
   }
 
   render() {
-
-
     return (
       <View style={styles.container}>
-
         <View style={styles.topInfoView}>
           <View style={styles.topInfoDateView}>
             <Text style={styles.dayTitleText}>May, 12th</Text>
@@ -32,28 +30,17 @@ export default class JoursHomeScreen extends React.Component {
               style={styles.exportImage}
             />
           </View>
-
         </View>
         <View style={styles.chartWrapperView}>
-        <View style={styles.mainBgImageWrapper}>
-
-         
-{/* <ImageBackground
-  // style={styles.mainBgImage}
-  style={{position: 'absolute', alignItems:'flex-end', paddingTop: 300, right: 0, width:'100%', height: '100%', backgroundColor:'red'}}
-  resizeMode='contain' 
-  source={require('../assets/images/home-bg.png')}
-/> */}
-<Image
-  style={styles.mainBgImage}
-  source={require('../assets/images/home-bg.png')}
-/>
-</View>
-
-        <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
+          <View style={styles.mainBgImageWrapper}>
+            <Image
+              style={styles.mainBgImage}
+              source={require('../assets/images/home-bg.png')}
+            />
+          </View>
+          <Text style={[styles.dayBgTextBold, styles.dayBgTextBoldDark]}>
             The journey is a series of steps, Jake
           </Text>
-
           <View style={[styles.chartInnerView, styles.chartInnerUpperView]}>
             <View style={styles.chartInnerTopView}>
               <View style={styles.chartInnerTopDateView}>
@@ -85,12 +72,9 @@ export default class JoursHomeScreen extends React.Component {
                   <LinearGradient
                     colors={['#3884FF', '#60D7FF']}
                     style={styles.chartHappinessLinearGradient}>
-
                     <View style={[styles.gradientCircleSm, styles.happinessCircle]}></View>
                     <View style={[styles.gradientCircleBig, styles.happinessCircle]}></View>
-
                   </LinearGradient>
-
                 </View>
                 <Text style={styles.happinessTitleText}>Happiness</Text>
               </View>
@@ -99,10 +83,8 @@ export default class JoursHomeScreen extends React.Component {
                   <LinearGradient
                     colors={['#F734A8', '#F78B79']}
                     style={styles.chartHealthLinearGradient}>
-
                     <View style={[styles.gradientCircleSm, styles.healthCircle]}></View>
                     <View style={[styles.gradientCircleBig, styles.healthCircle]}></View>
-
                   </LinearGradient>
                 </View>
                 <Text style={styles.healthTitleText}>Health</Text>
@@ -113,10 +95,8 @@ export default class JoursHomeScreen extends React.Component {
                   <LinearGradient
                     colors={['#4CD9D9', '#48E9C7']}
                     style={styles.chartRomanceLinearGradient}>
-
                     <View style={[styles.gradientCircleSm, styles.romanceCircle]}></View>
                     <View style={[styles.gradientCircleBig, styles.romanceCircle]}></View>
-
                   </LinearGradient>
                 </View>
                 <Text style={styles.romanceTitleText}>Romance</Text>
@@ -128,10 +108,8 @@ export default class JoursHomeScreen extends React.Component {
                     colors={['#FDC344', '#FDE490']}
                     style={styles.chartCareerLinearGradient}
                   >
-
                     <View style={[styles.gradientCircleSm, styles.careerCircle]}></View>
                     <View style={[styles.gradientCircleBig, styles.careerCircle]}></View>
-
                   </LinearGradient>
                 </View>
                 <Text style={styles.careerTitleText}>Career</Text>
@@ -160,9 +138,9 @@ JoursHomeScreen.navigationOptions = {
   header: null,
   tabBarVisible: true,
 };
-const dimensions = Dimensions.get('window');
-const imageHeight = dimensions.height;
+
 const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -170,9 +148,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: '100%',
     paddingBottom: 20,
-    // paddingLeft: 15,
-    // paddingRight: 15,
-    // paddingTop: mainPaddigTop,
   },
 
   topInfoView: {
@@ -185,10 +160,8 @@ const styles = StyleSheet.create({
   mainBgImageWrapper: {
     position: 'absolute',
     height: '100%',
-    // backgroundColor: 'red',
     width: '70%',
     right: 0,
-    // alignItems: 'flex-end',
     textAlign: 'right',
   },
 
@@ -200,33 +173,6 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
     right: 0,
     top: '5%',
-    position: 'relative',
-    // backgroundColor: 'green',
-  },
-
-  // mainBgImage: {
-  //   // flex: 1,
-  //   position: 'absolute',
-  //   alignSelf: 'center',
-  //   // height: '100%',
-  //   // top: 40,
-  //   right: 0,
-  //   paddingTop: 40,
-  //   paddingBottom: 40,
-  //   // zIndex: 99,
-  //   // left: 0,
-  //   // right: 0,
-  // },
-
-  // placeholderImage: {
-  //   width: '100%',
-  //   height: '100%',
-  //   resizeMode: 'contain',
-  // },
-
-  topView: {
-    paddingTop: 30,
-    flex: 0.5,
     position: 'relative',
   },
 
@@ -247,15 +193,6 @@ const styles = StyleSheet.create({
     marginTop: -8,
   },
 
-  bottomView: {
-    flex: 0.3,
-  },
-
-  topViewInner: {
-    position: 'relative',
-    backgroundColor: 'red',
-  },
-
   dayTitleText: {
     fontFamily: 'roboto-300',
     fontSize: 27,
@@ -264,11 +201,8 @@ const styles = StyleSheet.create({
   },
 
   chartInnerTopDateMiddleText: {
-    // fontSize: 16,
-    // lineHeight: 19,
     textAlign: 'center',
     color: '#C5C4D2',
-    // paddingTop: 5,
   },
 
   chartWrapperView: {
@@ -298,7 +232,6 @@ const styles = StyleSheet.create({
     height: '30%',
     paddingTop: 10,
     zIndex: 99,
-    // backgroundColor: 'red',
   },
 
   chartInnerTopDateView: {
@@ -312,19 +245,14 @@ const styles = StyleSheet.create({
   chartInnerBottomDateView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // marginTop: 5,
-    // backgroundColor: 'yellow',
   },
 
   chartInnerBottomDateRightView: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    // backgroundColor: 'green',
   },
 
   chartInnerBottomDateLeftText: {
-    // fontSize: 16,
-    // lineHeight: 19,
     color: '#C5C4D2',
     paddingLeft: 15,
   },
@@ -332,8 +260,6 @@ const styles = StyleSheet.create({
   chartInnerTopText: {
     fontFamily: 'roboto-700',
     textAlign: 'right',
-    // fontSize: 16,
-    // lineHeight: 19,
     color: '#747693',
     paddingRight: 15,
     textDecorationLine: 'underline',
@@ -344,7 +270,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     height: '70%',
     position: 'relative',
-    // backgroundColor: 'blue',
   },
 
   chartInnerUpperView: {
@@ -353,7 +278,6 @@ const styles = StyleSheet.create({
 
   chartInnerDownView: {
     marginTop: 7.5,
-    // position: 'relative',
     overflow: 'hidden',
   },
 
@@ -373,10 +297,7 @@ const styles = StyleSheet.create({
   },
 
   chartHappinessView: {
-    // position: 'absolute',
     height: '89%', // 50% min + 78% / 2
-    // flex: 0.3,
-    // width: '35%',
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
     borderBottomLeftRadius: 23,
@@ -451,7 +372,6 @@ const styles = StyleSheet.create({
 
   chartHealthView: {
     flex: 0.78, // 0.5 min + 0.56 / 2
-    // height: '56%',
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
     borderBottomLeftRadius: 0,
@@ -519,7 +439,6 @@ const styles = StyleSheet.create({
   },
 
   chartCareerView: {
-    // height: '28%',
     flex: 0.64, // 0.5 min + 0.28 / 2
     borderTopLeftRadius: 23,
     borderTopRightRadius: 23,
@@ -564,14 +483,6 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '-90deg' }, { translateX: 50 }, { translateY: -35 }],
   },
 
-  dayBgText: {
-    fontFamily: 'roboto-300',
-    fontSize: 27,
-    lineHeight: 27,
-    color: '#FFFFFF',
-    marginBottom: 15,
-  },
-
   dayBgTextBold: {
     fontFamily: 'roboto-700',
     fontSize: 27,
@@ -583,12 +494,6 @@ const styles = StyleSheet.create({
     color: '#747693',
     paddingTop: 15,
     paddingBottom: 8,
-  },
-
-  dayBgTextBoldBottom: {
-    position: 'absolute',
-    bottom: 15,
-    left: 15,
   },
 
   gradientCircleSm: {
