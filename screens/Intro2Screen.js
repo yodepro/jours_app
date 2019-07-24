@@ -94,6 +94,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     top: 0,
+    width: '100%',
+    resizeMode: 'contain',
   },
 
   mainBgImage2: {
@@ -101,6 +103,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     top: 120,
+    width: '100%',
+    resizeMode: 'contain',
   },
 
   mainView: {

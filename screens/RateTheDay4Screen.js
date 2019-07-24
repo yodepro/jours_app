@@ -165,12 +165,13 @@ const styles = StyleSheet.create({
   },
 
   doneImage: {
+    resizeMode: 'stretch',
     position: 'absolute',
     zIndex: -1,
     bottom: 0,
     right: 0,
     height: 150,
-    width: 150,
+    width: 180,
   },
 
   topView: {
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
   rateParamView: {
     backgroundColor: '#fff',
     borderRadius: 23,
-    paddingTop: 40,
+    paddingTop: 25,
     paddingBottom: 20,
     position: 'relative',
     // left: 15,
@@ -261,7 +262,7 @@ const styles = StyleSheet.create({
 
   rateParamNumber: {
     fontFamily: 'quicksand-500',
-    fontSize: 64,
+    fontSize: 54,
     lineHeight: 80,
     textAlign: 'center',
     color: '#747693',
@@ -289,11 +290,11 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#C5C4D2',
     position: 'absolute',
-    bottom: 32,
+    // bottom: 32,
     left: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    bottom: Platform.OS === 'ios' ? 28 : 32,
+    bottom: Platform.OS === 'ios' ? 38 : 42,
   },
 
   bottomCancelTextRight: {
@@ -302,7 +303,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#C5C4D2',
     position: 'absolute',
-    bottom: 30,
+    bottom: 40,
     left: 35,
     flexDirection: 'row',
     alignItems: 'center',
@@ -318,8 +319,8 @@ const styles = StyleSheet.create({
 
   dayBgTextBoldBottom: {
     position: 'absolute',
-    bottom: 15,
-    right: 40,
+    bottom: 30,
+    right: 60,
     textDecorationLine: 'underline',
     zIndex: 2,
   },

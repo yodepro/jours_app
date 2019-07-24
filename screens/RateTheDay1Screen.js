@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   rateParamView: {
     backgroundColor: '#fff',
     borderRadius: 23,
-    paddingTop: 40,
+    paddingTop: 25,
     paddingBottom: 20,
     position: 'relative',
     // left: 15,
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
 
   rateParamNumber: {
     fontFamily: 'quicksand-500',
-    fontSize: 64,
+    fontSize: 54,
     lineHeight: 80,
     textAlign: 'center',
     color: '#747693',
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#C5C4D2',
     position: 'absolute',
-    bottom: 10,
+    bottom: 20,
     left: 15,
     // backgroundColor: 'red',
     paddingVertical: 20,
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
   dayBgTextBoldBottom: {
     textDecorationLine: 'underline',
     position: 'absolute',
-    bottom: 15,
+    bottom: 30,
     left: 15,
   },
 });

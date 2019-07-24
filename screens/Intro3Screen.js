@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     width: '100%',
-    top: 40,
+    top: 10,
+    resizeMode: 'contain',
   },
 
   mainView: {
