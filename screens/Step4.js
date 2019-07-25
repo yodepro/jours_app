@@ -12,15 +12,15 @@ export default function App() {
     </View>
 
     <LinearGradient 
-    colors = {['#3884FF', '#60D7FF']}
+    colors = {['#FDC344', '#FDE490']}
     style = {styles.box}>
 
     <View style = {{marginTop: 10}}>
       <Text style = {styles.boxtext1}>
-      Another day, another story, Jake.
+      Nothing wrong in being strong, Jake!
       </Text>
       <Text style = {styles.boxtext2}>
-      What’s your level of happiness roday?
+      Dow does your health makes you feel?
       </Text>
     </View>
 
@@ -28,39 +28,37 @@ export default function App() {
 
     <View style = {styles.centrbox}>
       <View style = {styles.centrtextaling}>
-        <Text style = {styles.centrtext1}>10</Text>
-        <Text style = {styles.centrtext2}>super great</Text>
+        <Text style = {styles.centrtext1}>2.5</Text>
+        <Text style = {styles.centrtext2}>meh</Text>
       </View>
 
-      <View style = {{marginLeft: 270, marginTop: 153, position: 'absolute'}}>
+      <View style = {{marginLeft: 40, marginTop: 153, position: 'absolute'}}>
           <Image
-          style= {{width: 49, height: 44}}
-          source={require('./assets/images/smile4.png')}></Image>
+          style= {{width: 30, height: 33}}
+          source={require('./assets/images/smile2.png')}></Image> 
         </View>
 
       <View style = {{marginTop: 45, marginLeft: 144, flexDirection: 'row'}}>
-        <View style = {styles.slide1}></View>
         <View style = {styles.slide2}></View>
         <View style = {styles.slide3}></View>
         <View style = {styles.slide4}></View>
+        <View style = {styles.slide1}></View>
       </View>
     </View>
 
     <View style = {{marginTop: 590, marginLeft: 10, position: 'absolute'}}>
-        <Text style = {{color: '#C5C4D2'}}>Cancel</Text>
+        <Text style = {{color: '#C5C4D2'}}>⟵ Back</Text>
       </View>
 
-    <LinearGradient 
-    colors = {['#F734A8', '#F78B79']}
-    style = {styles.box2}>
 
-    <View style = {{marginTop: 150, width: 100}}>
-      <Text style = {styles.boxtext3}>
-      Next to health
-      </Text>
+    <View style = {{marginTop: 170, marginLeft: 173}}>
+    <Image
+      style= {{width: 187, height: 135, position: 'absolute'}}
+      source={require('./assets/images/oct2.png')}>
+      </Image>
+      <Text style = {styles.boxtext4}>Review the day</Text>
     </View>
 
-    </LinearGradient>
 
     </View>
   );
@@ -72,7 +70,8 @@ const styles = StyleSheet.create({
     width: 18,
     height: 3,
     backgroundColor: '#4E53FF',
-    borderRadius: 2
+    borderRadius: 2,
+    marginLeft: 2
   },
 
   slide2: {
@@ -156,10 +155,11 @@ const styles = StyleSheet.create({
   },
 
   box2: {
-    marginTop: 62,
-    marginLeft: 190,
-    width: 200,
-    height: 240
+    marginTop: 240,
+    marginLeft: 180,
+    width: 227,
+    height: 180,
+    position: 'absolute'
   },
 
   boxtext1: {
@@ -188,6 +188,18 @@ const styles = StyleSheet.create({
     margin: 10,
     letterSpacing: 0.6,
     textDecorationLine: 'underline'
+  },
+
+  boxtext4: {
+    fontSize: 22,
+    fontFamily: 'Roboto',
+    fontWeight: '500',
+    color: '#FFFFFF',
+    marginLeft: 35,
+    marginTop: 50,
+    letterSpacing: 0.6,
+    textDecorationLine: 'underline',
+    width: 110
   },
 
   date: {
