@@ -12,7 +12,7 @@ export default function App() {
     </View>
 
     <LinearGradient 
-    colors = {['#3884FF', '#60D7FF']}
+    colors = {['#4CD9D9', '#48E9C7']}
     style = {styles.box}>
 
     <View style = {{marginTop: 10}}>
@@ -28,20 +28,20 @@ export default function App() {
 
     <View style = {styles.centrbox}>
       <View style = {styles.centrtextaling}>
-        <Text style = {styles.centrtext1}>10</Text>
-        <Text style = {styles.centrtext2}>super great</Text>
+        <Text style = {styles.centrtext1}>0</Text>
+        <Text style = {styles.centrtext2}>been better</Text>
       </View>
 
-      <View style = {{marginLeft: 270, marginTop: 153, position: 'absolute'}}>
+      <View style = {{marginLeft: 10, marginTop: 137, position: 'absolute'}}>
           <Image
-          style= {{width: 49, height: 44}}
-          source={require('./assets/images/smile4.png')}></Image>
+          style= {{width: 34, height: 48}}
+          source={require('./assets/images/smile1.png')}></Image>
         </View>
 
       <View style = {{marginTop: 45, marginLeft: 144, flexDirection: 'row'}}>
-        <View style = {styles.slide1}></View>
         <View style = {styles.slide2}></View>
         <View style = {styles.slide3}></View>
+        <View style = {styles.slide1}></View>
         <View style = {styles.slide4}></View>
       </View>
     </View>
@@ -51,10 +51,10 @@ export default function App() {
       </View>
 
     <LinearGradient 
-    colors = {['#F734A8', '#F78B79']}
+    colors = {['#FDC344', '#FDE490']}
     style = {styles.box2}>
 
-    <View style = {{marginTop: 150, width: 100}}>
+    <View style = {{marginTop: 150, width: 120}}>
       <Text style = {styles.boxtext3}>
       Next to health
       </Text>
@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     width: 18,
     height: 3,
     backgroundColor: '#4E53FF',
-    borderRadius: 2
+    borderRadius: 2,
+    marginLeft: 2
   },
 
   slide2: {
