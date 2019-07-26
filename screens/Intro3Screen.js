@@ -14,7 +14,7 @@ export default class Intro3Screen extends React.Component {
           style={styles.mainBgImage}
           source={require('../assets/images/intro-3-bg.png')}
         />
-        <View style={{ flex: 0.35, }}></View>
+        <View style={{ flex: 0.6, }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             Leave comments for every day, and share your journey with your friends if you feel like it
@@ -90,11 +90,10 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.55,
+    flex: 0.3,
     paddingLeft: 15,
     paddingRight: 15,
-    justifyContent: 'flex-end',
-    paddingBottom: 20,
+    justifyContent: 'space-between',    paddingBottom: 20,
   },
 
   mainText: {

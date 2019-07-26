@@ -14,7 +14,7 @@ export default class Intro1Screen extends React.Component {
           style={styles.mainBgImage}
           source={require('../assets/images/intro-1-bg.png')}
         />
-        <View style={{ flex: 0.7 }}></View>
+        <View style={{ flex: 0.6 }}></View>
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             One simple app to know yourself better and to be happy
@@ -89,11 +89,12 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.2,
+    flex: 0.3,
     paddingLeft: 15,
     paddingRight: 15,
     paddingBottom: 20,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    // backgroundColor: 'red',
   },
 
   mainText: {
