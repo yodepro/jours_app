@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import Slider from 'react-native-slider';
+import RatingSlider from '../components/RatingSlider'
 
 export default class RateTheDay1Screen extends React.Component {
   render() {
@@ -28,20 +29,9 @@ export default class RateTheDay1Screen extends React.Component {
         </View>
         <View style={styles.rateParamViewWrapper}>
           <View style={styles.rateParamView}>
-            <Text style={styles.rateParamNumber}>
-              10
-            </Text>
-            <Text style={styles.rateParamText}>
-              super great
-            </Text>
-            <Slider
-              style={{ width: '100%', height: 40 }}
-              minimumValue={0}
-              maximumValue={10}
-              step={1}
-              minimumTrackTintColor="#FFFFFF"
-              maximumTrackTintColor="#000000"
-            />
+            
+            <RatingSlider value={0} style={{ width: '100%', padding: "5%" }}/>
+           
             <View style={styles.paginationView}>
               <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
               <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
