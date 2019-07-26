@@ -118,12 +118,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  mainLinearGradientWrapperView: {
+    mainLinearGradientWrapperView: {
     flex: 0.82,
+    borderTopRightRadius: 31,
+    width: '85%',
+    overflow: 'hidden',
   },
 
   mainLinearGradient: {
-    width: '85%',
+    width: '100%',
     height: '100%',
     borderTopRightRadius: 31,
     paddingTop: 40,
