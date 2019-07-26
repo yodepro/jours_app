@@ -53,10 +53,7 @@ export default class InitialSetup2Screen extends React.Component {
       ?
       <Text>ANDROIS</Text>
       :
-      <Text>Gay</Text>
-    
-    }
-              <ModalSelector
+      <ModalSelector
                 style={{width: '60%',}}
                 data={data}
                 ref={selector => { this.selector = selector; }}
@@ -85,6 +82,9 @@ export default class InitialSetup2Screen extends React.Component {
                   </View>
                 }
               />
+    
+    }
+              
 
 
 
