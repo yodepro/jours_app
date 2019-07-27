@@ -106,7 +106,23 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
-                <ModalSelector
+                {
+                  Platform.OS === 'android'
+                ?
+                <View style={{borderBottomWidth: 3, borderBottomColor: '#F0F0F0',}}>
+                <Picker
+                selectedValue={this.state.gender}
+                style={{height: 50, width: '100%', }}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({gender: itemValue})
+                }>
+                <Picker.Item label="Other" value="Other" />
+                <Picker.Item label="Male" value="Male" />
+                <Picker.Item label="Female" value="Female" />
+              </Picker>
+              </View>
+              :
+              <ModalSelector
                 style={{
                   width: '100%',
                   borderBottomWidth: 3,
@@ -138,9 +154,11 @@ export default class SetingsCustomScreen extends React.Component {
                     }}
                     source={require('../assets/images/arrow-down-1.png')}
                   />
+                  
                   </View>
                 }
               />
+                }
                 {/* <Picker
                   selectedValue={this.state.gender}
                   style={{ height: 50, width: '100%', color: '#747693', fontSize: 30, }}
