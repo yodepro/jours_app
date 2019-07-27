@@ -17,7 +17,7 @@ export default class InitialSetup2Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // gender: 'Other',
+      gender: 'Other',
       textInputValue: 'Other',
     };
   }
@@ -51,7 +51,16 @@ export default class InitialSetup2Screen extends React.Component {
               </Text>
       {Platform.OS === 'android'
       ?
-      <Text>ANDROIS</Text>
+      <Picker
+  selectedValue={this.state.gender}
+  style={{height: 50, width: '70%'}}
+  onValueChange={(itemValue, itemIndex) =>
+    this.setState({gender: itemValue})
+  }>
+  <Picker.Item label="Other" value="Other" />
+  <Picker.Item label="Male" value="Male" />
+  <Picker.Item label="Female" value="Female" />
+</Picker>
       :
       <ModalSelector
                 style={{width: '60%',}}

@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     height: 150,
-    width: 180,
+    width: 170,
+    resizeMode: 'stretch',
   },
 
   topView: {
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
   dayBgTextBoldBottom: {
     position: 'absolute',
     bottom: 30,
-    right: 60,
+    right: 40,
     textDecorationLine: 'underline',
     zIndex: 2,
   },
