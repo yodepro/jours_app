@@ -16,21 +16,27 @@ export default class RatingSlider extends React.Component {
       value: value ? value : 0,
       roja: this.getImageSlider(value ? value : 0),
       text: this.getText(value ? value : 0),
-      isShow: false
+      isShow: false,
+      roji: [
+        require("../assets/images/roji/1.png"),
+        require("../assets/images/roji/2.png"),
+        require("../assets/images/roji/3.png"),
+        require("../assets/images/roji/4.png")
+      ]
     };
   }
   getImageSlider(value) {
     if(value <= 2.5) {
-      return require("../assets/images/roji/1.png")
+      return this.state.roji[0]
     }
     else if(value <= 5) {
-      return require("../assets/images/roji/2.png")
+      return this.state.roji[1]
     }
     else if(value <= 7.5) {
-      return require("../assets/images/roji/3.png")
+      return this.state.roji[2]
     }
     else {
-      return require("../assets/images/roji/4.png")
+      return this.state.roji[3]
     }
   }
   getText(value) {
