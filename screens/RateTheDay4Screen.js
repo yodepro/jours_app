@@ -69,7 +69,7 @@ export default class RateTheDay4Screen extends React.Component {
               />
               <Text
                 style={[styles.dayBgTextBold, styles.dayBgTextBoldBottom]}
-                onPress={() => this.props.navigation.navigate('RateTheDay5')}
+                onPress={() => this.props.navigation.navigate('Home')}
               >
                 Review{"\n"}
                 the day
@@ -128,7 +128,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     height: 150,
-    width: 180,
+    width: 170,
+    resizeMode: 'stretch',
   },
 
   topView: {
@@ -146,12 +147,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  mainLinearGradientWrapperView: {
+    mainLinearGradientWrapperView: {
     flex: 0.82,
+    borderTopRightRadius: 31,
+    width: '85%',
+    overflow: 'hidden',
   },
 
   mainLinearGradient: {
-    width: '85%',
+    width: '100%',
     height: '100%',
     borderTopRightRadius: 31,
     paddingTop: 40,
@@ -261,7 +265,7 @@ const styles = StyleSheet.create({
   dayBgTextBoldBottom: {
     position: 'absolute',
     bottom: 30,
-    right: 60,
+    right: 40,
     textDecorationLine: 'underline',
     zIndex: 2,
   },

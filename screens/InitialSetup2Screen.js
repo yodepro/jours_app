@@ -5,17 +5,31 @@ import {
   ImageBackground,
   View,
   Picker,
+  TextInput,
+  Switch,
+  Image,
+  Platform,
 } from 'react-native';
+import ModalSelector from 'react-native-modal-selector'
+
 
 export default class InitialSetup2Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       gender: 'Other',
+      textInputValue: 'Other',
     };
   }
 
   render() {
+    let index = 0;
+    const data = [
+        { key: index++, label: 'Other' },
+        { key: index++, label: 'Male' },
+        { key: index++, label: 'Female', },
+    ];
+
     return (
       <View style={styles.container}>
         <View style={styles.topView}>
@@ -35,16 +49,54 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 Would you mind sharing your gender?
               </Text>
-              <Picker
-                selectedValue={this.state.gender}
-                style={{ height: 50, width: '100%', marginTop: 30, color: '#fff', }}
-                onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ gender: itemValue })
-                }>
-                <Picker.Item label="Other" value="Other" />
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="Female" />
-              </Picker>
+      {Platform.OS === 'android'
+      ?
+      <Picker
+  selectedValue={this.state.gender}
+  style={{height: 50, width: '70%'}}
+  onValueChange={(itemValue, itemIndex) =>
+    this.setState({gender: itemValue})
+  }>
+  <Picker.Item label="Other" value="Other" />
+  <Picker.Item label="Male" value="Male" />
+  <Picker.Item label="Female" value="Female" />
+</Picker>
+      :
+      <ModalSelector
+                style={{width: '60%',}}
+                data={data}
+                ref={selector => { this.selector = selector; }}
+                onChange={(option)=>{ this.setState({textInputValue:option.label})}}
+                customSelector={
+                  <View style={{
+                    flexDirection: 'row',
+                    justifyContent:'space-between',
+                    position: 'relative',
+                  }}>
+                  <Text
+                    style={styles.mainInput}
+                    onPress={() => this.selector.open()}                        
+                  >
+                    {this.state.textInputValue}
+                  </Text>
+                  <Image
+                    style={{
+                      position: 'absolute',
+                      right: 0,
+                      bottom: 10,
+                      zIndex: 1,
+                    }}
+                    source={require('../assets/images/arrow-down-2.png')}
+                  />
+                  </View>
+                }
+              />
+    
+    }
+              
+
+
+
               <View style={styles.paginationView}>
                 <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
                 <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
@@ -138,5 +190,19 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'right',
     textDecorationLine: 'underline',
+  },
+
+  mainInput: {
+    fontFamily: 'quicksand-500',
+    fontSize: 32,
+    lineHeight: 37,
+    color: '#FFFFFF',
+    // textAlign: 'left',
+    marginTop: 30,
+    // backgroundColor: 'blue',
+    width: '100%',
+    position: 'relative',
+    zIndex: 99,
+    // justifyContent: 'space-between',
   },
 });

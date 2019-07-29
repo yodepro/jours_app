@@ -25,6 +25,11 @@ import InitialSetup2Screen from '../screens/InitialSetup2Screen';
 import InitialSetup3Screen from '../screens/InitialSetup3Screen';
 import InitialSetup4Screen from '../screens/InitialSetup4Screen';
 
+import Step1Screen from '../screens/Step1Screen';
+import Step2Screen from '../screens/Step2Screen';
+import Step3Screen from '../screens/Step3Screen';
+// import Step4Screen from '../screens/Step4Screen';
+
 export default createAppContainer(
   createSwitchNavigator({
     // You could add another route here for authentication.
@@ -47,6 +52,10 @@ export default createAppContainer(
     InitialSetup2: InitialSetup2Screen,
     InitialSetup3: InitialSetup3Screen,
     InitialSetup4: InitialSetup4Screen,
+    Step1: Step1Screen,
+    Step2: Step2Screen,
+    Step3: Step3Screen,
+    // Step4: Step4Screen,
     
   },
   {

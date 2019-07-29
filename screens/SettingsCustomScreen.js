@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { LinearGradient } from 'expo';
+import ModalSelector from 'react-native-modal-selector'
 
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class SetingsCustomScreen extends React.Component {
       isAlarmPickerVisible: false,
       receiveNotifications: false,
       storeBackup: false,
+      textInputValue: 'Other',
     };
   }
 
@@ -63,6 +65,13 @@ export default class SetingsCustomScreen extends React.Component {
   };
 
   render() {
+    let index = 0;
+    const data = [
+        { key: index++, label: 'Other' },
+        { key: index++, label: 'Male' },
+        { key: index++, label: 'Female', },
+    ];
+
     return (
       <View style={styles.container}>
         <View style={styles.dayTitleView}>
@@ -84,7 +93,11 @@ export default class SetingsCustomScreen extends React.Component {
                   How shall I call you?
                 </Text>
                 <TextInput
-                  style={styles.mainInput}
+                  style={[styles.mainInput, 
+                    {
+                          borderBottomWidth: 3,
+    borderBottomColor: '#F0F0F0',
+                    }]}
                   onChangeText={(name) => this.setState({ name })}
                   value={this.state.name}
                 />
@@ -93,7 +106,60 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
+                {
+                  Platform.OS === 'android'
+                ?
+                <View style={{borderBottomWidth: 3, borderBottomColor: '#F0F0F0',}}>
                 <Picker
+                selectedValue={this.state.gender}
+                style={{height: 50, width: '100%', }}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({gender: itemValue})
+                }>
+                <Picker.Item label="Other" value="Other" />
+                <Picker.Item label="Male" value="Male" />
+                <Picker.Item label="Female" value="Female" />
+              </Picker>
+              </View>
+              :
+              <ModalSelector
+                style={{
+                  width: '100%',
+                  borderBottomWidth: 3,
+                  borderBottomColor: '#F0F0F0',
+                }}
+                data={data}
+                ref={selector => { this.selector = selector; }}
+                onChange={(option)=>{ this.setState({textInputValue:option.label})}}
+                customSelector={
+                  <View style={{
+                    flexDirection: 'row',
+                    justifyContent:'space-between',
+                    position: 'relative',
+                  }}>
+                  <Text
+                    style={[styles.mainInput, styles.mainGenderInput]}
+                    onPress={() => this.selector.open()}                        
+                  >
+                    {this.state.textInputValue}
+                  </Text>
+                  <Image
+                    style={{
+                      position: 'absolute',
+                      right: 0,
+                      bottom: 10,
+                      zIndex: 1,
+                      width: 20,
+                      resizeMode: 'contain',
+                    }}
+                    source={require('../assets/images/arrow-down-1.png')}
+                  />
+                  
+                  </View>
+                }
+              />
+                }
+                {/* <Picker
                   selectedValue={this.state.gender}
                   style={{ height: 50, width: '100%', color: '#747693', fontSize: 30, }}
                   onValueChange={(itemValue, itemIndex) =>
@@ -102,12 +168,17 @@ export default class SetingsCustomScreen extends React.Component {
                   <Picker.Item label="Other" value="Other" />
                   <Picker.Item label="Male" value="male" />
                   <Picker.Item label="Female" value="Female" />
-                </Picker>
+                </Picker> */}
               </View>
               <View style={styles.inputGroupView}>
                 <Text style={styles.labelText}>
                   What's your birth date?
                 </Text>
+                <View style={{
+                  // width: '100%',
+                  borderBottomWidth: 3,
+                  borderBottomColor: '#F0F0F0',
+                }}>
                 <Text
                   style={styles.mainInput}
                   onPress={this.showBirthdayPicker}
@@ -121,7 +192,12 @@ export default class SetingsCustomScreen extends React.Component {
                   mode={'date'}
                 />
               </View>
+              </View>
               <View style={styles.inputGroupView}>
+                <View style={{     
+                  borderBottomWidth: 3,
+    borderBottomColor: '#F0F0F0',
+  }}>
                 <Text style={styles.labelText}>
                   What time shall I remind you of a rating?
                 </Text>
@@ -137,6 +213,7 @@ export default class SetingsCustomScreen extends React.Component {
                   onCancel={this.hideAlarmPicker}
                   mode={'time'}
                 />
+              </View>
               </View>
             </View>
             <View style={styles.mainSettingsView}>
@@ -303,14 +380,23 @@ const styles = StyleSheet.create({
     color: '#747693',
   },
 
+
+
   mainInput: {
     fontFamily: 'quicksand-500',
     fontSize: 32,
     lineHeight: 40,
     letterSpacing: -0.55,
     color: '#747693',
-    borderBottomWidth: 3,
-    borderBottomColor: '#F0F0F0',
+    // borderBottomWidth: 3,
+    // borderBottomColor: '#F0F0F0',
+    zIndex: 80,
+    width: '100%',
+  },
+
+  mainGenderInput: {
+    width: '100%',
+    zIndex: 99,
   },
 
   mainSettingsView: {
