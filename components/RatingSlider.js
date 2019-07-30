@@ -6,6 +6,8 @@ import {
   ImageBackground
 } from 'react-native';
 import Slider from "react-native-slider";
+import { isSmallScreen } from "../is-small-screen";
+
 const SMILES = [
   require("../assets/images/roji/1.png"),
   require("../assets/images/roji/2.png"),
@@ -118,6 +120,9 @@ export default class RatingSlider extends React.Component {
   } 
 }
 
+// const rateParamNumberSize = isSmallScreen() ? 44 : 54;
+// const rateParamTextSize = isSmallScreen() ? 44 : 54;
+
 const styles = StyleSheet.create({
   container: {
 
@@ -125,17 +130,17 @@ const styles = StyleSheet.create({
   },  
   rateParamNumber: {
     fontFamily: 'quicksand-500',
-    fontSize: 54,
-    lineHeight: 80,
+    fontSize: isSmallScreen() ? 44 : 54,
+    lineHeight: isSmallScreen() ? 60 : 80,
     textAlign: 'center',
     color: '#747693',
   },
   rateParamText: {
     fontFamily: 'quicksand-500',
-    fontSize: 32,
+    fontSize: isSmallScreen() ? 28 : 32,
     lineHeight: 40,
     textAlign: 'center',
-    height: 80,
+    height: isSmallScreen() ? 50 : 80,
     color: '#747693',
   },
   tooltip_text: {

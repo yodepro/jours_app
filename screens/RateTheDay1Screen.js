@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo';
 import Slider from 'react-native-slider';
 import RatingSlider from '../components/RatingSlider';
 import { isIphoneX } from '../is-iphone-x';
+import { isSmallScreen } from "../is-small-screen";
 
 export default class RateTheDay1Screen extends React.Component {
   render() {
@@ -77,6 +78,7 @@ RateTheDay1Screen.navigationOptions = {
 };
 
 const mainPaddigTop = isIphoneX() ? 45 : 30;
+// const testStyle = isSmallScreen() ? 'red' : 'green';
 
 const styles = StyleSheet.create({
   container: {
@@ -163,12 +165,13 @@ const styles = StyleSheet.create({
     top: '40%',
     zIndex: 5,
     width: '100%',
+    // backgroundColor: testStyle,
   },
 
   rateParamView: {
     backgroundColor: '#fff',
     borderRadius: 23,
-    paddingTop: 25,
+    paddingTop: isSmallScreen() ? 10 : 25,
     paddingBottom: 20,
     position: 'relative',
     width: '100%',

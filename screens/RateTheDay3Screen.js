@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo';
 import Slider from 'react-native-slider';
 import RatingSlider from '../components/RatingSlider';
 import { isIphoneX } from '../is-iphone-x';
+import { isSmallScreen } from "../is-small-screen";
 
 export default class RateTheDay3Screen extends React.Component {
   render() {
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
   rateParamView: {
     backgroundColor: '#fff',
     borderRadius: 23,
-    paddingTop: 25,
+    paddingTop: isSmallScreen() ? 10 : 25,
     paddingBottom: 20,
     position: 'relative',
     width: '100%',
