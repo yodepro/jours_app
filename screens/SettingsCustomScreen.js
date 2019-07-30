@@ -14,10 +14,35 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import { LinearGradient } from 'expo';
 import ModalSelector from 'react-native-modal-selector';
 import { isIphoneX } from '../is-iphone-x';
+import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
+
+const genders = [
+  {
+    label: 'Other',
+    value: 'other',
+  },
+  {
+    label: 'Male',
+    value: 'male',
+  },
+  {
+    label: 'Female',
+    value: 'female',
+  },
+];
 
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
     super(props);
+
+    this.inputRefs = {
+      firstTextInput: null,
+      favSport0: null,
+      favSport1: null,
+      lastTextInput: null,
+      favSport5: null,
+    };
+
     this.state = {
       name: 'Jake',
       gender: 'Other',
@@ -28,7 +53,71 @@ export default class SetingsCustomScreen extends React.Component {
       receiveNotifications: false,
       storeBackup: false,
       textInputValue: 'Other',
+
+      textInputValue: 'Other',
+
+      numbers: [
+        {
+          label: '1',
+          value: 1,
+          color: 'orange',
+        },
+        {
+          label: '2',
+          value: 2,
+          color: 'green',
+        },
+      ],
+      favSport0: undefined,
+      favSport1: undefined,
+      favSport2: undefined,
+      favSport3: undefined,
+      favSport4: 'baseball',
+      previousFavSport5: undefined,
+      favSport5: undefined,
+      favNumber: undefined,
     };
+
+    this.InputAccessoryView = this.InputAccessoryView.bind(this);
+  }
+
+  InputAccessoryView() {
+    return (
+      <View style={defaultStyles.modalViewMiddle}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.setState(
+              {
+                favSport5: this.state.previousFavSport5,
+              },
+              () => {
+                this.inputRefs.favSport5.togglePicker(true);
+              }
+            );
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text
+              style={[
+                defaultStyles.done,
+                { fontWeight: 'normal', color: 'red' },
+              ]}>
+              Cancel
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <Text>Name | Prefer</Text>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.inputRefs.favSport5.togglePicker(true);
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text style={defaultStyles.done}>Done</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
   }
 
   toggleReceiveNotifications = (value) => {
@@ -66,6 +155,12 @@ export default class SetingsCustomScreen extends React.Component {
   };
 
   render() {
+    const placeholder = {
+      // label: 'Select your gender...',
+      // value: null,
+      // color: '#747693',
+    };
+
     let index = 0;
     const data = [
         { key: index++, label: 'Other' },
@@ -107,7 +202,67 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
-                {
+                <RNPickerSelect
+          style={{
+            inputIOS: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#747693',
+              textAlign: 'left',
+              borderBottomWidth: 3,
+              borderBottomColor: '#F0F0F0',
+            },
+            inputIOSContainer: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#747693',
+              textAlign: 'left',
+            },
+            inputAndroid: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#747693',
+              textAlign: 'left',
+              borderBottomWidth: 3,
+              borderBottomColor: '#F0F0F0',
+            },
+            inputAndroidContainer: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#747693',
+              textAlign: 'left',
+            },
+            iconContainer: {
+              top: 5,
+              right: 15,
+            },
+          }}
+          useNativeAndroidPickerStyle={false}
+          placeholder={placeholder}
+          items={genders}
+          onValueChange={value => {
+            this.setState({
+              favSport0: value,
+            });
+          }}
+          onUpArrow={() => {
+            this.inputRefs.firstTextInput.focus();
+          }}
+          onDownArrow={() => {
+            this.inputRefs.favSport1.togglePicker();
+          }}
+          // style={pickerSelectStyles}
+          value={this.state.favSport0}
+          ref={el => {
+            this.inputRefs.favSport0 = el;
+          }}
+        />
+
+                {/* {
                   Platform.OS === 'android'
                 ?
                 <View style={{borderBottomWidth: 3, borderBottomColor: '#F0F0F0',}}>
@@ -159,7 +314,7 @@ export default class SetingsCustomScreen extends React.Component {
                   </View>
                 }
               />
-                }
+                } */}
                 {/* <Picker
                   selectedValue={this.state.gender}
                   style={{ height: 50, width: '100%', color: '#747693', fontSize: 30, }}

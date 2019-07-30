@@ -131,8 +131,9 @@ const styles = StyleSheet.create({
     zIndex: -1,
     bottom: 0,
     right: 0,
-    height: 150,
-    width: 170,
+    // height: 150,
+    height: isIphoneX() ? 166 : 150,
+    width: isIphoneX() ? 198 : 170,
     resizeMode: 'stretch',
   },
 
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
   dayBgTextBoldBottom: {
     position: 'absolute',
     bottom: 30,
-    right: 40,
+    right: isIphoneX() ? 70 : 40,
     textDecorationLine: 'underline',
     zIndex: 2,
   },

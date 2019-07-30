@@ -10,24 +10,9 @@ import {
   Image,
   Platform,
 } from 'react-native';
-import ModalSelector from 'react-native-modal-selector'
+// import ModalSelector from 'react-native-modal-selector'
 import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
 import { isIphoneX } from '../is-iphone-x';
-
-const sports = [
-  {
-    label: 'Football',
-    value: 'football',
-  },
-  {
-    label: 'Baseball',
-    value: 'baseball',
-  },
-  {
-    label: 'Hockey',
-    value: 'hockey',
-  },
-];
 
 const genders = [
   {
@@ -60,7 +45,6 @@ export default class InitialSetup2Screen extends React.Component {
       gender: 'Other',
       textInputValue: 'Other',
 
-
       numbers: [
         {
           label: '1',
@@ -85,8 +69,6 @@ export default class InitialSetup2Screen extends React.Component {
     };
 
     this.InputAccessoryView = this.InputAccessoryView.bind(this);
-    
-
   }
 
   InputAccessoryView() {
@@ -166,6 +148,41 @@ export default class InitialSetup2Screen extends React.Component {
               {/* <Text>useNativeAndroidPickerStyle (default)</Text> */}
         {/* and iOS onUpArrow/onDownArrow toggle example */}
         <RNPickerSelect
+          style={{
+            inputIOS: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#FFFFFF',
+              textAlign: 'center',
+            },
+            inputIOSContainer: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#FFFFFF',
+              textAlign: 'center',
+            },
+            inputAndroid: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#FFFFFF',
+              textAlign: 'center',
+            },
+            inputAndroidContainer: {
+              fontFamily: 'quicksand-500',
+              fontSize: 32,
+              lineHeight: 37,
+              color: '#FFFFFF',
+              textAlign: 'center',
+            },
+            iconContainer: {
+              top: 5,
+              right: 15,
+            },
+          }}
+          useNativeAndroidPickerStyle={false}
           placeholder={placeholder}
           items={genders}
           onValueChange={value => {
@@ -179,7 +196,7 @@ export default class InitialSetup2Screen extends React.Component {
           onDownArrow={() => {
             this.inputRefs.favSport1.togglePicker();
           }}
-          style={pickerSelectStyles}
+          // style={pickerSelectStyles}
           value={this.state.favSport0}
           ref={el => {
             this.inputRefs.favSport0 = el;
