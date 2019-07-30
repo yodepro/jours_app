@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import ModalSelector from 'react-native-modal-selector'
 import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
+import { isIphoneX } from '../is-iphone-x';
 
 const sports = [
   {
@@ -255,6 +256,8 @@ InitialSetup2Screen.navigationOptions = {
   header: null,
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -290,7 +293,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 45,
+    paddingTop: mainPaddigTop,
     paddingRight: 15,
   },
 

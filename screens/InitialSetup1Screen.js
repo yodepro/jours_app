@@ -6,6 +6,7 @@ import {
   View,
   TextInput,
 } from 'react-native';
+import { isIphoneX } from '../is-iphone-x';
 
 export default class InitialSetup1Screen extends React.Component {
   constructor(props) {
@@ -59,6 +60,8 @@ InitialSetup1Screen.navigationOptions = {
   header: null,
 };
 
+const mainPaddigTop = isIphoneX() ? 60 : 45;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 45,
+    paddingTop: mainPaddigTop,
     paddingRight: 15,
   },
 

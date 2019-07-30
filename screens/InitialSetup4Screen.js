@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import { isIphoneX } from '../is-iphone-x';
 
 export default class InitialSetup4Screen extends React.Component {
   constructor(props) {
@@ -79,6 +80,8 @@ InitialSetup4Screen.navigationOptions = {
   header: null,
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
   nextView: {
-    paddingTop: 45,
+    paddingTop: mainPaddigTop,
     paddingRight: 15,
   },
 

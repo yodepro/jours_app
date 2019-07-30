@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { LinearGradient } from 'expo';
-import ModalSelector from 'react-native-modal-selector'
+import ModalSelector from 'react-native-modal-selector';
+import { isIphoneX } from '../is-iphone-x';
 
 export default class SetingsCustomScreen extends React.Component {
   constructor(props) {
@@ -295,11 +296,13 @@ function handleAboutPress() {
   );
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
-    paddingTop: 30,
+    paddingTop: mainPaddigTop,
     paddingBottom: 35,
   },
 

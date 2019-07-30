@@ -8,6 +8,7 @@ import {
   TextInput
 } from 'react-native';
 import { LinearGradient } from 'expo';
+import { isIphoneX } from '../is-iphone-x';
 
 export default class ViewDayScreen extends React.Component {
   constructor(props) {
@@ -130,6 +131,8 @@ ViewDayScreen.navigationOptions = {
   header: null,
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -199,7 +202,7 @@ const styles = StyleSheet.create({
   },
 
   topView: {
-    paddingTop: 30,
+    paddingTop: mainPaddigTop,
     flex: 0.4,
     position: 'relative',
   },
