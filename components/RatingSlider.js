@@ -6,7 +6,12 @@ import {
   ImageBackground
 } from 'react-native';
 import Slider from "react-native-slider";
-
+const SMILES = [
+  require("../assets/images/roji/1.png"),
+  require("../assets/images/roji/2.png"),
+  require("../assets/images/roji/3.png"),
+  require("../assets/images/roji/4.png")
+]
 
 export default class RatingSlider extends React.Component {
   constructor(props) {
@@ -21,16 +26,16 @@ export default class RatingSlider extends React.Component {
   }
   getImageSlider(value) {
     if(value <= 2.5) {
-      return require("../assets/images/roji/1.png")
+      return SMILES[0]
     }
     else if(value <= 5) {
-      return require("../assets/images/roji/2.png")
+      return SMILES[1]
     }
     else if(value <= 7.5) {
-      return require("../assets/images/roji/3.png")
+      return SMILES[2]
     }
     else {
-      return require("../assets/images/roji/4.png")
+      return SMILES[3]
     }
   }
   getText(value) {
