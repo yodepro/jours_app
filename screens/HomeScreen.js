@@ -177,7 +177,7 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-          <View style={styles.screenButton}>
+          {/* <View style={styles.screenButton}>
             <Button
               title="Step1"
               onPress={() => this.props.navigation.navigate('Step1')}
@@ -200,7 +200,7 @@ export default class HomeScreen extends React.Component {
               title="Step4"
               onPress={() => this.props.navigation.navigate('Step4')}
             />
-          </View>
+          </View> */}
 
         </ScrollView>
 

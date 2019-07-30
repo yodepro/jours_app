@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import Slider from 'react-native-slider';
-import RatingSlider from '../components/RatingSlider'
+import RatingSlider from '../components/RatingSlider';
+import { isIphoneX } from '../is-iphone-x';
 
 export default class RateTheDay1Screen extends React.Component {
   render() {
@@ -75,6 +76,8 @@ RateTheDay1Screen.navigationOptions = {
   tabBarVisible: false,
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
   },
 
   topView: {
-    paddingTop: 30,
+    paddingTop: mainPaddigTop,
     flex: 0.55,
   },
 

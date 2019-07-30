@@ -11,18 +11,129 @@ import {
   Platform,
 } from 'react-native';
 import ModalSelector from 'react-native-modal-selector'
+import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
 
+const sports = [
+  {
+    label: 'Football',
+    value: 'football',
+  },
+  {
+    label: 'Baseball',
+    value: 'baseball',
+  },
+  {
+    label: 'Hockey',
+    value: 'hockey',
+  },
+];
+
+const genders = [
+  {
+    label: 'Other',
+    value: 'other',
+  },
+  {
+    label: 'Male',
+    value: 'male',
+  },
+  {
+    label: 'Female',
+    value: 'female',
+  },
+];
 
 export default class InitialSetup2Screen extends React.Component {
   constructor(props) {
     super(props);
+
+    this.inputRefs = {
+      firstTextInput: null,
+      favSport0: null,
+      favSport1: null,
+      lastTextInput: null,
+      favSport5: null,
+    };
+
     this.state = {
       gender: 'Other',
       textInputValue: 'Other',
+
+
+      numbers: [
+        {
+          label: '1',
+          value: 1,
+          color: 'orange',
+        },
+        {
+          label: '2',
+          value: 2,
+          color: 'green',
+        },
+      ],
+      favSport0: undefined,
+      favSport1: undefined,
+      favSport2: undefined,
+      favSport3: undefined,
+      favSport4: 'baseball',
+      previousFavSport5: undefined,
+      favSport5: undefined,
+      favNumber: undefined,
+      
     };
+
+    this.InputAccessoryView = this.InputAccessoryView.bind(this);
+    
+
+  }
+
+  InputAccessoryView() {
+    return (
+      <View style={defaultStyles.modalViewMiddle}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.setState(
+              {
+                favSport5: this.state.previousFavSport5,
+              },
+              () => {
+                this.inputRefs.favSport5.togglePicker(true);
+              }
+            );
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text
+              style={[
+                defaultStyles.done,
+                { fontWeight: 'normal', color: 'red' },
+              ]}>
+              Cancel
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <Text>Name | Prefer</Text>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.inputRefs.favSport5.togglePicker(true);
+          }}
+          hitSlop={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+          <View testID="needed_for_touchable">
+            <Text style={defaultStyles.done}>Done</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    );
   }
 
   render() {
+    const placeholder = {
+      label: 'Select your gender...',
+      value: null,
+      color: '#9EA0A4',
+    };
+
     let index = 0;
     const data = [
         { key: index++, label: 'Other' },
@@ -49,7 +160,36 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 Would you mind sharing your gender?
               </Text>
-      {Platform.OS === 'android'
+
+
+              {/* <Text>useNativeAndroidPickerStyle (default)</Text> */}
+        {/* and iOS onUpArrow/onDownArrow toggle example */}
+        <RNPickerSelect
+          placeholder={placeholder}
+          items={genders}
+          onValueChange={value => {
+            this.setState({
+              favSport0: value,
+            });
+          }}
+          onUpArrow={() => {
+            this.inputRefs.firstTextInput.focus();
+          }}
+          onDownArrow={() => {
+            this.inputRefs.favSport1.togglePicker();
+          }}
+          style={pickerSelectStyles}
+          value={this.state.favSport0}
+          ref={el => {
+            this.inputRefs.favSport0 = el;
+          }}
+        />
+
+
+
+
+              
+      {/* {Platform.OS === 'android'
       ?
       <Picker
   selectedValue={this.state.gender}
@@ -92,7 +232,7 @@ export default class InitialSetup2Screen extends React.Component {
                 }
               />
     
-    }
+    } */}
               
 
 
@@ -204,5 +344,28 @@ const styles = StyleSheet.create({
     position: 'relative',
     zIndex: 99,
     // justifyContent: 'space-between',
+  },
+});
+
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: '#333',
+    borderRadius: 4,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderWidth: 0.5,
+    borderColor: '#333',
+    borderRadius: 8,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
   },
 });

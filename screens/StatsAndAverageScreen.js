@@ -5,6 +5,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { isIphoneX } from '../is-iphone-x';
 
 export default function StatsAndAverageScreen() {
   return (
@@ -93,10 +94,13 @@ StatsAndAverageScreen.navigationOptions = {
   tabBarVisible: true,
 };
 
+const mainPaddigTop = isIphoneX() ? 45 : 30;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
+    paddingTop: mainPaddigTop,
     paddingTop: 30,
     paddingBottom: 28,
   },

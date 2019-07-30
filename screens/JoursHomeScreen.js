@@ -7,7 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo';
-import { isIphoneX } from '../is-iphone-x'
+import { isIphoneX } from '../is-iphone-x';
 
 export default class JoursHomeScreen extends React.Component {
   constructor(props) {
