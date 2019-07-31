@@ -202,6 +202,7 @@ export default class SetingsCustomScreen extends React.Component {
                 <Text style={styles.labelText}>
                   What's your gender?
                 </Text>
+
                 <RNPickerSelect
           style={{
             inputIOS: {
@@ -261,6 +262,17 @@ export default class SetingsCustomScreen extends React.Component {
             this.inputRefs.favSport0 = el;
           }}
         />
+                          <Image
+                    style={{
+                      position: 'absolute',
+                      right: 0,
+                      bottom: 10,
+                      zIndex: 1,
+                      width: 20,
+                      resizeMode: 'contain',
+                    }}
+                    source={require('../assets/images/arrow-down-1.png')}
+                  />
 
                 {/* {
                   Platform.OS === 'android'

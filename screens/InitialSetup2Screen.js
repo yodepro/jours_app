@@ -4,11 +4,11 @@ import {
   Text,
   ImageBackground,
   View,
-  Picker,
-  TextInput,
-  Switch,
+  // Picker,
+  // TextInput,
+  // Switch,
   Image,
-  Platform,
+  // Platform,
 } from 'react-native';
 // import ModalSelector from 'react-native-modal-selector'
 import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
@@ -111,11 +111,7 @@ export default class InitialSetup2Screen extends React.Component {
   }
 
   render() {
-    const placeholder = {
-      label: 'Select your gender...',
-      value: null,
-      color: '#9EA0A4',
-    };
+    const placeholder = {};
 
     let index = 0;
     const data = [
@@ -143,10 +139,7 @@ export default class InitialSetup2Screen extends React.Component {
               <Text style={styles.dayBgText}>
                 Would you mind sharing your gender?
               </Text>
-
-
-              {/* <Text>useNativeAndroidPickerStyle (default)</Text> */}
-        {/* and iOS onUpArrow/onDownArrow toggle example */}
+              <View style={{width: '70%',}}>
         <RNPickerSelect
           style={{
             inputIOS: {
@@ -154,28 +147,28 @@ export default class InitialSetup2Screen extends React.Component {
               fontSize: 32,
               lineHeight: 37,
               color: '#FFFFFF',
-              textAlign: 'center',
+              textAlign: 'left',
             },
             inputIOSContainer: {
               fontFamily: 'quicksand-500',
               fontSize: 32,
               lineHeight: 37,
               color: '#FFFFFF',
-              textAlign: 'center',
+              textAlign: 'left',
             },
             inputAndroid: {
               fontFamily: 'quicksand-500',
               fontSize: 32,
               lineHeight: 37,
               color: '#FFFFFF',
-              textAlign: 'center',
+              textAlign: 'left',
             },
             inputAndroidContainer: {
               fontFamily: 'quicksand-500',
               fontSize: 32,
               lineHeight: 37,
               color: '#FFFFFF',
-              textAlign: 'center',
+              textAlign: 'left',
             },
             iconContainer: {
               top: 5,
@@ -196,12 +189,22 @@ export default class InitialSetup2Screen extends React.Component {
           onDownArrow={() => {
             this.inputRefs.favSport1.togglePicker();
           }}
-          // style={pickerSelectStyles}
           value={this.state.favSport0}
           ref={el => {
             this.inputRefs.favSport0 = el;
           }}
         />
+                          <Image
+                    style={{
+                      position: 'absolute',
+                      right: 8,
+                      bottom: 10,
+                      zIndex: 1,
+                    }}
+                    source={require('../assets/images/arrow-down-2.png')}
+                  />
+                  </View>
+        
 
 
 
