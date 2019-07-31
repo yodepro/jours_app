@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Platform,
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import Slider from 'react-native-slider';
@@ -12,6 +13,7 @@ import { isSmallScreen } from "../is-small-screen";
 
 export default class RateTheDay3Screen extends React.Component {
   render() {
+    const { goBack } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.topView}>
@@ -43,14 +45,28 @@ export default class RateTheDay3Screen extends React.Component {
         <View style={{ flex: 0.1, }}></View>
         <View style={styles.bottomNavigationView}>
           <View style={styles.bottomNavigationInnerView}>
-            <View style={styles.bottomCancelView}>
+          <View style={styles.bottomCancelView}>
+              <Text
+                style={styles.bottomCancelTextLeft}
+                onPress={() => goBack()}
+              >
+                ⟵
+              </Text>
+              <Text
+                style={styles.bottomCancelTextRight}
+                onPress={() => goBack()}
+              >
+                Back
+              </Text>
+            </View>
+            {/* <View style={styles.bottomCancelView}>
               <Text
                 style={styles.bottomCancelText}
                 onPress={() => this.props.navigation.navigate('Home')}
               >
                 Cancel
               </Text>
-            </View>
+            </View> */}
             <LinearGradient
               colors={['#FDC344', '#FDE490']}
               style={styles.bottomLinearGradient}
@@ -236,5 +252,30 @@ const styles = StyleSheet.create({
     bottom: 30,
     left: 15,
     textDecorationLine: 'underline',
+  },
+
+  bottomCancelTextLeft: {
+    fontFamily: 'roboto-300',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#C5C4D2',
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? 38 : 42,
+    left: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  bottomCancelTextRight: {
+    fontFamily: 'roboto-300',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#C5C4D2',
+    position: 'absolute',
+    bottom: 40,
+    left: 35,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: Platform.OS === 'ios' ? 10 : 0,
   },
 });

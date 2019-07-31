@@ -81,7 +81,7 @@ InitialSetup3Screen.navigationOptions = {
   header: null,
 };
 
-const mainPaddigTop = isIphoneX() ? 45 : 30;
+const mainPaddigTop = isIphoneX() ? 60 : 45;
 
 const styles = StyleSheet.create({
   container: {
