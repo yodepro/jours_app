@@ -18,11 +18,11 @@ export default class Intro2Screen extends React.Component {
           style={styles.mainBgImage2}
           source={require('../assets/images/intro-2-bg-2.png')}
         />
-        <View style={{ flex: 0.6, }}></View>
+        {/* <View style={{ flex: 0.4, }}></View> */}
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             A new generation personal journal: evaluate your every day, and soon you’ll be able to take a better look on what really matters and makes you feel good
-        </Text>
+          </Text>
           <View style={styles.paginationView}>
             <View style={[styles.paginationItemView, styles.paginationItemInactiveView]}></View>
             <View style={[styles.paginationItemView, styles.paginationItemActiveView]}></View>
@@ -101,10 +101,10 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.3,
+    flex: 0.9,
     paddingLeft: 15,
     paddingRight: 15,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     paddingBottom: 20,
   },
 

@@ -15,7 +15,7 @@ export default class Intro4Screen extends React.Component {
           style={styles.mainBgImage}
           source={require('../assets/images/intro-4-bg.png')}
         />
-        <View style={{ flex: 0.6, }}></View>
+        {/* <View style={{ flex: 0.6, }}></View> */}
         <View style={styles.mainView}>
           <Text style={styles.mainText}>
             With our smart Lookback you'll be able to analyse your ups and downs
@@ -86,10 +86,11 @@ const styles = StyleSheet.create({
   },
 
   mainView: {
-    flex: 0.3,
+    flex: 0.9,
     paddingLeft: 15,
     paddingRight: 15,
-    justifyContent: 'space-between',    paddingBottom: 40,
+    justifyContent: 'flex-end',
+    paddingBottom: 40,
   },
 
   mainText: {
