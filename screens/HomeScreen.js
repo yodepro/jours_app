@@ -179,6 +179,13 @@ export default class HomeScreen extends React.Component {
 
           {/* <View style={styles.screenButton}>
             <Button
+              title="JoursHome1"
+              onPress={() => this.props.navigation.navigate('JoursHome1')}
+            />
+          </View> */}
+
+          {/* <View style={styles.screenButton}>
+            <Button
               title="Step1"
               onPress={() => this.props.navigation.navigate('Step1')}
             />

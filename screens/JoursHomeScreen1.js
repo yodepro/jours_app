@@ -4,12 +4,11 @@ import {
   StyleSheet,
   Text,
   View,
-  // Dimensions,
+  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import { isIphoneX } from '../is-iphone-x';
-import { LineChart, Path, Grid, XAxis } from 'react-native-svg-charts';
-import * as shape from 'd3-shape';
+import { LineChart, Path, Grid } from 'react-native-svg-charts';
 
 export default class JoursHomeScreen1 extends React.Component {
   constructor(props) {
@@ -20,31 +19,27 @@ export default class JoursHomeScreen1 extends React.Component {
   }
 
   render() {
-
-    const firstWeekData = [
-      [5, 10, 3, 7, 1, 6, 4], // HEALTH
-      [1, 7, 8, 10, 3, 5, 5], // ROMANCE
-      [3, 1, 6, 2, 6, 7, 3], // CAREER
+    const healthData = [5, 10, 3, 7, 1, 6, 4];
+    const romanceData = [1, 7, 8, 10, 3, 5, 5];
+    const careerData = [3, 1, 6, 2, 6, 7, 3];
+    const happinessData = [
+      (healthData[0] + romanceData[0] + careerData[0]) / 3,
+      (healthData[1] + romanceData[1] + careerData[1]) / 3,
+      (healthData[2] + romanceData[2] + careerData[2]) / 3,
+      (healthData[3] + romanceData[3] + careerData[3]) / 3,
+      (healthData[4] + romanceData[4] + careerData[4]) / 3,
+      (healthData[5] + romanceData[5] + careerData[5]) / 3,
+      (healthData[6] + romanceData[6] + careerData[6]) / 3,
     ];
-    const firstWeekDataHappiness = [ // HAPPINESS
-      (firstWeekData[0][0] + firstWeekData[1][0] + firstWeekData[2][0]) / 3,
-      (firstWeekData[0][1] + firstWeekData[1][1] + firstWeekData[2][1]) / 3,
-      (firstWeekData[0][2] + firstWeekData[1][2] + firstWeekData[2][2]) / 3,
-      (firstWeekData[0][3] + firstWeekData[1][3] + firstWeekData[2][3]) / 3,
-      (firstWeekData[0][4] + firstWeekData[1][4] + firstWeekData[2][4]) / 3,
-      (firstWeekData[0][5] + firstWeekData[1][5] + firstWeekData[2][5]) / 3,
-      (firstWeekData[0][6] + firstWeekData[1][6] + firstWeekData[2][6]) / 3
-    ];
-    // const firstWeekDates = ['01', '02', '03', '04', '05', '06', '07'];
 
     const Shadow = ({ line }) => (
       <Path
         key={'shadow'}
-        y={6}
+        y={8}
         d={line}
         fill={'none'}
-        strokeWidth={6}
-        stroke={'rgba(134, 65, 244, 0.05)'}
+        strokeWidth={2}
+        stroke={'rgba(134, 65, 244, 0.1)'}
       />
     )
 
@@ -52,7 +47,7 @@ export default class JoursHomeScreen1 extends React.Component {
       <View style={styles.container}>
         <View style={styles.topInfoView}>
           <View style={styles.topInfoDateView}>
-            <Text style={styles.dayTitleText}>May, 12th</Text>
+            <Text style={styles.dayTitleText}>May, 112th</Text>
             <Image
               source={
                 require('../assets/images/export-icon.png')
@@ -148,115 +143,113 @@ export default class JoursHomeScreen1 extends React.Component {
             </View>
           </View>
           <View style={[styles.chartInnerView, styles.chartInnerDownView]}>
-            <View style={[styles.lineChartWrapperView, { zIndex: 9998 }]}>
+            <View
+              style={{
+                position: 'absolute',
+                zIndex: 9999,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            >
               <LineChart
                 style={{
                   height: 200,
                 }}
-                data={firstWeekDataHappiness}
+                data={happinessData}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#3884ff',
-                  strokeWidth: 6,
+                  strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
-                curve={shape.curveCardinal}
+                contentInset={{ top: 20, bottom: 20 }}
               >
                 <Grid />
                 <Shadow />
               </LineChart>
             </View>
-            <View style={styles.lineChartWrapperView}>
+            <View
+              style={{
+                position: 'absolute',
+                zIndex: 9999,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            >
               <LineChart
                 style={{
                   height: 200,
                 }}
-                data={firstWeekData[0]}
+                data={healthData}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#f737a9',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
-                curve={shape.curveCardinal}
+                contentInset={{ top: 20, bottom: 20 }}
               >
+                {/* <Grid/> */}
                 <Shadow />
               </LineChart>
             </View>
-            <View style={styles.lineChartWrapperView}>
+            <View
+              style={{
+                position: 'absolute',
+                zIndex: 9999,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            >
               <LineChart
                 style={{
                   height: 200,
                 }}
-                data={firstWeekData[1]}
+                data={romanceData}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#4dd8d7',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
-                curve={shape.curveCardinal}
+                contentInset={{ top: 20, bottom: 20 }}
               >
+                {/* <Grid/> */}
                 <Shadow />
               </LineChart>
             </View>
-            <View style={styles.lineChartWrapperView}>
+            <View
+              style={{
+                position: 'absolute',
+                zIndex: 9999,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            >
               <LineChart
                 style={{
                   height: 200,
                 }}
-                data={firstWeekData[2]}
+                data={careerData}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#fdc344',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
-                curve={shape.curveCardinal}
+                contentInset={{ top: 20, bottom: 20 }}
               >
+                {/* <Grid/> */}
                 <Shadow />
               </LineChart>
-            </View>
-            <View style={styles.xAxisView}>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>01</Text>
-                {"\n"}
-                <Text>M</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>02</Text>
-                {"\n"}
-                <Text>T</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>03</Text>
-                {"\n"}
-                <Text>W</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>04</Text>
-                {"\n"}
-                <Text>T</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>05</Text>
-                {"\n"}
-                <Text>F</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>06</Text>
-                {"\n"}
-                <Text>S</Text>
-              </Text>
-              <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>07</Text>
-                {"\n"}
-                <Text>S</Text>
-              </Text>
             </View>
           </View>
         </View>
@@ -417,12 +410,9 @@ const styles = StyleSheet.create({
   },
 
   chartInnerDownView: {
-    // backgroundColor: 'red',
-    // marginTop: 7.5,
+    marginTop: 7.5,
     overflow: 'hidden',
     position: 'relative',
-    justifyContent: 'flex-end',
-    paddingBottom: 10,
   },
 
   chartBlankView: {
@@ -672,33 +662,5 @@ const styles = StyleSheet.create({
 
   careerCircle: {
     backgroundColor: '#FFF8BE',
-  },
-
-  lineChartWrapperView: {
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-  },
-
-  xAxisView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingLeft: 25,
-    paddingRight: 25,
-  },
-
-  xLabel: {
-    color: '#C5C4D2',
-    // fontSize: 10,
-    textAlign: 'center',
-  },
-
-  xLabelDate: {
-    fontWeight: '700',
-    marginBottom: 25,
-    lineHeight: 25,
   },
 });

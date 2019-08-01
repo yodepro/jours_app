@@ -24,6 +24,7 @@ import InitialSetup1Screen from '../screens/InitialSetup1Screen';
 import InitialSetup2Screen from '../screens/InitialSetup2Screen';
 import InitialSetup3Screen from '../screens/InitialSetup3Screen';
 import InitialSetup4Screen from '../screens/InitialSetup4Screen';
+// import JoursHomeScreen1 from '../screens/JoursHomeScreen1';
 
 // import Step1Screen from '../screens/Step1Screen';
 // import Step2Screen from '../screens/Step2Screen';
@@ -56,6 +57,7 @@ export default createAppContainer(
     // Step2: Step2Screen,
     // Step3: Step3Screen,
     // Step4: Step4Screen,
+    // JoursHome1: JoursHomeScreen1,
     
   },
   {
