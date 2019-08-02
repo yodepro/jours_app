@@ -38,7 +38,13 @@ export default class JoursHomeScreen1 extends React.Component {
           [5, 8, 2, 5, 9, 2, 5], // CAREER
         ],
       ],
-      monthData: [],
+      weekDates: [
+        ['01', '02', '03', '04', '05', '06', '07'],
+        ['25', '26', '27', '28', '29', '30', '31'],
+        ['18', '19', '20', '21', '22', '23', '24'],
+        ['11', '12', '13', '14', '15', '16', '17'],
+      ]
+      // monthData: [],
     };
   }
 
@@ -55,29 +61,34 @@ export default class JoursHomeScreen1 extends React.Component {
     ]
   }
 
-  renderMonthChart = () => {
-    var newMonthData = [
-      [
-        this.state.weeksData[0][0].concat(this.state.weeksData[1][0], this.state.weeksData[2][0], this.state.weeksData[3][0])
-      ],
-      [
-        this.state.weeksData[0][1].concat(this.state.weeksData[1][1], this.state.weeksData[2][1], this.state.weeksData[3][1])
-      ],
-      [
-        this.state.weeksData[0][2].concat(this.state.weeksData[1][2], this.state.weeksData[2][2], this.state.weeksData[3][2])
-      ]
-    ];
-    this.setState({monthData: newMonthData});
-  }
+  // renderMonthChart = () => {
+  //   var newMonthData = [
+  //     [
+  //       this.state.weeksData[0][0].concat(this.state.weeksData[1][0], this.state.weeksData[2][0], this.state.weeksData[3][0])
+  //     ],
+  //     [
+  //       this.state.weeksData[0][1].concat(this.state.weeksData[1][1], this.state.weeksData[2][1], this.state.weeksData[3][1])
+  //     ],
+  //     [
+  //       this.state.weeksData[0][2].concat(this.state.weeksData[1][2], this.state.weeksData[2][2], this.state.weeksData[3][2])
+  //     ]
+  //   ];
+  //   return newMonthData;    
+  // }
+
+  // setMonthDataChart = () => {
+  //   var newMonthData = this.renderMonthChart();
+  //   this.setState({monthData: newMonthData});
+  // }
 
   showCurrentWeekDates() {
-    if(this.state.currentWeek === 1) {
+    if (this.state.currentWeek === 1) {
       return '01.04 - 07.04';
-    } else if(this.state.currentWeek === 2) {
+    } else if (this.state.currentWeek === 2) {
       return '25.03 - 31.03';
-    } else if(this.state.currentWeek === 3) {
+    } else if (this.state.currentWeek === 3) {
       return '18.03 - 24.03';
-    } else if(this.state.currentWeek === 4) {
+    } else if (this.state.currentWeek === 4) {
       return '11.03 - 17.03';
     }
   }
@@ -86,14 +97,18 @@ export default class JoursHomeScreen1 extends React.Component {
     return this.state.weeksData[this.state.currentWeek - 1][i];
   }
 
+  renderWeekDates = (i) => {
+    return this.state.weekDates[this.state.currentWeek - 1][i];
+  }
+
   changeLeftArrowOpacity = () => {
-    if(this.state.currentWeek === 4) {
+    if (this.state.currentWeek === 4) {
       return { opacity: .5 }
     }
   }
 
   changeRightArrowOpacity = () => {
-    if(this.state.currentWeek === 1) {
+    if (this.state.currentWeek === 1) {
       return { opacity: .5 }
     }
   }
@@ -140,7 +155,7 @@ export default class JoursHomeScreen1 extends React.Component {
                 <Text style={styles.chartInnerTopDateMiddleText}>
                   May, 12th
                 </Text>
-                <Text style={[styles.chartArrowText, {opacity: .5}]}>⟶</Text>
+                <Text style={[styles.chartArrowText, { opacity: .5 }]}>⟶</Text>
               </View>
               <View style={styles.chartInnerBottomDateView}>
                 <View style={styles.chartInnerBottomDateLeftView}>
@@ -210,47 +225,48 @@ export default class JoursHomeScreen1 extends React.Component {
             </View>
           </View>
           <View style={[styles.chartInnerView, styles.chartInnerDownView]}>
-
             <View style={styles.chartInnerDownViewHeader}>
               <View style={styles.chartInnerDownViewHeaderTop}>
                 <Text style={[styles.chartWeekOrMonthText, styles.chartWeekOrMonthTextActive, { marginRight: 10 }]}>week</Text>
-                <Text 
+                <Text
                   style={[styles.chartWeekOrMonthText, { marginLeft: 10 }]}
-                  onPress={() => {console.log(this.renderMonthChart())}}
+                // onPress={() => {
+                //   this.setMonthDataChart();
+                //   console.log(this.state.monthData);
+                // }}
                 >month</Text>
               </View>
               <View style={styles.chartInnerDownViewHeaderBottom}>
                 <Text
-                  onPress={() => { 
-                    if(this.state.currentWeek !== 4) {
-                      this.setState({ currentWeek: parseInt(this.state.currentWeek + 1) || 0 });                      
+                  onPress={() => {
+                    if (this.state.currentWeek !== 4) {
+                      this.setState({ currentWeek: parseInt(this.state.currentWeek + 1) || 0 });
                     }
                   }}
                   style={[styles.chartArrowText, this.changeLeftArrowOpacity(), {
-                    paddingBottom: 10, 
-                    paddingRight: 30, 
+                    paddingBottom: 10,
+                    paddingRight: 30,
                     alignItems: 'center',
                     // this.state.currentWeek
                   }]}
                 >⟵</Text>
-                <Text style={styles.dateRangeText}>                  
+                <Text style={styles.dateRangeText}>
                   {this.showCurrentWeekDates()}
                 </Text>
                 <Text
                   onPress={() => {
-                    if(this.state.currentWeek !== 1) {
+                    if (this.state.currentWeek !== 1) {
                       this.setState({ currentWeek: parseInt(this.state.currentWeek - 1) || 0 });
                     }
                   }}
                   style={[styles.chartArrowText, this.changeRightArrowOpacity(), {
-                    paddingBottom: 10, 
-                    paddingLeft: 30, 
+                    paddingBottom: 10,
+                    paddingLeft: 30,
                     alignItems: 'center',
                   }]}
                 >⟶</Text>
               </View>
             </View>
-
             <View style={[styles.lineChartWrapperView, { zIndex: 9998 }]}>
               <LineChart
                 style={{
@@ -326,37 +342,51 @@ export default class JoursHomeScreen1 extends React.Component {
             </View>
             <View style={styles.xAxisView}>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>01</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(0)}
+                </Text>
                 {"\n"}
                 <Text>M</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>02</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(1)}
+                </Text>
                 {"\n"}
                 <Text>T</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>03</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(2)}
+                </Text>
                 {"\n"}
                 <Text>W</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>04</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(3)}
+                </Text>
                 {"\n"}
                 <Text>T</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>05</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(4)}
+                </Text>
                 {"\n"}
                 <Text>F</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>06</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(5)}
+                </Text>
                 {"\n"}
                 <Text>S</Text>
               </Text>
               <Text style={styles.xLabel}>
-                <Text style={styles.xLabelDate}>07</Text>
+                <Text style={styles.xLabelDate}>
+                  {this.renderWeekDates(6)}
+                </Text>
                 {"\n"}
                 <Text>S</Text>
               </Text>
