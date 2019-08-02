@@ -458,6 +458,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#8a8ba4',
     marginTop: -8,
+    position: 'relative',
+    zIndex: 9999,
+    // backgroundColor: 'red',
   },
 
   chartInnerTopDateLeftText: {
@@ -845,6 +848,8 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 15,
     paddingRight: 15,
+    position: 'relative',
+    zIndex: 99999,
   },
 
   chartInnerDownViewHeaderTop: {

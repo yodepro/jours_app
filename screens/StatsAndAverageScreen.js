@@ -42,7 +42,7 @@ export default function StatsAndAverageScreen() {
               Sun
             </Text>
             <Text style={styles.tileBottomText}>
-              Best Day of the Week
+              Happiest Day of the Week
             </Text>
           </View>
         </View>
@@ -52,7 +52,7 @@ export default function StatsAndAverageScreen() {
               Sunday, Sept 12th '19
             </Text>
             <Text style={styles.tileBottomText}>
-              The Latest Super Great Day
+              Best Day Yet
             </Text>
           </View>
         </View>
@@ -62,7 +62,7 @@ export default function StatsAndAverageScreen() {
               Monday, Sept 13th '19
             </Text>
             <Text style={styles.tileBottomText}>
-              The Latest Awful Day
+              Least Happiest Day Ever
             </Text>
           </View>
         </View>
@@ -80,7 +80,7 @@ export default function StatsAndAverageScreen() {
               Mon
             </Text>
             <Text style={styles.tileBottomText}>
-              Saddest Day of the Week
+              Least Happiest Day of the Week
             </Text>
           </View>
         </View>
