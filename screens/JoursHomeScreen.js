@@ -4,11 +4,10 @@ import {
   StyleSheet,
   Text,
   View,
-  // Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo';
 import { isIphoneX } from '../is-iphone-x';
-import { LineChart, Path, Grid, XAxis } from 'react-native-svg-charts';
+import { LineChart, Path, Grid } from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
 
 export default class JoursHomeScreen1 extends React.Component {
@@ -16,27 +15,90 @@ export default class JoursHomeScreen1 extends React.Component {
     super(props);
     this.state = {
       text: 'Brief of the Day',
+      currentWeek: 1,
+      weeksData: [
+        [
+          [5, 10, 3, 7, 1, 6, 4], // HEALTH
+          [1, 7, 8, 10, 3, 5, 5], // ROMANCE
+          [3, 1, 6, 2, 6, 7, 3], // CAREER
+        ],
+        [
+          [4, 1, 6, 9, 10, 8, 4], // HEALTH
+          [5, 8, 1, 9, 2, 4, 6], // ROMANCE
+          [8, 5, 10, 9, 8, 3, 1], // CAREER
+        ],
+        [
+          [6, 3, 9, 3, 4, 5, 8], // HEALTH
+          [10, 9, 10, 5, 6, 6, 8], // ROMANCE
+          [3, 4, 4, 8, 4, 9, 3], // CAREER
+        ],
+        [
+          [3, 4, 5, 5, 8, 7, 5], // HEALTH
+          [7, 7, 8, 4, 7, 4, 9], // ROMANCE
+          [5, 8, 2, 5, 9, 2, 5], // CAREER
+        ],
+      ],
+      monthData: [],
     };
   }
 
+  renderHappinessChart = () => {
+    var i = this.state.currentWeek - 1;
+    return [
+      (this.state.weeksData[i][0][0] + this.state.weeksData[i][1][0] + this.state.weeksData[i][2][0]) / 3,
+      (this.state.weeksData[i][0][1] + this.state.weeksData[i][1][1] + this.state.weeksData[i][2][1]) / 3,
+      (this.state.weeksData[i][0][2] + this.state.weeksData[i][1][2] + this.state.weeksData[i][2][2]) / 3,
+      (this.state.weeksData[i][0][3] + this.state.weeksData[i][1][3] + this.state.weeksData[i][2][3]) / 3,
+      (this.state.weeksData[i][0][4] + this.state.weeksData[i][1][4] + this.state.weeksData[i][2][4]) / 3,
+      (this.state.weeksData[i][0][5] + this.state.weeksData[i][1][5] + this.state.weeksData[i][2][5]) / 3,
+      (this.state.weeksData[i][0][6] + this.state.weeksData[i][1][6] + this.state.weeksData[i][2][6]) / 3
+    ]
+  }
+
+  renderMonthChart = () => {
+    var newMonthData = [
+      [
+        this.state.weeksData[0][0].concat(this.state.weeksData[1][0], this.state.weeksData[2][0], this.state.weeksData[3][0])
+      ],
+      [
+        this.state.weeksData[0][1].concat(this.state.weeksData[1][1], this.state.weeksData[2][1], this.state.weeksData[3][1])
+      ],
+      [
+        this.state.weeksData[0][2].concat(this.state.weeksData[1][2], this.state.weeksData[2][2], this.state.weeksData[3][2])
+      ]
+    ];
+    this.setState({monthData: newMonthData});
+  }
+
+  showCurrentWeekDates() {
+    if(this.state.currentWeek === 1) {
+      return '01.04 - 07.04';
+    } else if(this.state.currentWeek === 2) {
+      return '25.03 - 31.03';
+    } else if(this.state.currentWeek === 3) {
+      return '18.03 - 24.03';
+    } else if(this.state.currentWeek === 4) {
+      return '11.03 - 17.03';
+    }
+  }
+
+  renderCurrentWeek = (i) => {
+    return this.state.weeksData[this.state.currentWeek - 1][i];
+  }
+
+  changeLeftArrowOpacity = () => {
+    if(this.state.currentWeek === 4) {
+      return { opacity: .5 }
+    }
+  }
+
+  changeRightArrowOpacity = () => {
+    if(this.state.currentWeek === 1) {
+      return { opacity: .5 }
+    }
+  }
+
   render() {
-
-    const firstWeekData = [
-      [5, 10, 3, 7, 1, 6, 4], // HEALTH
-      [1, 7, 8, 10, 3, 5, 5], // ROMANCE
-      [3, 1, 6, 2, 6, 7, 3], // CAREER
-    ];
-    const firstWeekDataHappiness = [ // HAPPINESS
-      (firstWeekData[0][0] + firstWeekData[1][0] + firstWeekData[2][0]) / 3,
-      (firstWeekData[0][1] + firstWeekData[1][1] + firstWeekData[2][1]) / 3,
-      (firstWeekData[0][2] + firstWeekData[1][2] + firstWeekData[2][2]) / 3,
-      (firstWeekData[0][3] + firstWeekData[1][3] + firstWeekData[2][3]) / 3,
-      (firstWeekData[0][4] + firstWeekData[1][4] + firstWeekData[2][4]) / 3,
-      (firstWeekData[0][5] + firstWeekData[1][5] + firstWeekData[2][5]) / 3,
-      (firstWeekData[0][6] + firstWeekData[1][6] + firstWeekData[2][6]) / 3
-    ];
-    // const firstWeekDates = ['01', '02', '03', '04', '05', '06', '07'];
-
     const Shadow = ({ line }) => (
       <Path
         key={'shadow'}
@@ -74,11 +136,11 @@ export default class JoursHomeScreen1 extends React.Component {
           <View style={[styles.chartInnerView, styles.chartInnerUpperView]}>
             <View style={styles.chartInnerTopView}>
               <View style={styles.chartInnerTopDateView}>
-                <Text style={styles.chartInnerTopDateLeftText}>⟵</Text>
+                <Text style={styles.chartArrowText}>⟵</Text>
                 <Text style={styles.chartInnerTopDateMiddleText}>
                   May, 12th
                 </Text>
-                <Text style={styles.chartInnerTopDateRightText}>⟶</Text>
+                <Text style={[styles.chartArrowText, {opacity: .5}]}>⟶</Text>
               </View>
               <View style={styles.chartInnerBottomDateView}>
                 <View style={styles.chartInnerBottomDateLeftView}>
@@ -148,19 +210,60 @@ export default class JoursHomeScreen1 extends React.Component {
             </View>
           </View>
           <View style={[styles.chartInnerView, styles.chartInnerDownView]}>
+
+            <View style={styles.chartInnerDownViewHeader}>
+              <View style={styles.chartInnerDownViewHeaderTop}>
+                <Text style={[styles.chartWeekOrMonthText, styles.chartWeekOrMonthTextActive, { marginRight: 10 }]}>week</Text>
+                <Text 
+                  style={[styles.chartWeekOrMonthText, { marginLeft: 10 }]}
+                  onPress={() => {console.log(this.renderMonthChart())}}
+                >month</Text>
+              </View>
+              <View style={styles.chartInnerDownViewHeaderBottom}>
+                <Text
+                  onPress={() => { 
+                    if(this.state.currentWeek !== 4) {
+                      this.setState({ currentWeek: parseInt(this.state.currentWeek + 1) || 0 });                      
+                    }
+                  }}
+                  style={[styles.chartArrowText, this.changeLeftArrowOpacity(), {
+                    paddingBottom: 10, 
+                    paddingRight: 30, 
+                    alignItems: 'center',
+                    // this.state.currentWeek
+                  }]}
+                >⟵</Text>
+                <Text style={styles.dateRangeText}>                  
+                  {this.showCurrentWeekDates()}
+                </Text>
+                <Text
+                  onPress={() => {
+                    if(this.state.currentWeek !== 1) {
+                      this.setState({ currentWeek: parseInt(this.state.currentWeek - 1) || 0 });
+                    }
+                  }}
+                  style={[styles.chartArrowText, this.changeRightArrowOpacity(), {
+                    paddingBottom: 10, 
+                    paddingLeft: 30, 
+                    alignItems: 'center',
+                  }]}
+                >⟶</Text>
+              </View>
+            </View>
+
             <View style={[styles.lineChartWrapperView, { zIndex: 9998 }]}>
               <LineChart
                 style={{
-                  height: 200,
+                  height: '100%',
                 }}
-                data={firstWeekDataHappiness}
+                data={this.renderHappinessChart()}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#3884ff',
                   strokeWidth: 6,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
+                contentInset={{ top: 70, bottom: 40, left: 30, right: 30 }}
                 curve={shape.curveCardinal}
               >
                 <Grid />
@@ -170,16 +273,16 @@ export default class JoursHomeScreen1 extends React.Component {
             <View style={styles.lineChartWrapperView}>
               <LineChart
                 style={{
-                  height: 200,
+                  height: '100%',
                 }}
-                data={firstWeekData[0]}
+                data={this.renderCurrentWeek(0)}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#f737a9',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
+                contentInset={{ top: 70, bottom: 40, left: 30, right: 30 }}
                 curve={shape.curveCardinal}
               >
                 <Shadow />
@@ -188,16 +291,16 @@ export default class JoursHomeScreen1 extends React.Component {
             <View style={styles.lineChartWrapperView}>
               <LineChart
                 style={{
-                  height: 200,
+                  height: '100%',
                 }}
-                data={firstWeekData[1]}
+                data={this.renderCurrentWeek(1)}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#4dd8d7',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
+                contentInset={{ top: 70, bottom: 40, left: 30, right: 30 }}
                 curve={shape.curveCardinal}
               >
                 <Shadow />
@@ -206,16 +309,16 @@ export default class JoursHomeScreen1 extends React.Component {
             <View style={styles.lineChartWrapperView}>
               <LineChart
                 style={{
-                  height: 200,
+                  height: '100%',
                 }}
-                data={firstWeekData[2]}
+                data={this.renderCurrentWeek(2)}
                 yMin={0}
                 yMax={10}
                 svg={{
                   stroke: '#fdc344',
                   strokeWidth: 3,
                 }}
-                contentInset={{ top: 20, bottom: 40, left: 30, right: 30 }}
+                contentInset={{ top: 70, bottom: 40, left: 30, right: 30 }}
                 curve={shape.curveCardinal}
               >
                 <Shadow />
@@ -321,6 +424,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
+  chartArrowText: {
+    fontSize: 20,
+    color: '#8a8ba4',
+    marginTop: -8,
+  },
+
   chartInnerTopDateLeftText: {
     fontSize: 20,
     color: '#8a8ba4',
@@ -421,7 +530,7 @@ const styles = StyleSheet.create({
     // marginTop: 7.5,
     overflow: 'hidden',
     position: 'relative',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     paddingBottom: 10,
   },
 
@@ -700,5 +809,41 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 25,
     lineHeight: 25,
+  },
+
+  chartInnerDownViewHeader: {
+    paddingTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+
+  chartInnerDownViewHeaderTop: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+
+  chartInnerDownViewHeaderBottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'relative',
+    zIndex: 99999,
+  },
+
+  dateRangeText: {
+    fontWeight: '700',
+    color: '#747693',
+  },
+
+  chartWeekOrMonthText: {
+    color: '#747693',
+    opacity: .6,
+    textDecorationLine: 'underline',
+    zIndex: 99999,
+  },
+
+  chartWeekOrMonthTextActive: {
+    opacity: 1,
+    textDecorationLine: 'none',
   },
 });
